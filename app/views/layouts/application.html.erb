@@ -2,13 +2,16 @@
 <html>
 <head>
   <title>Dummy</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "base", :media => "all" %>
+  <%= yield :stylesheets %>
+  <%= javascript_include_tag "base" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
+
+<%= yield :javascripts %>
 
 </body>
 </html>
