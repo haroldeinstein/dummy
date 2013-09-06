@@ -1,7 +1,54 @@
-h1, h2, h3, h4, h5, h6, p, a {
+$gotham: "Gotham HTF", “Helvetica Neue”, Helvetica, Arial, sans-serif;
+$grotesque: "Grotesque MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+body {
+  font-size: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li {
   color: #fff;
 }
 
-h1 {
-  font-size: 42px;
+.header {
+  font-family: $gotham;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.6em;
+  @extend .header;
+}
+
+h2.home {
+  @extend .header;
+  font-family: $grotesque;
+}
+
+h3 {
+  font-size: 2.6em;
+  @extend .header;
+}
+
+h4 {
+  font-size: 2.2em;
+  @extend .header;
+}
+
+p {
+  font-size: 1.7em;
+  font-family: $gotham;
+  font-weight: 100;
+}
+
+p.description{
+  font-size: 1.5em;
+}
+
+p.caption {
+  font-size: 1.9em;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
 }
