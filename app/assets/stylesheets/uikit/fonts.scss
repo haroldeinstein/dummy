@@ -5,7 +5,7 @@ body {
   font-size: 10px;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, li {
+h1, h2, h3, h4, h5, h6, p, a, li, address {
   color: #fff;
 }
 
@@ -17,11 +17,11 @@ h1, h2, h3, h4, h5, h6, p, a, li {
 h2 {
   font-size: 2.6em;
   @extend .header;
-}
 
-h2.home {
-  @extend .header;
-  font-family: $grotesque;
+  &.home {
+    @extend .header;
+    font-family: $grotesque;
+  }
 }
 
 h3 {
@@ -34,21 +34,30 @@ h4 {
   @extend .header;
 }
 
-p {
+p, address {
   font-size: 1.7em;
   font-family: $gotham;
   font-weight: 100;
-}
+  line-height: 22px;
 
-p.description{
-  font-size: 1.5em;
-}
+  &.description{
+    font-size: 1.5em;
+  }
 
-p.caption {
-  font-size: 1.9em;
-  font-style: italic;
+  &.caption {
+    font-size: 1.9em;
+    font-style: italic;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
 }
 
 a {
   text-decoration: none;
+
+  &:hover {
+    color: #fff32a;
+  }
 }

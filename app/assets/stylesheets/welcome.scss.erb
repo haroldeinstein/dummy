@@ -1,0 +1,48 @@
+#welcome {
+ width: 100%;
+ height: 100%;
+ max-width: 101.0em;
+ margin: 0px auto;
+ position: relative;
+}
+
+.welcome-content {
+  width: 100%;
+}
+
+.logo {
+  height: 13.4em;
+  width: 50.0em;
+  background-image: url(<%= asset_path "welcome/dummy_logo.png" %>);
+  background-size: 100% 100%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .logo {
+    background-image: url(<%= asset_path "welcome/dummy_logo@2x.png" %>);
+    background-size: 100% 100%;
+  }
+}
+
+#navbar {
+  margin-top: 5.0em;
+}
+
+.nav-item {
+  float: right;
+  margin-left: 8.0em;
+}
+
+.nav-item.first {
+  margin-left: 0em;
+}
+
+.nav-item li {
+  margin-bottom: 1.0em;
+}
+
+.news {
+  position: absolute;
+  bottom: 5%;
+  right: 0px;
+}
