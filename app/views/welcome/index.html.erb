@@ -20,7 +20,7 @@
               </ul>
               <ul class="nav-item directors first">
                 <% @directors.each do |d| %>
-                  <li><h2 class="home"><%= link_to d.name, director_path(d) %></h2></li>
+                  <li><h2 class="home"><%= link_to d.name.downcase, director_path(d) %></h2></li>
                 <% end %>
               </ul>
             </div>
