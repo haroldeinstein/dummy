@@ -4,6 +4,8 @@ class Director < ActiveRecord::Base
   validates :name, presence: true
   before_validation :generate_url
 
+  has_many :projects
+
   def to_param
     self.url
   end
