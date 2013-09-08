@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Dummy</title>
   <%= stylesheet_link_tag    "base", :media => "all" %>
   <%= yield :stylesheets %>
   <%= javascript_include_tag "base" %>
+  <meta charset="utf-8">
   <%= csrf_meta_tags %>
 </head>
 <body>
