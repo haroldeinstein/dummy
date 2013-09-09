@@ -8,7 +8,7 @@
       <td width="100%" height="100%" valign="middle">
         <div id="login">
         	
-        		<img src="<%= asset_path 'login/dummy_login.png' %>">
+        		<img src="<%= asset_path 'login/dummy_login.png' %>" id="login_logo">
         		<form action="/sessions/create" method="post">
         		  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         		  <label for="username"><h4>username</h4></label>

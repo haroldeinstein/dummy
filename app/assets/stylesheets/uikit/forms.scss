@@ -1,11 +1,17 @@
 label {
   position: relative;
-  margin-bottom: 10px;
   float: left;
+  margin-bottom: 6px;
 }
 
 input {
-  font-size: 2.0em;
+  font-size: 1.7em;
   width: 260px;
+  height: 30px;
+  margin-bottom: 14px;
+  font-family: "Gotham HTF", “Helvetica Neue”, Helvetica, Arial, sans-serif;
+  padding: 4px;
+  background: #000;
+  border: 1px solid #fff;
+  color: #fff;
 }
-
