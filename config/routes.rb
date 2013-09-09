@@ -2,8 +2,15 @@ Dummy::Application.routes.draw do
 
   root to: 'welcome#index'
 
+
   begin
-    get '/admin', to: 'admin#index'
+    get  '/admin/login',     to: 'sessions#new',     as: 'login'
+    get  '/admin/logout',    to: 'sessions#destroy', as: 'logout'
+    get  '/admin/signup',    to: 'users#new',        as: 'signup'
+    post '/admin/create',    to: 'users#create'
+    post '/sessions/create', to: 'sessions#create'
+    get  '/admin',           to: 'admin#index'
+    get  '/admin/directors', to: 'admin#directors'
   end
 
   begin

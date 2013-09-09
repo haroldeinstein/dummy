@@ -1,0 +1,13 @@
+<form method="post" action="/admin/create">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="user_username">username</label>
+  <input type="text" id="user_username" name="user[username]">
+  <br>
+  <label for="user_password">password</label>
+  <input type="password" id="user_password" name="user[password]">
+  <br>
+  <label for="user_password_confirmation">password confirmation</label>
+  <input type="password" id="user_password_confirmation" name="user[password_confirmation]">
+  <br>
+  <input type="submit" value="create account">
+</form>

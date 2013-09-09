@@ -4,4 +4,7 @@ class AdminController < ApplicationController
   def index
     @directors = Director.all
   end
+
+  def directors
+  end
 end
