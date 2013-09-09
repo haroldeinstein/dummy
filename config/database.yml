@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: dummy_development
   pool: 5
-  username: jayschaul
+  username: Mike
   password: pudge
 
 test:
@@ -11,7 +11,7 @@ test:
   encoding: unicode
   database: dummy_test
   pool: 5
-  username: jayschaul
+  username: Mike
   password:
 
 production:
