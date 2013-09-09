@@ -1,0 +1,37 @@
+<%= content_for :stylesheets do %>
+  <%= stylesheet_link_tag :welcome %>
+<% end %>
+
+<div id="welcome">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" height="90%">
+    <tbody>
+      <tr>
+        <td width="100%" height="100%" valign="middle">
+          <div class="welcome-content">
+            <div class="logo">
+            </div>
+
+            <div id="navbar" class="clearfix">
+              <ul class="nav-item memoir">
+                <li><h2 class="home"><a href="/the-special-ones">the special ones</a></h2></li>
+              </ul>
+              <ul class="nav-item contact">
+                <li><h2 class="home"><a href="/hey">hey, dummy</a></h2></li>
+              </ul>
+              <ul class="nav-item directors first">
+                <% @directors.each do |d| %>
+                  <li><h2 class="home"><%= link_to d.name.downcase, director_path(d) %></h2></li>
+                <% end %>
+              </ul>
+            </div>
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="home news"><a href="/news">news</a></h2>
+
+</div>
+
