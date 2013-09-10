@@ -1,21 +1,10 @@
-function VimeoManager() {
+function VimeoManager(opts) {
   this.videos = new VideosCollection();
 
-  this.fetch();
-  this.bindEvents();
+  this.fetch({success: opts.onReady});
 }
 
 VimeoManager.prototype = {
-  displayVideos: function() {
-    var $container = $('#videos-container');
-    var videos = this.videos.toJSON();
-    for (var i = 0; i < 6; i++) {
-      var video = videos[i]
-      var $elem = $('<div class="video"><a href="#" data-id="' + video.vimeo_id + '"><img src="' + video.thumbnail_large + '"></a></div>');
-      $container.append($elem);
-    }
-  },
-
   prepareVideoData: function(v) {
     var obj = {
       title: v.title,
@@ -29,7 +18,7 @@ VimeoManager.prototype = {
     return obj;
   },
 
-  fetch: function() {
+  fetch: function(opts) {
     var manager = this;
     $.ajax({
       url: 'http://vimeo.com/api/v2/haroldeinstein/videos.json',
@@ -41,24 +30,11 @@ VimeoManager.prototype = {
           var model = new VideoModel(manager.prepareVideoData(response[i]));
           manager.videos.add(model);
         }
-        manager.displayVideos();
+        opts.success();
       },
       error: function(response, status, xhr) {
 
       }
-    });
-  },
-
-  bindEvents: function() {
-    var manager = this;
-    var $container = $('#videos-container');
-
-    $container.on('click', '.video a', function(e) {
-      e.preventDefault();
-      var $self = $(this);
-      var id = $self.attr('data-id');
-      var video = manager.videos.get(id);
-      console.log(video);
     });
   }
 };

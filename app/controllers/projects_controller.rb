@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    puts params.to_yaml
+
     @project = Project.new(params[:project])
     if @project.save
       render json: @project.as_json
