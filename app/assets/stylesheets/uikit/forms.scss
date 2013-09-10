@@ -6,12 +6,57 @@ label {
 
 input {
   font-size: 1.7em;
-  width: 260px;
-  height: 30px;
+  width: 249px;
+  height: 38px;
   margin-bottom: 14px;
   font-family: "Gotham HTF", “Helvetica Neue”, Helvetica, Arial, sans-serif;
-  padding: 4px;
+  padding-left: 8px;
   background: #000;
-  border: 1px solid #fff;
+  border: 1px solid #333;
   color: #fff;
+  -webkit-transition: all 0.3s ease-out; 
+     -moz-transition: all 0.3s ease-out; 
+       -o-transition: all 0.3s ease-out; 
+          transition: all 0.3s ease-out;
+}
+
+input:hover {
+  border: 1px solid #fff;
+  -webkit-transition: all 0.3s ease-out; 
+     -moz-transition: all 0.3s ease-out; 
+       -o-transition: all 0.3s ease-out; 
+          transition: all 0.3s ease-out; 
+}
+
+input#btn {
+  background: #333;
+  width: 260px;
+  height: 44px;
+  border: none;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  text-transform: uppercase;
+  line-height: 42px;
+  margin-top: 4px;
+}
+
+input#btn:hover {
+  background: #3e3e3e;
+    -webkit-transition: all 0.3s ease-out; 
+     -moz-transition: all 0.3s ease-out; 
+       -o-transition: all 0.3s ease-out; 
+          transition: all 0.3s ease-out; 
+}
+
+input#btn:active {
+  background: #fff;
+  color: #000;
+  -webkit-transition: all 0.3s ease-out; 
+     -moz-transition: all 0.3s ease-out; 
+       -o-transition: all 0.3s ease-out; 
+          transition: all 0.3s ease-out; 
+}
+
+textarea:focus, input:focus{
+    outline: 0;
 }
