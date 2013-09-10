@@ -11,7 +11,7 @@ Dummy::Application.routes.draw do
     post     '/admin/create',    to: 'users#create'
     post     '/sessions/create', to: 'sessions#create'
     get      '/admin',           to: 'admin#index'
-    get      '/admin/directors', to: 'admin#directors'
+    get      '/admin/:director', to: 'admin#director',   as: 'admin_director'
   end
 
   begin
