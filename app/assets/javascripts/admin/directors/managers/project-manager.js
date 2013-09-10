@@ -1,9 +1,8 @@
-function ProjectManager(opts) {
+function ProjectManager() {
   this.videos = new VideosCollection();
 
   this.videos.fetch({
-    data: { director_id: Bootstrap.director_id },
-    success: function(response) { opts.onReady(); }
+    data: { director_id: Bootstrap.director_id }
   });
 }
 

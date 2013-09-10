@@ -5,14 +5,10 @@
 function VideoManager() {
   this.vManager = {};
   this.pManager = {};
-  this.hasUserVideos = false;
-  this.hasVimeoVideos = false
 }
 
 VideoManager.prototype = {
   displayVideos: function() {
-    if (!(this.hasUserVideos && this.hasVimeoVideos)) return;
-
     var $container = $('#videos-container');
     var videos = this.vManager.videos.toJSON();
     for (var i = 0; i < 6; i++) {
@@ -27,18 +23,13 @@ VideoManager.prototype = {
 $(document).ready(function() {
   var manager = new VideoManager();
 
-  manager.vManager = new VimeoManager({
-    onReady: function() {
-      manager.hasVimeoVideos = true;
-      manager.displayVideos();
-    }
-  });
+  manager.vManager = new VimeoManager();
+  manager.pManager = new ProjectManager();
 
-  manager.pManager = new ProjectManager({
-    onReady: function() {
-      manager.hasUserVideos = true;
-      manager.displayVideos();
-    }
+  $('#add-video').bind('click', function(e) {
+    e.preventDefault();
+
+    manager.displayVideos();
   });
 
   $('#videos-container').on('click', '.video a', function(e) {

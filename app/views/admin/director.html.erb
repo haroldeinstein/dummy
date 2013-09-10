@@ -1,16 +1,16 @@
 <%= content_for :stylesheets do %>
   <%= stylesheet_link_tag :admin %>
 <% end %>
-<div id="videos-list">
-<p><a href="#" id="add-video">Add video(s)</a></p>
-<% @director.projects.each do |p| %>
-  <p class="project" data-id="<%= p.id %>"><%= p.title %></p>
-<% end %>
 
-</div>
+  <div id="videos-list">
+    <h4><a href="#" id="add-video">Add videos</a></h4>
+    <% @director.projects.each do |p| %>
+      <h4 class="project" data-id="<%= p.id %>"><%= p.title %></h4>
+    <% end %>
+  </div>
 
-<div id="videos-container">
-</div>
+  <div id="videos-container">
+  </div>
 
 <script>
   var Bootstrap = {};

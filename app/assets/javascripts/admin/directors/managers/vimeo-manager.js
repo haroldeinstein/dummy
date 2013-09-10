@@ -1,7 +1,7 @@
-function VimeoManager(opts) {
+function VimeoManager() {
   this.videos = new VideosCollection();
 
-  this.fetch({success: opts.onReady});
+  this.fetch();
 }
 
 VimeoManager.prototype = {
@@ -18,7 +18,7 @@ VimeoManager.prototype = {
     return obj;
   },
 
-  fetch: function(opts) {
+  fetch: function() {
     var manager = this;
     $.ajax({
       url: 'http://vimeo.com/api/v2/haroldeinstein/videos.json',
@@ -30,7 +30,6 @@ VimeoManager.prototype = {
           var model = new VideoModel(manager.prepareVideoData(response[i]));
           manager.videos.add(model);
         }
-        opts.success();
       },
       error: function(response, status, xhr) {
 
