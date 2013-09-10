@@ -14,18 +14,18 @@ input {
   background: #000;
   border: 1px solid #333;
   color: #fff;
-  -webkit-transition: all 0.3s ease-out; 
-     -moz-transition: all 0.3s ease-out; 
-       -o-transition: all 0.3s ease-out; 
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
           transition: all 0.3s ease-out;
 }
 
 input:hover {
   border: 1px solid #fff;
-  -webkit-transition: all 0.3s ease-out; 
-     -moz-transition: all 0.3s ease-out; 
-       -o-transition: all 0.3s ease-out; 
-          transition: all 0.3s ease-out; 
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
 }
 
 input#btn {
@@ -33,30 +33,35 @@ input#btn {
   width: 260px;
   height: 44px;
   border: none;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   text-transform: uppercase;
   line-height: 42px;
   margin-top: 4px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
 }
 
 input#btn:hover {
   background: #3e3e3e;
-    -webkit-transition: all 0.3s ease-out; 
-     -moz-transition: all 0.3s ease-out; 
-       -o-transition: all 0.3s ease-out; 
-          transition: all 0.3s ease-out; 
+  -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+     -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
 }
 
 input#btn:active {
   background: #fff;
   color: #000;
-  -webkit-transition: all 0.3s ease-out; 
-     -moz-transition: all 0.3s ease-out; 
-       -o-transition: all 0.3s ease-out; 
-          transition: all 0.3s ease-out; 
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
 }
 
 textarea:focus, input:focus{
-    outline: 0;
+  outline: 0;
+  border: 1px solid #fff;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
 }
