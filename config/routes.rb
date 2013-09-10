@@ -3,8 +3,8 @@ Dummy::Application.routes.draw do
   root to: 'welcome#index'
 
 
+  # admin
   begin
-  # method   route                   controller#action        alias
     get      '/admin/login',     to: 'sessions#new',     as: 'login'
     get      '/admin/logout',    to: 'sessions#destroy', as: 'logout'
     get      '/admin/signup',    to: 'users#new',        as: 'signup'
@@ -12,6 +12,13 @@ Dummy::Application.routes.draw do
     post     '/sessions/create', to: 'sessions#create'
     get      '/admin',           to: 'admin#index'
     get      '/admin/:director', to: 'admin#director',   as: 'admin_director'
+  end
+
+  # api
+  begin
+    post   '/api/admin/projects', to: 'projects#create'
+    put    '/api/admin/projects', to: 'projects#update'
+    delete '/api/admin/projects', to: 'projects#destroy'
   end
 
   begin
