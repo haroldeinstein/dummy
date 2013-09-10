@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909193214) do
+ActiveRecord::Schema.define(:version => 20130910175608) do
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(:version => 20130909193214) do
 
   create_table "projects", :force => true do |t|
     t.integer  "director_id"
-    t.string   "name"
+    t.string   "title"
     t.string   "video_url"
-    t.string   "poster_image_url"
+    t.string   "thumbnail_large"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "vimeo_id"
+    t.string   "thumbnail_small"
+    t.string   "thumbnail_medium"
   end
 
   create_table "users", :force => true do |t|

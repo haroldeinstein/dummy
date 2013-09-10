@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
-  before_filter :lookup_project, except: [:create]
+  before_filter :lookup_project, except: [:show, :create]
+
+  def show
+    render json: Project.all.as_json
+  end
 
   def create
     @project = Project.new(params[:project])
