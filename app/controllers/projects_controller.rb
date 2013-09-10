@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :lookup_director, except: [:destroy]
   before_filter :lookup_project, except: [:show, :create]
 
   def show
@@ -6,9 +7,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    puts params.to_yaml
-
     @project = Project.new(params[:project])
+
     if @project.save
       render json: @project.as_json
     else
@@ -29,7 +29,11 @@ class ProjectsController < ApplicationController
 
   private
 
+  def lookup_director
+    @director = Director.find(params[:director_id])
+  end
+
   def lookup_project
-    @project = Project.find(params[:project_id])
+    @project = @director.projects.find(params[:project_id])
   end
 end

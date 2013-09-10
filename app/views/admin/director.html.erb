@@ -3,6 +3,9 @@
 <% end %>
 <div id="videos-list">
 <p><a href="#" id="add-video">Add video(s)</a></p>
+<% @director.projects.each do |p| %>
+  <p class="project" data-id="<%= p.id %>"><%= p.title %></p>
+<% end %>
 
 </div>
 
