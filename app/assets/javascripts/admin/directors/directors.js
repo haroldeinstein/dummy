@@ -78,6 +78,7 @@ $(document).ready(function() {
 
   $('#videos-list-container').on('click', '.remove-video', function(e) {
     e.preventDefault();
+    e.stopPropagation();
     var $self = $(this);
     var id = $self.attr('data-id');
     var video = manager.pManager.videos.get(id);
@@ -100,7 +101,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#videos-list').on('click', '.video-title', function(e) {
-    manager.makeNameEditable($(this));
+  $('#videos-list').on('click', '.video-title h4', function(e) {
+    manager.makeNameEditable($(this).parents('.video-title'));
   });
 });

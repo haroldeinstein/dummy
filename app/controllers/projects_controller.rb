@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    project.destroy
+    puts project.to_yaml
     render json: director.projects.as_json
   end
 
@@ -38,6 +38,6 @@ class ProjectsController < ApplicationController
   end
 
   def project
-    @project ||= director.projects.where("id = ? OR id = ?", params[:project_id], params[:project][:id]).last
+    @project ||= director.projects.where("id = ? OR id = ?", params[:project_id], params[:project].try(:id)).last
   end
 end
