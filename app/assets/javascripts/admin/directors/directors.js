@@ -11,7 +11,7 @@ VideoManager.prototype = {
   displayVideos: function() {
     var $container = $('#video-player');
     var videos = this.vManager.videos.toJSON();
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < videos.length; i++) {
       var video = videos[i];
       var $elem = $('<div class="video"><a href="#" data-id="' + video.id + '"><img src="' + video.thumbnail_large + '"></a></div>');
       $container.append($elem);
