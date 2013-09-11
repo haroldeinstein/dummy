@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :lookup_director
-  before_filter :lookup_project, except: [:show, :create]
+  before_filter :login_required
 
   def show
     render json: Project.all.as_json
@@ -17,24 +16,24 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project.name = params[:project_name]
-    if @project.save
+    project.name = params[:project_name]
+    if project.save
     else
     end
   end
 
   def destroy
-    @project.destroy
-    render json: @director.projects.as_json
+    project.destroy
+    render json: director.projects.as_json
   end
 
   private
 
-  def lookup_director
-    @director = Director.find(params[:director_id])
+  def director
+    @director ||= Director.find(params[:director_id])
   end
 
-  def lookup_project
-    @project = @director.projects.find(params[:project_id])
+  def project
+    @project ||= director.projects.find(params[:project_id])
   end
 end
