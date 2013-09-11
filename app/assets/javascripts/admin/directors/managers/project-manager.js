@@ -69,7 +69,7 @@ ProjectManager.prototype = {
   },
 
   updateVideo: function(video, opts) {
-      console.log(video.toJSON());
+      opts = opts || {};
 
       var data = {
         authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),

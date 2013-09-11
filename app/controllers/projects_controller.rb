@@ -38,6 +38,6 @@ class ProjectsController < ApplicationController
   end
 
   def project
-    @project ||= director.projects.find(params[:project_id])
+    @project ||= director.projects.where("id = ? OR id = ?", params[:project_id], params[:project][:id]).last
   end
 end

@@ -25,9 +25,20 @@ VideoManager.prototype = {
     var title = video.get('title');
     var $input = $('<input class="edit-title" value=""></input>');
     $elem.replaceWith($input);
-    $input.val(title).bind('blur', function(e) {
+    $input.val(title).focus().bind('blur', function(e) {
+      var $self = $(this);
       video.set('title', $(this).val());
-      manager.pManager.updateVideo(video);
+      manager.pManager.updateVideo(video, {
+        success: function() {
+          html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('id') +'">';
+          html += '<h4 class="project">'+ video.get('title') +'</h4>';
+          html += '<a href="#" class="reorder-video" data-id="'+ video.get('id') +'">&#8645;</a>';
+          html += '<a href="#" class="remove-video" data-id="'+ video.get('id') +'">X</a>';
+          html += '</div>';
+
+          $self.replaceWith(html);
+        }
+      });
     });
   }
 };
