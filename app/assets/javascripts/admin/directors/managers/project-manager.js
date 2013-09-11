@@ -56,5 +56,39 @@ ProjectManager.prototype = {
         if (opts.error) opts.error();
       }
     });
+  },
+
+  updateSort: function(sort) {
+    sort += "&authenticity_token=" + $('meta').filter('[name="csrf-token"]').attr('content');
+    sort += "&director_id=" + Bootstrap.director_id;
+    $.ajax({
+      url: '/api/admin/projects/sort',
+      data: sort,
+      type: 'POST'
+    });
+  },
+
+  updateVideo: function(video, opts) {
+      console.log(video.toJSON());
+
+      var data = {
+        authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
+        director_id: Bootstrap.director_id,
+        project: video.toJSON()
+      }
+
+      $.ajax({
+        url: '/api/admin/projects',
+        data: data,
+        type: 'PUT',
+        success: function(response, status, xhr) {
+          video.set(response);
+          if (opts.success) opts.success();
+        },
+        error: function(response) {
+          console.log*('error');
+          if (opts.error) opts.error();
+        }
+      });
   }
 }

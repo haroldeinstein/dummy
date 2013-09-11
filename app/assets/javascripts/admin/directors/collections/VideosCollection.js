@@ -1,3 +1,3 @@
 var VideosCollection = Backbone.Collection.extend({
-  url: '/api/admin/projects.json'
+  url: '/api/admin/projects'
 });

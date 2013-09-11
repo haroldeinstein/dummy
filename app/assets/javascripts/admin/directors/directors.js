@@ -18,14 +18,16 @@ VideoManager.prototype = {
     }
   },
 
-  updateSort: function(sort) {
-    console.log('here');
-    sort += "&authenticity_token=" + $('meta').filter('[name="csrf-token"]').attr('content');
-    sort += "&director_id=" + Bootstrap.director_id;
-    $.ajax({
-      url: '/api/admin/projects/sort',
-      data: sort,
-      type: 'POST'
+  makeNameEditable: function($elem) {
+    var manager = this;
+    var id = $elem.attr('id').split('_')[1];
+    var video = this.pManager.videos.get(id);
+    var title = video.get('title');
+    var $input = $('<input class="edit-title" value=""></input>');
+    $elem.replaceWith($input);
+    $input.val(title).bind('blur', function(e) {
+      video.set('title', $(this).val());
+      manager.pManager.updateVideo(video);
     });
   }
 };
@@ -83,7 +85,11 @@ $(document).ready(function() {
     },
     stop: function(e, ui) {
       var sort = $('#videos-list').sortable("serialize");
-      manager.updateSort(sort);
+      manager.pManager.updateSort(sort);
     }
+  });
+
+  $('#videos-list').on('click', '.video-title', function(e) {
+    manager.makeNameEditable($(this));
   });
 });

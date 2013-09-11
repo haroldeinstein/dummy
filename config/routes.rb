@@ -15,7 +15,7 @@ Dummy::Application.routes.draw do
 
   # api
   begin
-    get    '/api/admin/projects',      to: 'projects#show',   format: 'json'
+    get    '/api/admin/projects',      to: 'projects#show'
     post   '/api/admin/projects/sort', to: 'projects#sort'
     post   '/api/admin/projects',      to: 'projects#create'
     put    '/api/admin/projects',      to: 'projects#update'

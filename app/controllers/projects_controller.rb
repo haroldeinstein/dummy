@@ -14,10 +14,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    project.name = params[:project_name]
-    if project.save
-    else
-    end
+    project.update_attributes(params[:project])
+    render json: project.as_json
   end
 
   def destroy
