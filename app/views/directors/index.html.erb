@@ -12,7 +12,7 @@
               <tbody>
                 <tr>
                   <td valign="middle">
-                    <% @director.projects.each do |p| %>
+                    <% projects.each do |p| %>
                       <h4 class="project" data-id="<%= p.id %>"><%= p.title %></h4>
                     <% end %>
                   </td>
@@ -27,6 +27,7 @@
                 <tr>
                   <td valign="middle">
                     <div id="video-player">
+                      <iframe src="//player.vimeo.com/video/<%= director.projects.last.vimeo_id %>" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                   </td>
                 </tr>

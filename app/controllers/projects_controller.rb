@@ -7,11 +7,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
-
     if @project.save
       render json: @project.as_json
     else
-
     end
   end
 
@@ -25,6 +23,14 @@ class ProjectsController < ApplicationController
   def destroy
     project.destroy
     render json: director.projects.as_json
+  end
+
+  def sort
+    params[:p].each_with_index do |id, index|
+      Project.update_all(['sort_index=?', index], ['id=? AND director_id=?', id, params[:director_id]])
+    end
+
+    head :no_content
   end
 
   private

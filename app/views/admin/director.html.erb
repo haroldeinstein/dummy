@@ -15,10 +15,11 @@
                     <div id="videos-list">
                       <h4><a href="#" id="add-video">Add videos</a></h4>
 
-                      <% @director.projects.each do |p| %>
-                        <div style="position: relative;" class="video-title">
+                      <% @director.projects.order('sort_index').each do |p| %>
+                        <div style="position: relative;" class="video-title" id="p_<%= p.id %>">
                           <h4 class="project"><%= p.title %></h4>
-                          <a href="#" class="remove-video" data-id="<%= p.id %>"></a>
+                          <a href="#" class="reorder-video" data-id="<%= p.id %>">&#8645;</a>
+                          <a href="#" class="remove-video" data-id="<%= p.id %>">X</a>
                         </div>
                       <% end %>
                     </div>
@@ -50,3 +51,4 @@
   var Bootstrap = {};
   Bootstrap.director_id = <%= @director.id %>;
 </script>
+

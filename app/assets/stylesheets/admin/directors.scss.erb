@@ -5,6 +5,7 @@
 #videos-list-container {
   width: 34%;
   height: 100%;
+  padding-bottom: 8px;
   float: left;
   text-align: center;
 
@@ -31,6 +32,7 @@
   box-sizing: border-box;
   border: 1px solid #fff;
   padding-bottom: 56.7%;
+  position: relative;
   overflow: scroll;
 }
 
@@ -49,14 +51,28 @@
   position: relative;
 
   .remove-video {
-    width: 38px;
-    height: 38px;
+    width: 24px;
+    height: 24px;
+    margin-top: 7px;
     position: absolute;
     display: block;
     top: 0px;
     right: 0px;
-    background: red;
+    background: #ccc;
     display: none;
+    line-height: 24px;
+    text-align: center;
+    color: #333 !important;
+    text-decoration: none !important;
+
+    &:hover {
+      background: #777;
+    }
+  }
+
+  .reorder-video {
+    @extend .remove-video;
+    right: 24px;
   }
 
   &:hover .remove-video {

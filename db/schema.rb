@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130910175608) do
+ActiveRecord::Schema.define(:version => 20130911161752) do
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(:version => 20130910175608) do
     t.string   "title"
     t.string   "video_url"
     t.string   "thumbnail_large"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "vimeo_id"
     t.string   "thumbnail_small"
     t.string   "thumbnail_medium"
+    t.integer  "sort_index",       :default => 0
   end
 
   create_table "users", :force => true do |t|
