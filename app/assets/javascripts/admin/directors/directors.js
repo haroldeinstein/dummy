@@ -9,13 +9,15 @@ function VideoManager() {
 
 VideoManager.prototype = {
   displayVideos: function() {
-    var $container = $('#video-player');
+    var $container = $('#videos');
     var videos = this.vManager.videos.toJSON();
     for (var i = 0; i < videos.length; i++) {
       var video = videos[i];
-      var $elem = $('<div class="video"><a href="#" data-id="' + video.id + '"><img src="' + video.thumbnail_large + '"></a></div>');
+      var $elem = $('<div class="video" id="'+ video.id +'"><a href="#" data-id="' + video.id + '"><img src="' + video.thumbnail_large + '"></a></div>');
       $container.append($elem);
     }
+
+    this.updateSelectedVideos();
   },
 
   makeNameEditable: function($elem) {
@@ -25,6 +27,13 @@ VideoManager.prototype = {
     var title = video.get('title');
     var $input = $('<input class="edit-title" value=""></input>');
     $elem.replaceWith($input);
+
+    $(document).bind('keydown', function(e) {
+      if (e.keyCode === 13) {
+        $input.trigger('blur');
+      }
+    });
+
     $input.val(title).focus().bind('blur', function(e) {
       var $self = $(this);
       video.set('title', $(this).val());
@@ -37,9 +46,18 @@ VideoManager.prototype = {
           html += '</div>';
 
           $self.replaceWith(html);
+          $(document).unbind('keydown');
         }
       });
     });
+  },
+
+  updateSelectedVideos: function() {
+    var ids = this.pManager.videos.pluck('vimeo_id');
+
+    for (var i = 0; i < ids.length; i++) {
+      $('#'+ids[i]).addClass('selected');
+    }
   }
 };
 
@@ -72,6 +90,8 @@ $(document).ready(function() {
         html += '</div>';
 
         $('#videos-list').append(html);
+
+        manager.updateSelectedVideos();
       }
     });
   });
@@ -85,6 +105,7 @@ $(document).ready(function() {
     manager.pManager.removeVideo(video, {
       success: function() {
         $self.parent('.video-title').remove();
+        manager.updateSelectedVideos();
       }
     });
   });
