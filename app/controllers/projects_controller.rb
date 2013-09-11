@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    puts project.to_yaml
+    project.destroy
     render json: director.projects.as_json
   end
 
