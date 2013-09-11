@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :lookup_director, except: [:destroy]
+  before_filter :lookup_director
   before_filter :lookup_project, except: [:show, :create]
 
   def show
@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
+    render json: @director.projects.as_json
   end
 
   private
