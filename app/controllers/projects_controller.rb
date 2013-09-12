@@ -14,7 +14,17 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    project.update_attributes(params[:project])
+    (params[:project] || []).each do |project|
+      @project = Project.find(id) if project["id"]
+      @project ||= Project.new
+      if project["delete"]
+        @project.destroy
+      else
+        @project.attributes = project
+        @project.save
+      end
+    end
+
     render json: project.as_json
   end
 

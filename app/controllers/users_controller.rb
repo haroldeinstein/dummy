@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    @editable = "false"
     @user = User.new
   end
 

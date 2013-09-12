@@ -53,6 +53,7 @@ VideoManager.prototype = {
   },
 
   updateSelectedVideos: function() {
+    console.log(this.pManager.videos.toJSON());
     var ids = this.pManager.videos.pluck('vimeo_id');
 
     for (var i = 0; i < ids.length; i++) {

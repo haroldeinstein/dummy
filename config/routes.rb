@@ -4,13 +4,14 @@ Dummy::Application.routes.draw do
 
   # admin
   begin
-    get      '/admin/login',     to: 'sessions#new',     as: 'login'
-    get      '/admin/logout',    to: 'sessions#destroy', as: 'logout'
-    get      '/admin/signup',    to: 'users#new',        as: 'signup'
-    post     '/admin',           to: 'users#create'
-    post     '/sessions',        to: 'sessions#create'
-    get      '/admin',           to: 'admin#index'
-    get      '/admin/:director', to: 'admin#director',   as: 'admin_director'
+    get  '/admin/login',     to: 'sessions#new',     as: 'login'
+    get  '/admin/logout',    to: 'sessions#destroy', as: 'logout'
+    get  '/admin/signup',    to: 'users#new',        as: 'signup'
+    post '/admin',           to: 'users#create'
+    post '/sessions',        to: 'sessions#create'
+    get  '/admin',           to: 'admin#index'
+    get  '/admin/hey',       to: 'admin#contact',    as: 'admin_contact'
+    get  '/admin/:director', to: 'admin#director',   as: 'admin_director'
   end
 
   # api

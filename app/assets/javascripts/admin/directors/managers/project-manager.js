@@ -48,7 +48,11 @@ ProjectManager.prototype = {
       data: data,
       type: 'DELETE',
       success: function(response, status, xhr) {
-        manager.videos.remove(video);
+        if (video.id) {
+          video.set('delete', true);
+        } else {
+          manager.videos.remove(video);
+        }
         if (opts.success) opts.success();
       },
       error: function(response) {

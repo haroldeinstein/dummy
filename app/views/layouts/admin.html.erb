@@ -16,6 +16,13 @@
 <% flash.each do |type, msg| %>
   <%= content_tag :p, msg, class: "flash #{type}" %>
 <% end %>
+
+<% unless @editable == "false" %>
+  <div id="save-bar">
+    <p><a href="#" id="save-button">save changes</a></p>
+  </div>
+<% end %>
+
 <div id="main-container">
   <%= yield %>
 </div>
