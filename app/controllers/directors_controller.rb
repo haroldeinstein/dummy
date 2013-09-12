@@ -10,7 +10,7 @@ class DirectorsController < ApplicationController
   helper_method :director
 
   def projects
-    director.projects
+    director.projects.order('sort_index')
   end
   helper_method :projects
 end

@@ -5,31 +5,18 @@ class ProjectsController < ApplicationController
     render json: Project.all.as_json
   end
 
-  def create
-    @project = Project.new(params[:project])
-    if @project.save
-      render json: @project.as_json
-    else
-    end
-  end
-
   def update
-    (params[:project] || []).each do |project|
-      @project = Project.find(id) if project["id"]
-      @project ||= Project.new
-      if project["delete"]
-        @project.destroy
+    (params[:projects] || []).each do |k, p|
+      project = Project.find(p["id"]) if p["id"]
+      project ||= Project.new
+      if p["delete"]
+        project.destroy
       else
-        @project.attributes = project
-        @project.save
+        project.attributes = p
+        project.save
       end
     end
 
-    render json: project.as_json
-  end
-
-  def destroy
-    project.destroy
     render json: director.projects.as_json
   end
 

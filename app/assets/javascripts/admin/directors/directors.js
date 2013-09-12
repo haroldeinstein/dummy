@@ -23,7 +23,7 @@ VideoManager.prototype = {
   makeNameEditable: function($elem) {
     var manager = this;
     var id = $elem.attr('id').split('_')[1];
-    var video = this.pManager.videos.get(id);
+    var video = this.pManager.videos.where({vimeo_id: parseInt(id, 10)})[0];
     var title = video.get('title');
     var $input = $('<input class="edit-title" value=""></input>');
     $elem.replaceWith($input);
@@ -37,23 +37,18 @@ VideoManager.prototype = {
     $input.val(title).focus().bind('blur', function(e) {
       var $self = $(this);
       video.set('title', $(this).val());
-      manager.pManager.updateVideo(video, {
-        success: function() {
-          html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('id') +'">';
-          html += '<h4 class="project">'+ video.get('title') +'</h4>';
-          html += '<a href="#" class="reorder-video" data-id="'+ video.get('id') +'">&#8645;</a>';
-          html += '<a href="#" class="remove-video" data-id="'+ video.get('id') +'">X</a>';
-          html += '</div>';
+      html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
+      html += '<h4 class="project">'+ video.get('title') +'</h4>';
+      html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'">&#8645;</a>';
+      html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
+      html += '</div>';
 
-          $self.replaceWith(html);
-          $(document).unbind('keydown');
-        }
-      });
+      $self.replaceWith(html);
+      $(document).unbind('keydown');
     });
   },
 
   updateSelectedVideos: function() {
-    console.log(this.pManager.videos.toJSON());
     var ids = this.pManager.videos.pluck('vimeo_id');
 
     for (var i = 0; i < ids.length; i++) {
@@ -77,17 +72,28 @@ $(document).ready(function() {
     e.preventDefault();
     var $self = $(this);
     var id = $self.attr('data-id');
+
+    if (manager.pManager.videos.where({vimeo_id: parseInt(id, 10)}).length > 0) {
+      alert("That video is already selected");
+      return;
+    }
+
+    if (manager.pManager.videos.length >= 11) {
+      alert("You've added the maximum number of videos");
+      return;
+    }
+
     var video = new VideoModel(manager.vManager.videos.get(id).toJSON());
 
-    video.set('vimeo_id', id);
+    video.set('vimeo_id', parseInt(id, 10));
     video.unset('id');
 
     manager.pManager.addVideo(video, {
       success: function(video) {
-        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('id') +'">';
+        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
         html += '<h4 class="project">'+ video.get('title') +'</h4>';
-        html += '<a href="#" class="reorder-video" data-id="'+ video.get('id') +'">&#8645;</a>';
-        html += '<a href="#" class="remove-video" data-id="'+ video.get('id') +'">X</a>';
+        html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'">&#8645;</a>';
+        html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
         html += '</div>';
 
         $('#videos-list').append(html);
@@ -99,10 +105,9 @@ $(document).ready(function() {
 
   $('#videos-list-container').on('click', '.remove-video', function(e) {
     e.preventDefault();
-    e.stopPropagation();
     var $self = $(this);
     var id = $self.attr('data-id');
-    var video = manager.pManager.videos.get(id);
+    var video = manager.pManager.videos.where({vimeo_id: parseInt(id, 10)})[0];
     manager.pManager.removeVideo(video, {
       success: function() {
         $self.parent('.video-title').remove();
@@ -118,12 +123,19 @@ $(document).ready(function() {
     start: function(e, ui) {
     },
     stop: function(e, ui) {
-      var sort = $('#videos-list').sortable("serialize");
+      var sort = $('#videos-list').sortable("serialize", {
+        key: "sort"
+      });
       manager.pManager.updateSort(sort);
     }
   });
 
   $('#videos-list').on('click', '.video-title h4', function(e) {
     manager.makeNameEditable($(this).parents('.video-title'));
+  });
+
+  $('#save-button').bind('click', function(e) {
+    e.preventDefault();
+    manager.pManager.save();
   });
 });
