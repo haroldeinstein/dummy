@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   layout "admin"
 
   def index
+    @editable = "false"
     @directors = Director.all
   end
 
