@@ -13,11 +13,11 @@
                 <tr>
                   <td valign="middle">
                     <div id="videos-list">
-                      <h4><a href="#" id="add-video">Add videos</a></h4>
+                      <h3><a href="#" id="add-video">add videos</a></h3>
 
                       <% @director.projects.order('sort_index').each do |p| %>
                         <div style="position: relative;" class="video-title" id="p_<%= p.vimeo_id %>">
-                          <h4 class="project"><%= p.title %></h4>
+                          <h3 class="project"><%= p.title %></h3>
                           <a href="#" class="reorder-video" data-id="<%= p.vimeo_id %>">&#8645;</a>
                           <a href="#" class="remove-video" data-id="<%= p.vimeo_id %>">X</a>
                         </div>

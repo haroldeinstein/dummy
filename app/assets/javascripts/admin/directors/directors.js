@@ -38,7 +38,7 @@ VideoManager.prototype = {
       var $self = $(this);
       video.set('title', $(this).val());
       html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
-      html += '<h4 class="project">'+ video.get('title') +'</h4>';
+      html += '<h3 class="project">'+ video.get('title') +'</h3>';
       html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'">&#8645;</a>';
       html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
       html += '</div>';
@@ -91,7 +91,7 @@ $(document).ready(function() {
     manager.pManager.addVideo(video, {
       success: function(video) {
         html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
-        html += '<h4 class="project">'+ video.get('title') +'</h4>';
+        html += '<h3 class="project">'+ video.get('title') +'</h3>';
         html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'">&#8645;</a>';
         html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
         html += '</div>';
@@ -130,7 +130,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#videos-list').on('click', '.video-title h4', function(e) {
+  $('#videos-list').on('click', '.video-title h3', function(e) {
     manager.makeNameEditable($(this).parents('.video-title'));
   });
 
