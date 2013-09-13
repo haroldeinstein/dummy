@@ -15,7 +15,7 @@
                     <div id="videos-list">
                       <h3><a href="#" id="add-video">add videos</a></h3>
 
-                      <% @director.projects.order('sort_index').each do |p| %>
+                      <% @projects.order('sort_index').each do |p| %>
                         <div style="position: relative;" class="video-title" id="p_<%= p.vimeo_id %>">
                           <h3 class="project"><%= p.title %></h3>
                           <a href="#" class="reorder-video" data-id="<%= p.vimeo_id %>">&#8645;</a>
@@ -35,7 +35,7 @@
                 <tr>
                   <td valign="middle">
                     <div id="video-player-container">
-                      <div id="videos"></div>
+                      <div id="videos" style="background-image: url(<%= @projects.first.thumbnail_large %>);"></div>
                     </div>
                   </td>
                 </tr>

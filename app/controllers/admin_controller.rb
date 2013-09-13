@@ -10,6 +10,7 @@ class AdminController < ApplicationController
 
   def director
     @director = Director.find_by_url(params[:director])
+    @projects = @director.projects.order("sort_index ASC")
   end
 
   def contact
