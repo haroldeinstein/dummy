@@ -3,6 +3,8 @@ $grotesque: "Grotesque MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 body {
   font-size: 10px;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
 h1, h2, h3, h4, h5, h6, p, a, li, address {
@@ -38,7 +40,7 @@ h4 {
 p, address {
   font-size: 1.7em;
   font-family: $gotham;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 22px;
 
   &.description{
