@@ -1,0 +1,72 @@
+#special-ones {
+  padding: 0px 0px;
+}
+
+#description {
+  padding-top: 8.0em;
+  padding-bottom: 4.0em;
+  max-width: 632px;
+}
+
+#post-container {
+  width: 200%;
+}
+
+.post {
+  position: relative;
+  float: left;
+  width: 48%;
+  margin-right: 1.0em;
+}
+
+.image {
+  float: left;
+  max-width: 632px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+.captions {
+  max-width: 376px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+@media screen and (max-width: 1063px) {
+  #special-ones{
+    padding: 0px 30px;
+  }
+}
+
+@media screen and (max-device-width: 768px) {
+  .captions {
+    float: right;
+    position: relative;
+  }
+  .post{
+    width: 41.2%;
+    margin-right: 5em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .post {
+    float: none;
+  }
+  .image {
+    float: none;
+  }
+  .captions {
+    position: relative;
+  }
+  p.caption {
+    font-size: 1.7em;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+}
