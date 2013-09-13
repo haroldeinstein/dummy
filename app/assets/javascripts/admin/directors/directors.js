@@ -9,7 +9,7 @@ function VideoManager() {
 
 VideoManager.prototype = {
   displayVideos: function() {
-    var $container = $('#videos');
+    var $container = $('#video-options');
     var videos = this.vManager.videos.toJSON();
     for (var i = 0; i < videos.length; i++) {
       var video = videos[i];
@@ -18,6 +18,31 @@ VideoManager.prototype = {
     }
 
     this.updateSelectedVideos();
+  },
+
+  showVideos: function() {
+    var manager = this;
+    $('body').append('<div id="overlay"></div>');
+    var $overlay = $('#overlay');
+    setTimeout(function() {
+      $('#video-options').addClass('open');
+      $('#director').addClass('open');
+      $('#overlay').addClass('open');
+    }, 1);
+
+    $overlay.bind('click', function() {
+      manager.hideVideos();
+    });
+  },
+
+  hideVideos: function() {
+    $('#video-options').removeClass('open');
+    $('#director').removeClass('open');
+    $('#overlay').removeClass('open');
+
+    setTimeout(function() {
+      $('#overlay').remove();
+    }, 300);
   },
 
   makeNameEditable: function($elem) {
@@ -60,15 +85,29 @@ VideoManager.prototype = {
 $(document).ready(function() {
   var manager = new VideoManager();
 
-  manager.vManager = new VimeoManager();
-  manager.pManager = new ProjectManager();
-
-  $('#add-video').bind('click', function(e) {
-    e.preventDefault();
-    manager.displayVideos();
+  manager.vManager = new VimeoManager({
+    onFetch: function() {
+      manager.displayVideos();
+    }
   });
 
-  $('#videos-container').on('click', '.video a', function(e) {
+  manager.pManager = new ProjectManager();
+
+  $('#add-action').bind('click', function(e) {
+    e.preventDefault();
+    manager.showVideos();
+
+    var $self = $(this);
+    if ($self.hasClass('show')) {
+      $self.html('hide videos');
+    } else {
+      $self.html('show videos');
+    }
+
+    $self.toggleClass('show');
+  });
+
+  $('#video-options').on('click', '.video a', function(e) {
     e.preventDefault();
     var $self = $(this);
     var id = $self.attr('data-id');
@@ -96,7 +135,7 @@ $(document).ready(function() {
         html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
         html += '</div>';
 
-        $('#videos-list').append(html);
+        $('#videos-list').prepend(html);
 
         manager.updateSelectedVideos();
       }
@@ -120,6 +159,7 @@ $(document).ready(function() {
     containment: 'parent',
     items: '.video-title',
     handle: '.reorder-video',
+    cursor: 'move',
     start: function(e, ui) {
     },
     stop: function(e, ui) {

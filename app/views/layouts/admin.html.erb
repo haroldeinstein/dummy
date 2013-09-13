@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <title>Dummy - admin</title>
+  <%= javascript_include_tag "base" %>
   <%= stylesheet_link_tag "base", :media => "all" %>
   <%= yield :stylesheets %>
-  <%= javascript_include_tag "base" %>
   <meta charset="utf-8">
   <meta name="description" content="The collected works of Director Harold Einstein.">
   <meta name="keywords" content="harold einstein, dummy films, dummy">
@@ -12,14 +12,14 @@
 </head>
 <body>
 
-
 <% flash.each do |type, msg| %>
   <%= content_tag :p, msg, class: "flash #{type}" %>
 <% end %>
 
 <% unless @editable == "false" %>
-  <div id="save-bar">
+  <div id="admin-bar">
     <p><a href="#" id="save-button">save changes</a></p>
+    <p><a href="#" id="add-action"><%= @add_action %></a></p>
   </div>
 <% end %>
 

@@ -11,10 +11,12 @@ class AdminController < ApplicationController
   def director
     @director = Director.find_by_url(params[:director])
     @projects = @director.projects.order("sort_index ASC")
+    @add_action = "show videos"
   end
 
   def contact
     @rep_locations = RepLocation.all
     @blanks = Array.new(8 - @rep_locations.length)
+    @add_action = "add rep"
   end
 end
