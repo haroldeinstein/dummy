@@ -54,7 +54,7 @@ img {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 718px) {
   .post {
     float: none;
   }
@@ -63,6 +63,7 @@ img {
   }
   .captions {
     position: relative;
+    float: right;
   }
   p.caption {
     font-size: 1.7em;
