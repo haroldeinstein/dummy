@@ -1,6 +1,6 @@
-//= require_tree ./collections
-//= require_tree ./models
-//= require_tree ./managers
+//= require_tree ./admin/directors/collections
+//= require_tree ./admin/directors/models
+//= require_tree ./admin/directors/managers
 
 function VideoManager() {
   this.vManager = {};
@@ -156,12 +156,10 @@ $(document).ready(function() {
   });
 
   $('#videos-list').sortable({
-    containment: 'parent',
     items: '.video-title',
     handle: '.reorder-video',
     cursor: 'move',
-    start: function(e, ui) {
-    },
+    axis: 'y',
     stop: function(e, ui) {
       var sort = $('#videos-list').sortable("serialize", {
         key: "sort"

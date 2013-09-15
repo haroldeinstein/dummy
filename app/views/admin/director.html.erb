@@ -54,3 +54,7 @@
   Bootstrap.director_id = <%= @director.id %>;
 </script>
 
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag :directors_admin %>
+<% end %>
+
