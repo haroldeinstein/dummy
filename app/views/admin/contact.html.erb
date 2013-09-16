@@ -15,25 +15,24 @@
           venice, ca 94354<br>
           phone 310.444.1234
         </address>
-
         <br>
         <br>
         <br>
-        <p>executive producer</p>
         <p class="bold">eric liney</p>
+        <p>executive producer</p>
     </div>
 
     <div id="reps">
       <h2>reps</h2>
       <% @rep_locations.each do |rl| %>
-        <div class="rep">
+        <div class="rep" data-id="<%= rl.id %>">
           <p class="location"><%= rl.location %></p>
           <p class="bold">name</p>
           <p class="bold">name</p>
         </div>
       <% end  %>
-      <%= @blanks.each do |blank| %>
-        <div class="rep">
+      <% @blanks.each do |blank| %>
+        <div class="rep blank">
           <p class="location">blank</p>
         </div>
       <% end %>

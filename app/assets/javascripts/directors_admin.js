@@ -24,6 +24,7 @@ VideoManager.prototype = {
     var manager = this;
     $('body').append('<div id="overlay"></div>');
     var $overlay = $('#overlay');
+    $('#add-action').html('hide videos');
     setTimeout(function() {
       $('#video-options').addClass('open');
       $('#director').addClass('open');
@@ -39,6 +40,7 @@ VideoManager.prototype = {
     $('#video-options').removeClass('open');
     $('#director').removeClass('open');
     $('#overlay').removeClass('open');
+    $('#add-action').html('show videos');
 
     setTimeout(function() {
       $('#overlay').remove();
@@ -96,15 +98,6 @@ $(document).ready(function() {
   $('#add-action').bind('click', function(e) {
     e.preventDefault();
     manager.showVideos();
-
-    var $self = $(this);
-    if ($self.hasClass('show')) {
-      $self.html('hide videos');
-    } else {
-      $self.html('show videos');
-    }
-
-    $self.toggleClass('show');
   });
 
   $('#video-options').on('click', '.video a', function(e) {

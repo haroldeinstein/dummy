@@ -17,10 +17,8 @@ Dummy::Application.routes.draw do
   # api
   begin
     get    '/api/admin/projects',      to: 'projects#show'
-    post   '/api/admin/projects/sort', to: 'projects#sort'
-    post   '/api/admin/projects',      to: 'projects#create'
+    get    '/api/admin/reps',          to: 'contact#show'
     put    '/api/admin/projects',      to: 'projects#update'
-    delete '/api/admin/projects',      to: 'projects#destroy'
   end
 
   begin
