@@ -41,6 +41,7 @@ RepManager.prototype = {
     $('#add-rep').bind('click', function() {
       // validate
       var data = {
+        id: id,
         location: $('#location').val(),
         reps: [
           {
@@ -105,13 +106,13 @@ RepManager.prototype = {
 
       html += '<input class="light" id="rep-one-email" type="text" placeholder="email" value="';
       if (repLocation && repLocation.reps[0])
-        html += repLocation.reps[1].email;
+        html += repLocation.reps[0].email;
       html += '"></input><br>';
 
     // second rep
       html += '<input class="light no-margin" id="rep-two-name" type="text" placeholder="name" value="';
       if (repLocation && repLocation.reps[1])
-        html += repLocation.reps[0].name;
+        html += repLocation.reps[1].name;
       html += '"></input><br>';
 
       html += '<input class="light" id="rep-two-email" type="text" placeholder="email" value="';
@@ -133,7 +134,7 @@ RepManager.prototype = {
 
   repTemplate: function(data) {
     var html = '';
-    html += '<div class="rep">';
+    html += '<div class="rep" data-id="' + data.id + '">';
     html += '<p class="location">';
     if (data.location) {
       html += data.location;
@@ -141,14 +142,14 @@ RepManager.prototype = {
     html += '</p>';
 
     html += '<p class="bold">';
-    if (data.nameOne) {
-      html += data.nameOne;
+    if (data.reps[0] && data.reps[0].name) {
+      html += data.reps[0].name;
     }
     html += '</p>';
 
     html += '<p class="bold">';
-    if (data.nameTwo) {
-      html += data.nameTwo;
+    if (data.reps[1] && data.reps[1].name) {
+      html += data.reps[1].name;
     }
     html += '</p>';
 
