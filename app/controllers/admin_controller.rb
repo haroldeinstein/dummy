@@ -17,6 +17,6 @@ class AdminController < ApplicationController
   def contact
     @rep_locations = RepLocation.all
     @blanks = Array.new(8 - @rep_locations.length)
-    @add_action = "add rep"
+    @add_action = "new rep"
   end
 end

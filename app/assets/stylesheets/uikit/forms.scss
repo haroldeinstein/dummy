@@ -65,6 +65,10 @@ input[type="text"], input[type="password"] {
       border-color: #000;
       @include shadow;
     }
+
+    &.no-margin {
+      margin-bottom: -1px;
+    }
   }
 }
 

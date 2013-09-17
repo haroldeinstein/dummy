@@ -26,7 +26,7 @@ RepManager.prototype = {
 
     $modal.css({
       top : offsetTop,
-      left : offsetLeft - modalWidth - 30
+      left : offsetLeft - modalWidth - 25
     });
 
     $modal.show();
@@ -98,7 +98,7 @@ RepManager.prototype = {
     html += '"></input><br>';
 
     // first rep
-      html += '<input class="light" id="rep-one-name" type="text" placeholder="name" value="';
+      html += '<input class="light no-margin" id="rep-one-name" type="text" placeholder="name" value="';
       if (repLocation && repLocation.reps[0])
         html += repLocation.reps[0].name;
       html += '"></input><br>';
@@ -109,7 +109,7 @@ RepManager.prototype = {
       html += '"></input><br>';
 
     // second rep
-      html += '<input class="light" id="rep-two-name" type="text" placeholder="name" value="';
+      html += '<input class="light no-margin" id="rep-two-name" type="text" placeholder="name" value="';
       if (repLocation && repLocation.reps[1])
         html += repLocation.reps[0].name;
       html += '"></input><br>';
