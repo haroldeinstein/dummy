@@ -97,20 +97,32 @@ RepManager.prototype = {
     html = '<div id="rep-modal-container">';
     html += '<div id="rep-modal">';
 
-    html += '<input class="light" type="text" placeholder="location" value="';
+    html += '<input class="light" id="location" type="text" placeholder="location" value="';
     if (repLocation)
       html += repLocation.location;
     html += '"></input><br>';
 
-    html += '<input class="light" type="text" placeholder="name" value="';
-    if (repLocation && repLocation.reps[0])
-      html += repLocation.reps[0].name;
-    html += '"></input><br>';
+    // first rep
+      html += '<input class="light" id="rep-one-name" type="text" placeholder="name" value="';
+      if (repLocation && repLocation.reps[0])
+        html += repLocation.reps[0].name;
+      html += '"></input><br>';
 
-    html += '<input class="light" type="text" placeholder="email" value="';
-    if (repLocation && repLocation.reps[1])
-      html += repLocation.reps[1].name;
-    html += '"></input><br>';
+      html += '<input class="light" id="rep-one-email" type="text" placeholder="email" value="';
+      if (repLocation && repLocation.reps[0])
+        html += repLocation.reps[1].email;
+      html += '"></input><br>';
+
+    // second rep
+      html += '<input class="light" id="rep-two-name" type="text" placeholder="name" value="';
+      if (repLocation && repLocation.reps[1])
+        html += repLocation.reps[0].name;
+      html += '"></input><br>';
+
+      html += '<input class="light" id="rep-two-email" type="text" placeholder="email" value="';
+      if (repLocation && repLocation.reps[1])
+        html += repLocation.reps[1].email;
+      html += '"></input><br>';
 
     html += '<button id="cancel" class="btn" style="width: 48%;">cancel</button>';
     if (repLocation)
