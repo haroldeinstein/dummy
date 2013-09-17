@@ -1,9 +1,15 @@
 @import "../mixins/animate.scss";
 
-$positive: green;
-$negative: red;
-$light: black;
-$dark: white;
+@mixin btn-color($color) {
+  background-color: $color;
+
+  &:hover {
+    background-color: darken($color, 5%)
+  };
+  &:active {
+    background-color: darken($color, 10%)
+  };
+}
 
 .btn {
     background: #333;
@@ -29,5 +35,15 @@ $dark: white;
       background: #fff;
       color: #000;
       @include transition-duration(0.1s)
+    }
+
+    &.positive {
+      @include btn-color(green);
+    }
+    &.negative {
+      @include btn-color(red);
+    }
+    &.neutral {
+      @include btn-color(gray);
     }
  }
