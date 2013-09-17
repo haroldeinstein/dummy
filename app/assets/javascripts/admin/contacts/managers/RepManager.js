@@ -119,11 +119,11 @@ RepManager.prototype = {
         html += repLocation.reps[1].email;
       html += '"></input><br>';
 
-    html += '<button id="cancel" class="btn" style="width: 48%;">cancel</button>';
+    html += '<button id="cancel" class="btn neutral" style="width: 48%;">cancel</button>';
     if (repLocation)
-      html += '<button id="add-rep" class="btn" style="width: 48%;margin-left:8px;background-color:#000;">update</button>';
+      html += '<button id="add-rep" class="btn positive" style="width: 48%;margin-left:8px;">update</button>';
     else
-      html += '<button id="add-rep" class="btn" style="width: 48%;margin-left:8px;background-color:#000;">add</button>';
+      html += '<button id="add-rep" class="btn positive" style="width: 48%;margin-left:8px;">add</button>';
 
     html += '</div>';
     html += '</div>';

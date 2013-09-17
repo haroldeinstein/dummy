@@ -1,13 +1,16 @@
 @import "../mixins/animate.scss";
 
-@mixin btn-color($color) {
-  background-color: $color;
+@mixin btn-color($btn: #000, $text: #fff) {
+  background-color: $btn;
+  color: $text;
 
   &:hover {
-    background-color: darken($color, 5%)
+    background-color: darken($btn, 5%);
+    color: darken($text, 10%);
   };
   &:active {
-    background-color: darken($color, 10%)
+    background-color: darken($btn, 10%);
+    color: darken($text, 20%);
   };
 }
 
@@ -15,7 +18,7 @@
     background: #333;
     height: 2em;
     color: #fff;
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-family: $gotham;
     width: 260px;
     height: 44px;
@@ -33,17 +36,24 @@
     }
     &:active {
       background: #fff;
-      color: #000;
       @include transition-duration(0.1s)
     }
 
     &.positive {
-      @include btn-color(green);
+      @include btn-color(black, #fff);
+    }
+    &.active {
+      @include btn-color(#278ced);
     }
     &.negative {
       @include btn-color(red);
     }
     &.neutral {
       @include btn-color(gray);
+      color: #fff;
+    }
+    &.disabled {
+      @include btn-color(rgba(48, 48, 48, 0.3), rgba(48, 48, 48, 0.6));
+
     }
  }

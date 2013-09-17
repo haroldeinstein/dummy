@@ -18,8 +18,8 @@
 
 <% unless @editable == "false" %>
   <div id="admin-bar">
-    <button class="btn negative" id="save-button">save changes</button>
-    <button id="add-action" class="btn neutral"><%= @add_action %></a>
+    <button class="btn disabled" id="save-button">save changes</button>
+    <button class="btn positive" id="add-action"><%= @add_action %></a>
   </div>
 <% end %>
 
