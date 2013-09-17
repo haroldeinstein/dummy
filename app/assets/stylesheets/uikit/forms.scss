@@ -53,7 +53,7 @@ input[type="text"], input[type="password"] {
   }
 
   &.light {
-    background: #fff;
+    background: white;
     border-color: #000;
     color: #000;
 
@@ -83,8 +83,8 @@ textarea:focus {
     width: 0;
     height: 0;
     bottom: 85%;
-    right: -27px;
-    border-left: 14px solid #f2f2f2;
+    right: -28px;
+    border-left: 14px solid rgba(255, 243, 42, 0.5);
     border-right: 14px solid transparent;   
     border-bottom: 14px solid transparent;    
     border-top: 14px solid transparent;

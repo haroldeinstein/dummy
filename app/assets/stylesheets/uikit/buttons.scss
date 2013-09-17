@@ -54,6 +54,13 @@
     }
     &.disabled {
       @include btn-color(rgba(48, 48, 48, 0.3), rgba(48, 48, 48, 0.6));
-
+      &:hover {
+        background: rgba(48, 48, 48, 0.3);
+        color: rgba(48, 48, 48, 0.6);
+      }
+      &:active {
+        background: rgba(48, 48, 48, 0.3);
+        color: rgba(48, 48, 48, 0.6);
+      }
     }
  }
