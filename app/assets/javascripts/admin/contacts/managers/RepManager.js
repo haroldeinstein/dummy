@@ -97,20 +97,17 @@ RepManager.prototype = {
     html = '<div id="rep-modal-container">';
     html += '<div id="rep-modal">';
 
-    html += '<label class="light">location</label>';
-    html += '<input class="light" type="text" id="location" value="';
+    html += '<input class="light" type="text" placeholder="location" value="';
     if (repLocation)
       html += repLocation.location;
     html += '"></input><br>';
 
-    html += '<label class="light">name</label>';
-    html += '<input class="light" id="rep-one-name"type="text" value="';
+    html += '<input class="light" type="text" placeholder="name" value="';
     if (repLocation && repLocation.reps[0])
       html += repLocation.reps[0].name;
     html += '"></input><br>';
 
-    html += '<label class="light">email</label><br>';
-    html += '<input class="light" type="text" id="rep-one-email" value="';
+    html += '<input class="light" type="text" placeholder="email" value="';
     if (repLocation && repLocation.reps[1])
       html += repLocation.reps[1].name;
     html += '"></input><br>';
