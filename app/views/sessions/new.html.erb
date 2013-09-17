@@ -11,13 +11,13 @@
         		<img src="<%= asset_path 'login/dummy_login.png' %>" id="login_logo">
         		<form action="/sessions" method="post">
         		  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        		  <label for="username"><h4>username</h4></label>
-        		  <input type="text" name="username" id="username">
+        		  <label class="dark" for="username"><h4>username</h4></label>
+        		  <input class="dark" type="text" name="username" id="username">
         		  <br>
-        		  <label for="password"><h4>password</h4></label>
-        		  <input type="password" name="password" id="password">
+        		  <label class="dark" for="password"><h4>password</h4></label>
+        		  <input class="dark" type="password" name="password" id="password">
         		  <br>
-        		  <input id="btn" type="submit" value="log in">
+        		  <input class="btn" type="submit" value="log in">
         		</form>
 
         </div>

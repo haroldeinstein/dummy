@@ -23,7 +23,7 @@ RepManager.prototype = {
 
     $modal.css({
       top : offsetTop,
-      left : offsetLeft - modalWidth - 20
+      left : offsetLeft - modalWidth - 30
     });
 
     $modal.show();
@@ -51,23 +51,26 @@ RepManager.prototype = {
     html = '<div id="rep-modal-container">';
     html += '<div id="rep-modal">';
 
-    html += '<label>location</label>';
-    html += '<input type="text" value="';
+    html += '<label class="light">location</label>';
+    html += '<input class="light" type="text" value="';
     if (repLocation)
       html += repLocation.location;
     html += '"></input><br>';
 
-    html += '<label>name</label>';
-    html += '<input type="text" value="';
+    html += '<label class="light">name</label>';
+    html += '<input class="light" type="text" value="';
     if (repLocation && repLocation.reps[0])
       html += repLocation.reps[0].name;
     html += '"></input><br>';
 
-    html += '<label>name</label><br>';
-    html += '<input type="text" value="';
+    html += '<label class="light">email</label><br>';
+    html += '<input class="light" type="text" value="';
     if (repLocation && repLocation.reps[1])
       html += repLocation.reps[1].name;
     html += '"></input><br>';
+
+    html += '<button id="cancel" class="btn" style="width: 48%;">cancel</button>';
+    html += '<button id="add-rep" class="btn" style="width: 48%;margin-left:8px;background-color:#000;">add</button>';
 
     html += '</div>';
     html += '</div>';

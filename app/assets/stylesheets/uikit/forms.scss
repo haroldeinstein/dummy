@@ -1,71 +1,87 @@
+@import "../mixins/animate.scss";
+@import "../mixins/border-helper.scss";
+
 label {
   position: relative;
   float: left;
   margin-bottom: 6px;
   font-family: $gotham;
   font-size: 23px;
+  font-weight: 500;
+
+  &.dark {
+    color: #fff;
+  }
+
+  &.light{
+    color: #000
+  }
 }
 
-input {
+input[type="text"], input[type="password"] {
   font-size: 1.7em;
   width: 249px;
   height: 38px;
   margin-bottom: 14px;
   font-family: $gotham;
   padding-left: 8px;
-  background: #000;
-  border: 1px solid #333;
-  color: #fff;
-  -webkit-transition: all 0.3s ease-out;
-     -moz-transition: all 0.3s ease-out;
-       -o-transition: all 0.3s ease-out;
-          transition: all 0.3s ease-out;
+  @include transition-duration;
+  @include border;
 
   &:hover {
-    border: 1px solid #fff;
-    -webkit-transition: all 0.3s ease-out;
-       -moz-transition: all 0.3s ease-out;
-         -o-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out;
+    @include border;
   }
 
   &:focus {
+    @include border;
     outline: 0;
-    border: 1px solid #fff;
   }
 
-  &#btn {
-    background: #333;
-    width: 260px;
-    height: 44px;
-    border: none;
-    text-transform: uppercase;
-    line-height: 42px;
-    margin-top: 4px;
-    -webkit-border-radius: 2px;
-       -moz-border-radius: 2px;
+  &.dark {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
 
     &:hover {
-      background: #3e3e3e;
-      -webkit-transition: all 0.3s ease-out;
-       -moz-transition: all 0.3s ease-out;
-         -o-transition: all 0.3s ease-out;
-            transition: all 0.3s ease-out;
+      border-color: #fff;
     }
 
-    &:active {
-      background: #fff;
-      color: #000;
-      -webkit-transition: all 0.1s ease-out;
-         -moz-transition: all 0.1s ease-out;
-           -o-transition: all 0.1s ease-out;
-              transition: all 0.1s ease-out;
+    &:focus {
+      border-color: #fff;
+      @include shadow;
+    }
+  }
+
+  &.light {
+    background: #fff;
+    border-color: #000;
+    color: #000;
+
+    &:hover {
+      border-color: #000;
+    }
+
+    &:focus {
+      border-color: #000;
+      @include shadow;
     }
   }
 }
 
-
 textarea:focus {
   outline: 0;
   border: 1px solid #fff;
+}
+
+#rep-modal-container:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 85%;
+    right: -27px;
+    border-left: 14px solid #f2f2f2;
+    border-right: 14px solid transparent;   
+    border-bottom: 14px solid transparent;    
+    border-top: 14px solid transparent;
 }
