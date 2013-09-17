@@ -29,6 +29,18 @@ RepManager.prototype = {
     $modal.show();
   },
 
+  addRepLocation: function(data, success) {
+    var rep = new RepModel(data);
+    this.repsCollection.add(rep);
+    if (success) success();
+  },
+
+  removeRep: function(id, success) {
+    var model = this.repsCollection.get(id);
+    this.repsCollection.remove(model);
+    if (success) success();
+  }
+
   hideEditModal: function() {
 
   },
