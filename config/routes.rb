@@ -19,7 +19,7 @@ Dummy::Application.routes.draw do
     get '/api/admin/projects',      to: 'projects#show'
     get '/api/admin/reps',          to: 'contact#show'
     put '/api/admin/projects',      to: 'projects#update'
-    get '/api/admin/reps',          to: 'contact#update'
+    put '/api/admin/reps',          to: 'contact#update'
   end
 
   begin

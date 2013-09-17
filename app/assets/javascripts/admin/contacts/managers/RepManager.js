@@ -87,6 +87,24 @@ RepManager.prototype = {
     if (success) success();
   },
 
+  save: function() {
+    var data = {
+      authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
+      reps: this.reps.toJSON()
+    };
+
+    $.ajax({
+      url: '/api/admin/reps',
+      data: data,
+      type: 'PUT',
+      success: function(response, status, xhr) {
+        if (opts && opts.success) opts.success();
+      },
+      error: function(response) {
+      }
+    });
+  },
+
   getModalHTML: function(repLocation) {
     var html = "";
     html = '<div id="rep-modal-container">';

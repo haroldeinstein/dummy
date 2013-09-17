@@ -16,4 +16,8 @@ $(document).ready(function() {
     e.preventDefault();
     manager.showModal(null, $('.rep.blank').first());
   });
+
+  $('#save-button').bind('click', function(e) {
+    manager.save();
+  });
 });

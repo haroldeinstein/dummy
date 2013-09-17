@@ -7,6 +7,6 @@ class ContactController < ApplicationController
   end
 
   def update
-
+    head :ok
   end
 end

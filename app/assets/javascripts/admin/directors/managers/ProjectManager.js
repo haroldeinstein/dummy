@@ -43,7 +43,7 @@ ProjectManager.prototype = {
       authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
       director_id: Bootstrap.director_id,
       projects: this.videos.toJSON()
-    }
+    };
 
     $.ajax({
       url: '/api/admin/projects',
