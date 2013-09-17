@@ -54,8 +54,6 @@ RepManager.prototype = {
         ]
       };
 
-      manager.updateRepLocation(id, data);
-      /*
       var success = function() {
         $elem.replaceWith($(manager.repTemplate(data)));
         $body.removeClass('has-modal');
@@ -64,7 +62,6 @@ RepManager.prototype = {
 
       if (id) manager.updateRepLocation(id, data, success);
       else manager.addRepLocation(data, success);
-      */
     });
   },
 
@@ -80,8 +77,6 @@ RepManager.prototype = {
 
   updateRepLocation: function(id, data, success) {
     rep = this.reps.get(id);
-    console.log(rep, data);
-    return;
     rep.set(data);
     if (success) success();
   },
