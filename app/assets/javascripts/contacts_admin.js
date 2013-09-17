@@ -8,7 +8,8 @@ $(document).ready(function() {
     var $self = $(this);
     if ($self.hasClass('blank')) return;
     var id = parseInt($self.attr('data-id'));
-    manager.showModal(id, $(e.currentTarget));
+    var location = $self.attr('data-location');
+    manager.showModal(location, $(e.currentTarget));
   });
 
   $('#add-action').bind('click', function(e) {

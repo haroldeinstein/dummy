@@ -4,13 +4,13 @@ function RepManager() {
 }
 
 RepManager.prototype = {
-  showModal: function(id, $elem) {
+  showModal: function(location, $elem) {
     var $body = $('body');
     if ($body.hasClass('has-modal')) return;
 
     $body.addClass('has-modal');
 
-    var rep = id ? this.reps.get(id).toJSON() : null;
+    var rep = location ? this.reps.where({"location" : location})[0].toJSON() : null;
     var modal = this.getModalHTML(rep);
     var $modal = $(modal);
 
@@ -41,7 +41,6 @@ RepManager.prototype = {
     $('#add-rep').bind('click', function() {
       // validate
       var data = {
-        id: id,
         location: $('#location').val(),
         reps: [
           {
@@ -61,7 +60,7 @@ RepManager.prototype = {
         manager.hideModal();
       };
 
-      if (id) manager.updateRepLocation(id, data, success);
+      if (location) manager.updateRepLocation(location, data, success);
       else manager.addRepLocation(data, success);
     });
   },
@@ -76,8 +75,8 @@ RepManager.prototype = {
     if (success) success();
   },
 
-  updateRepLocation: function(id, data, success) {
-    rep = this.reps.get(id);
+  updateRepLocation: function(location, data, success) {
+    rep = this.reps.where({"location":location})[0];
     rep.set(data);
     if (success) success();
   },
@@ -134,7 +133,7 @@ RepManager.prototype = {
 
   repTemplate: function(data) {
     var html = '';
-    html += '<div class="rep" data-id="' + data.id + '">';
+    html += '<div class="rep" data-id="' + data.id + '" data-location="' + data.location + '">';
     html += '<p class="location">';
     if (data.location) {
       html += data.location;
