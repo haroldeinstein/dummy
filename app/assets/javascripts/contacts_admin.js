@@ -8,11 +8,11 @@ $(document).ready(function() {
     var $self = $(this);
     if ($self.hasClass('blank')) return;
     var id = parseInt($self.attr('data-id'));
-    manager.showEditModal(id, $(e.currentTarget));
+    manager.showModal(id, $(e.currentTarget));
   });
 
   $('#add-action').bind('click', function(e) {
     e.preventDefault();
-    manager.showNewModal($('.rep.blank').first());
+    manager.showModal(null, $('.rep.blank').first());
   });
 });
