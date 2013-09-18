@@ -11,6 +11,7 @@ ProjectManager.prototype = {
     var manager = this;
     video.set('director_id', Bootstrap.director_id);
     this.videos.add(video);
+    $('#save-button').removeClass('disabled').addClass('active');
     if (opts && opts.success) opts.success(video);
   },
 
@@ -26,11 +27,13 @@ ProjectManager.prototype = {
     } else {
       manager.videos.remove(video);
     }
+    $('#save-button').removeClass('disabled').addClass('active');
     if (opts.success) opts.success();
   },
 
   updateSort: function(sort) {
     var ids = sort.match(/(\d+)/g);
+    $('#save-button').removeClass('disabled').addClass('active');
     for (var i = 0; i < ids.length; i++) {
       var video = this.videos.where({vimeo_id: parseInt(ids[i])})[0];
       video.set('sort_index', i);

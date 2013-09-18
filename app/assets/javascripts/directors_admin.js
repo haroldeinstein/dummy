@@ -167,6 +167,7 @@ $(document).ready(function() {
 
   $('#save-button').bind('click', function(e) {
     e.preventDefault();
+    if ($(this).hasClass('disabled')) return;
     manager.pManager.save();
   });
 });
