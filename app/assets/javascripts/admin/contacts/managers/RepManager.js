@@ -33,12 +33,7 @@ RepManager.prototype = {
 
     var manager = this;
 
-    $('#cancel').bind('click', function() {
-      $body.removeClass('has-modal');
-      manager.hideModal();
-    });
-
-    $('#add-rep').bind('click', function() {
+    var proceed = function() {
       // validate
       var data = {
         location: $('#location').val(),
@@ -62,6 +57,23 @@ RepManager.prototype = {
 
       if (location) manager.updateRepLocation(location, data, success);
       else manager.addRepLocation(data, success);
+
+      $(document).unbind('keypress');
+    }
+
+
+    $('#cancel').bind('click', function() {
+      $body.removeClass('has-modal');
+      manager.hideModal();
+    });
+
+    $(document).bind('keypress', function(e) {
+      if (e.keyCode === 13)
+        proceed();
+    });
+
+    $('#add-rep').bind('click', function() {
+      proceed();
     });
   },
 

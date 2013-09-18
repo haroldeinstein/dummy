@@ -27,8 +27,9 @@
       <% @rep_locations.each do |rl| %>
         <div class="rep" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
           <p class="location"><%= rl.location %></p>
-          <p class="bold">name</p>
-          <p class="bold">name</p>
+          <% rl.reps.each do |r| %>
+            <p class="bold"><%= r.name %></p>
+          <% end %>
         </div>
       <% end  %>
       <% @blanks.each do |blank| %>
