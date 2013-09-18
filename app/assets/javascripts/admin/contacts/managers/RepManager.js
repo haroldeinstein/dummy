@@ -90,6 +90,19 @@ RepManager.prototype = {
     if (success) success();
   },
 
+  /*
+  updateSort: function(sort) {
+    var ids = sort.match(/(\d+)/g);
+    $('#save-button').removeClass('disabled').addClass('active');
+    console.log(ids);
+
+    for (var i = 0; i < ids.length; i++) {
+      var video = this.repLocations.where({vimeo_id: parseInt(ids[i])})[0];
+      video.set('sort_index', i);
+    }
+  },
+  */
+
   updateRepLocation: function(location, data, success) {
     repLocation = this.repLocations.where({"location":location})[0];
     repLocation.set(data);

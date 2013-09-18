@@ -3,6 +3,19 @@
 $(document).ready(function() {
   var manager = new RepManager();
 
+  /*
+  $('#reps').sortable({
+    items: '.rep',
+    cursor: 'move',
+    stop: function(e, ui) {
+      var sort = $('#reps').sortable("serialize", {
+        key: "sort"
+      });
+      console.log(sort);
+      manager.updateSort(sort);
+    }
+  });
+  */
 
   $('#reps').on('click', '.rep',  function(e) {
     var $self = $(this);
