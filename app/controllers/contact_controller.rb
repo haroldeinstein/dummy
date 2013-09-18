@@ -1,5 +1,6 @@
 class ContactController < ApplicationController
   def index
+    @rep_locations = RepLocation.all
   end
 
   def show

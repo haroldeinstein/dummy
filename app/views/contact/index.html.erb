@@ -24,40 +24,14 @@
     </div>
     <div id="reps">
       <h2>reps</h2>
-      <div class="rep">
-        <p class="location">west coast</p>
-        <p class="bold">this rep</p>
-        <p class="bold">that person</p>
-      </div>
-      <div class="rep">
-        <p class="location">toranto</p>
-        <p class="bold">this rep</p>
-      </div>
-      <div class="rep">
-        <p class="location">east coast</p>
-        <p class="bold">different lady</p>
-        <p class="bold">other guy</p>
-      </div>
-      <div class="rep">
-        <p class="location">south america</p>
-        <p class="bold">another rep</p>
-      </div>
-      <div class="rep">
-        <p class="location">midwest</p>
-        <p class="bold">another person</p>
-      </div>
-      <div class="rep">
-        <p class="location">australia</p>
-        <p class="bold">nice lady</p>
-      </div>
-      <div class="rep">
-        <p class="location">uk</p>
-        <p class="bold">british lady</p>
-      </div>
-      <div class="rep">
-        <p class="location">germany</p>
-        <p class="bold">this lady</p>
-      </div>
+      <% @rep_locations.each do |rl| %>
+        <div class="rep" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
+          <p class="location"><%= rl.location %></p>
+          <% rl.reps.sort_by!{|rep| rep.id}.each do |r| %>
+            <p class="bold"><%= r.name %></p>
+          <% end %>
+        </div>
+      <% end  %>
     </div>
   </div>
 </div>
