@@ -19,8 +19,8 @@
                       <% @projects.order('sort_index').each do |p| %>
                         <div style="position: relative;" class="video-title" id="p_<%= p.vimeo_id %>">
                           <h3 class="project"><%= p.title %></h3>
-                          <a href="#" class="reorder-video" data-id="<%= p.vimeo_id %>">&#8645;</a>
-                          <a href="#" class="remove-video" data-id="<%= p.vimeo_id %>">X</a>
+                          <a href="#" class="reorder-video" data-id="<%= p.vimeo_id %>"></a>
+                          <a href="#" class="remove-video" data-id="<%= p.vimeo_id %>"></a>
                         </div>
                       <% end %>
                     </div>

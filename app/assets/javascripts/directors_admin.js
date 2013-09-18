@@ -66,8 +66,8 @@ VideoManager.prototype = {
       video.set('title', $(this).val());
       html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
       html += '<h3 class="project">'+ video.get('title') +'</h3>';
-      html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'">&#8645;</a>';
-      html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
+      html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'"></a>';
+      html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'"></a>';
       html += '</div>';
 
       $self.replaceWith(html);
@@ -124,8 +124,8 @@ $(document).ready(function() {
       success: function(video) {
         html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
         html += '<h3 class="project">'+ video.get('title') +'</h3>';
-        html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'">&#8645;</a>';
-        html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'">X</a>';
+        html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'"></a>';
+        html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'"></a>';
         html += '</div>';
 
         $('#videos-list').prepend(html);
