@@ -39,12 +39,14 @@ RepManager.prototype = {
         location: $('#location').val(),
         reps: [
           {
+            id: $('#rep-one-id').val(),
             name: $('#rep-one-name').val(),
-            email: $('#rep-one-email').val()
+            email_address: $('#rep-one-email').val()
           },
           {
+            id: $('#rep-two-id').val(),
             name: $('#rep-two-name').val(),
-            email: $('#rep-two-email').val()
+            email_address: $('#rep-two-email').val()
           }
         ]
       };
@@ -88,6 +90,7 @@ RepManager.prototype = {
   },
 
   updateRepLocation: function(location, data, success) {
+                       console.log(data);
     rep = this.reps.where({"location":location})[0];
     rep.set(data);
     if (success) success();
@@ -99,7 +102,7 @@ RepManager.prototype = {
     if (success) success();
   },
 
-  save: function() {
+  save: function(opts) {
     var data = {
       authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
       reps: this.reps.toJSON()
@@ -125,29 +128,39 @@ RepManager.prototype = {
     html += '<input class="light" id="location" type="text" placeholder="location" value="';
     if (repLocation)
       html += repLocation.location;
-    html += '"></input><br>';
+    html += '" /><br>';
 
     // first rep
+      html += '<input type="hidden" id="rep-one-id" value="';
+      if (repLocation && repLocation.reps[0])
+        html += repLocation.reps[0].id;
+      html += '" />';
+
       html += '<input class="light no-margin" id="rep-one-name" type="text" placeholder="name" value="';
       if (repLocation && repLocation.reps[0])
         html += repLocation.reps[0].name;
-      html += '"></input><br>';
+      html += '" /><br>';
 
       html += '<input class="light" id="rep-one-email" type="text" placeholder="email" value="';
       if (repLocation && repLocation.reps[0])
-        html += repLocation.reps[0].email;
-      html += '"></input><br>';
+        html += repLocation.reps[0].email_address;
+      html += '" /><br>';
 
     // second rep
+      html += '<input type="hidden" id="rep-two-id" value="';
+      if (repLocation && repLocation.reps[1])
+        html += repLocation.reps[1].id;
+      html += '" />';
+
       html += '<input class="light no-margin" id="rep-two-name" type="text" placeholder="name" value="';
       if (repLocation && repLocation.reps[1])
         html += repLocation.reps[1].name;
-      html += '"></input><br>';
+      html += '" /><br>';
 
       html += '<input class="light" id="rep-two-email" type="text" placeholder="email" value="';
       if (repLocation && repLocation.reps[1])
-        html += repLocation.reps[1].email;
-      html += '"></input><br>';
+        html += repLocation.reps[1].email_address;
+      html += '" /><br>';
 
     html += '<button id="cancel" class="btn neutral" style="width: 48%;">cancel</button>';
     if (repLocation)

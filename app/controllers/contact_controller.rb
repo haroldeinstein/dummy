@@ -7,6 +7,26 @@ class ContactController < ApplicationController
   end
 
   def update
+    (params[:reps] || []).each do |k, rl|
+      rep_location = RepLocation.find(rl["id"]) if rl["id"]
+      rep_location ||= RepLocation.new
+      if rl["delete"]
+        rep_location.destroy
+      else
+        rep_location.location = rl["location"]
+
+        (rl["reps"] || []).each do |k, r|
+          rep = Rep.find(r["id"]) if r["id"]
+          rep ||= Rep.new
+          rep.attributes = r
+
+          rep_location.reps << rep
+        end
+
+        rep_location.save
+      end
+    end
+
     head :ok
   end
 end
