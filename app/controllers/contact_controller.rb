@@ -7,8 +7,9 @@ class ContactController < ApplicationController
   end
 
   def update
-    (params[:reps] || []).each do |k, rl|
-      rep_location = RepLocation.find(rl["id"]) if rl["id"]
+    puts params.to_yaml
+    (params[:rep_locations] || []).each do |k, rl|
+      rep_location = RepLocation.find(rl["id"]) if rl["id"].present?
       rep_location ||= RepLocation.new
       if rl["delete"]
         rep_location.destroy
@@ -16,7 +17,7 @@ class ContactController < ApplicationController
         rep_location.location = rl["location"]
 
         (rl["reps"] || []).each do |k, r|
-          rep = Rep.find(r["id"]) if r["id"]
+          rep = Rep.find(r["id"]) if r["id"].present?
           rep ||= Rep.new
           rep.attributes = r
 

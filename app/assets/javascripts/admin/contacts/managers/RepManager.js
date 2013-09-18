@@ -1,6 +1,6 @@
 function RepManager() {
-  this.reps = new RepsCollection();
-  this.reps.fetch();
+  this.repLocations = new RepLocationsCollection();
+  this.repLocations.fetch();
 }
 
 RepManager.prototype = {
@@ -10,8 +10,8 @@ RepManager.prototype = {
 
     $body.addClass('has-modal');
 
-    var rep = location ? this.reps.where({"location" : location})[0].toJSON() : null;
-    var modal = this.getModalHTML(rep);
+    var repLocation = location ? this.repLocations.where({"location" : location})[0].toJSON() : null;
+    var modal = this.getModalHTML(repLocation);
     var $modal = $(modal);
 
     $body.append($modal);
@@ -35,16 +35,17 @@ RepManager.prototype = {
 
     var proceed = function() {
       // validate
+      $('#save-button').removeClass('disabled').addClass('active');
       var data = {
         location: $('#location').val(),
         reps: [
           {
-            id: $('#rep-one-id').val(),
+            id: $('#rep-one-id').val() === "" ? null : $('#rep-one-id').val(),
             name: $('#rep-one-name').val(),
             email_address: $('#rep-one-email').val()
           },
           {
-            id: $('#rep-two-id').val(),
+            id: $('#rep-two-id').val() === "" ? null : $('#rep-two-id').val(),
             name: $('#rep-two-name').val(),
             email_address: $('#rep-two-email').val()
           }
@@ -84,29 +85,43 @@ RepManager.prototype = {
   },
 
   addRepLocation: function(data, success) {
-    var rep = new RepModel(data);
-    this.reps.add(rep);
+    var rep = new RepLocationModel(data);
+    this.repLocations.add(rep);
     if (success) success();
   },
 
   updateRepLocation: function(location, data, success) {
-                       console.log(data);
-    rep = this.reps.where({"location":location})[0];
-    rep.set(data);
+    repLocation = this.repLocations.where({"location":location})[0];
+    repLocation.set(data);
     if (success) success();
   },
 
   removeRep: function(id, success) {
-    var model = this.reps.get(id);
-    this.reps.remove(model);
+    var repModel = this.repLocations.get(id);
+    this.repLocations.remove(repModel);
     if (success) success();
   },
 
   save: function(opts) {
+    var locations = this.repLocations.toJSON();
     var data = {
       authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
-      reps: this.reps.toJSON()
     };
+
+    var repLocations = [];
+
+    for (var i = 0; i< locations.length; i++) {
+      var location = locations[i];
+      var reps = [];
+      for (var j = 0; j < location.reps.length; j++) {
+        var rep = location.reps[j];
+        reps.push(rep);
+      }
+      location.reps = reps;
+      repLocations.push(location);
+    }
+
+    data.rep_locations = repLocations;
 
     $.ajax({
       url: '/api/admin/reps',
