@@ -61,18 +61,22 @@ VideoManager.prototype = {
       }
     });
 
-    $input.val(title).focus().bind('blur', function(e) {
-      var $self = $(this);
-      video.set('title', $(this).val());
-      html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
-      html += '<h3 class="project">'+ video.get('title') +'</h3>';
-      html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'"></a>';
-      html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'"></a>';
-      html += '</div>';
+    $input.val(title).focus().bind({
+      blur: function(e) {
+        var $self = $(this);
+        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
+        html += '<h3 class="project">'+ video.get('title') +'</h3>';
+        html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'"></a>';
+        html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'"></a>';
+        html += '</div>';
 
-      $self.replaceWith(html);
-      $(document).unbind('keydown');
-      $('#save-button').removeClass('disabled').addClass('active');
+        $self.replaceWith(html);
+        $(document).unbind('keydown');
+      },
+      change: function(e) {
+        video.set('title', $(this).val());
+        $('#save-button').removeClass('disabled').addClass('active');
+      }
     });
   },
 
