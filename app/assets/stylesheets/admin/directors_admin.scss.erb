@@ -10,6 +10,7 @@
 
 #main-container {
   @include calc(100%, 71px);
+  max-width: 120.0em;
 }
 
 #director {
@@ -22,7 +23,7 @@
 }
 
 #videos-list-container {
-  width: 34%;
+  width: 30%;
   height: 100%;
   padding-bottom: 8px;
   float: left;
@@ -86,10 +87,6 @@
     right: 0em;
     display: none;
     background-image: url('directors/delete.png');
-
-    &:hover {
-      opacity:0.7;
-    }
   }
 
   .reorder-video {
