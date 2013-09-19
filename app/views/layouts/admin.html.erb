@@ -11,7 +11,7 @@
   <meta name="keywords" content="harold einstein, dummy films, dummy">
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= "#{current_controller}_#{current_action}" %>">
 
 <% flash.each do |type, msg| %>
   <%= content_tag :p, msg, class: "flash #{type}" %>
