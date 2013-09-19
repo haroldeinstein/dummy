@@ -12,6 +12,7 @@ Dummy::Application.routes.draw do
     get  '/admin',                  to: 'admin#index'
     get  '/admin/hey',              to: 'admin#contact',    as: 'admin_contact'
     get  '/admin/the-special-ones', to: 'admin#memoir'
+    post '/admin/the-special-ones', to: 'memoirs#create',    as: 'memoirs'
     get  '/admin/:director',        to: 'admin#director',   as: 'admin_director'
   end
 
@@ -26,7 +27,7 @@ Dummy::Application.routes.draw do
   begin
     get '/hey',              to: 'contact#index'
     get '/news',             to: 'news#index'
-    get '/the-special-ones', to: 'memoir#index'
+    get '/the-special-ones', to: 'memoirs#index'
     get '/:director',        to: 'directors#index', as: 'director'
   end
 

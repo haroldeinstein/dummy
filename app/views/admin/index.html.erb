@@ -23,8 +23,8 @@
                 </li>
               </ul>
               <ul class="nav-item directors first">
-                <% @directors.each do |d| %>
-                  <li><h2 class="home"><%= link_to d.name.downcase, admin_director_path(d) %></h2></li>
+                <% for director in @directors %>
+                  <li><h2 class="home"><%= link_to director.name.downcase, admin_director_path(director) %></h2></li>
                 <% end %>
               </ul>
             </div>

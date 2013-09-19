@@ -6,6 +6,14 @@
     They are not named Pacino, De Niro, Streep, Dern, Cazale, Hoffman, Hackman, Holden, Voigt or Burstyn. They played the much smaller roles, the roles that no one tends to write about. Yet they deserve to be celebrated, for their performances remind us that good acting doesn’t require 90 pages of screen time. It can take place over two to three minutes, or in a span of thirty seconds.</p>
   </div>
   <div id="post-container" class="clearfix">
+
+    <div class="post clearfix">
+      <%= form_for @memoir, html: {multipart: true} do |f| %>
+        <%= f.file_field :image %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+
     <div class="post clearfix">
       <div class="image">
         <img src="<%= asset_path 'memoir/murray.png' %>">

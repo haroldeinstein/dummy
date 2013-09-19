@@ -21,6 +21,15 @@ class AdminController < ApplicationController
   end
 
   def memoir
+    @memoir = Memoir.new
     @add_action = "new post"
   end
+
+  protected
+
+  def memoirs
+    @memoirs || Memoir.all
+  end
+  helper_method :memoirs
+
 end
