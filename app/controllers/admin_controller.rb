@@ -20,7 +20,7 @@ class AdminController < ApplicationController
     @add_action = "new rep"
   end
 
-  def memior
+  def memoir
     @add_action = "new post"
   end
 end
