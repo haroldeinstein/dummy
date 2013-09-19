@@ -72,6 +72,7 @@ VideoManager.prototype = {
 
       $self.replaceWith(html);
       $(document).unbind('keydown');
+      $('#save-button').removeClass('disabled').addClass('active');
     });
   },
 
