@@ -19,4 +19,8 @@ class AdminController < ApplicationController
     @blanks = Array.new(8 - @rep_locations.length)
     @add_action = "new rep"
   end
+
+  def memior
+    @add_action = "new post"
+  end
 end
