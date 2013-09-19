@@ -88,6 +88,13 @@ RepManager.prototype = {
     var rep = new RepLocationModel(data);
     this.repLocations.add(rep);
     if (success) success();
+
+    var html = "";
+    html += '<div class="rep blank">';
+    html += '<p class="location"></p>';
+    html += '</div>';
+
+    $("#reps").append($(html));
   },
 
   /*

@@ -8,7 +8,6 @@ class ContactController < ApplicationController
   end
 
   def update
-    puts params.to_yaml
     (params[:rep_locations] || []).each do |k, rl|
       rep_location = RepLocation.find(rl["id"]) if rl["id"].present?
       rep_location ||= RepLocation.new
