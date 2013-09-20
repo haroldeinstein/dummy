@@ -10,6 +10,8 @@ end
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+gem 'rmagick'
 gem 'carrierwave'
-gem 'aws-sdk'
-
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'

@@ -5,9 +5,7 @@ class MemoirsController < ApplicationController
   def create
     @memoir = Memoir.new(params[:memoir])
     if @memoir.save
-      redirect_to '/admin'
-    else
-      raise "children"
+      render :json => @memoir.as_json
     end
   end
 end

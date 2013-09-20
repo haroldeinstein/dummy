@@ -8,9 +8,10 @@
   <div id="post-container" class="clearfix">
 
     <div class="post clearfix">
-      <%= form_for @memoir, html: {multipart: true} do |f| %>
+
+      <%= direct_upload_form_for @uploader do |f| %>
         <%= f.file_field :image %>
-        <%= f.submit %>
+        <%= f.submit "Upload Image" %>
       <% end %>
     </div>
 

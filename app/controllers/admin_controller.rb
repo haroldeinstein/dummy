@@ -23,6 +23,9 @@ class AdminController < ApplicationController
   def memoir
     @memoir = Memoir.new
     @add_action = "new post"
+
+    @uploader = Memoir.new.image
+    @uploader.success_action_redirect = "/admin"
   end
 
   protected
