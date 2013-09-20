@@ -78,7 +78,7 @@
   */
   position: relative;
   text-decoration: none;
-  background-color: rgba(102,102,102,1);
+  background-color: rgba(68,68,68,1);
   display: block;
   padding: 4px;
   height: 60px;
@@ -89,10 +89,9 @@
   -webkit-border-radius: 30px;
   -moz-border-radius:    30px;
   border-radius:         34px;
-  -webkit-box-shadow:    0px 6px 0px #4a4a4a, 0px 6px 25px rgba(0, 0, 0, 0.8), inset 0px 1px 3px rgba(255,255,255,0.5), inset 0px 5px 6px rgba(0,0,0,0.1);
-  -moz-box-shadow:       0px 6px 0px #4a4a4a, 0px 6px 25px rgba(0, 0, 0, 0.8), inset 0px 1px 3px rgba(255,255,255,0.5), inset 0px 5px 6px rgba(0,0,0,0.1);
-  box-shadow:            0px 6px 0px #4a4a4a, 0px 6px 25px rgba(0, 0, 0, 0.8), inset 0px 1px 3px rgba(255,255,255,0.5), inset 0px 5px 6px rgba(0,0,0,0.1);
-  margin: 100px auto;
+  -webkit-box-shadow:    0px 6px 0px #2B2929, 0px 6px 25px rgba(0, 0, 0, 0.8), inset 0px 1px 3px rgba(255, 255, 255, 0.3), inset 0px -8px 11px rgba(0, 0, 0, 0.15), inset 0px 5px 6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:       0px 6px 0px #2B2929, 0px 6px 25px rgba(0, 0, 0, 0.8), inset 0px 1px 3px rgba(255, 255, 255, 0.3), inset 0px -8px 11px rgba(0, 0, 0, 0.15), inset 0px 5px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:            0px 6px 0px #2B2929, 0px 6px 25px rgba(0, 0, 0, 0.8), inset 0px 1px 3px rgba(255, 255, 255, 0.3), inset 0px -8px 11px rgba(0, 0, 0, 0.15), inset 0px 5px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   
   -webkit-transition: all .1s ease;
@@ -108,9 +107,9 @@
   -webkit-box-shadow: inset 0 2px 4px -1px #222, 0 0 0px 3px #292929, 0 0 0 1px #000;
   background: url("back.png") -63px 0px no-repeat;
   */
-  -webkit-box-shadow: 0px 3px 0px rgba(70,70,70,1), 0px 3px 6px rgba(0,0,0,.9), inset 0px 1px 3px rgba(255,255,255,0.5), inset 0px 5px 6px rgba(0,0,0,0.1);
-  -moz-box-shadow:    0px 3px 0px rgba(70,70,70,1), 0px 3px 6px rgba(0,0,0,.9), inset 0px 1px 3px rgba(255,255,255,0.5), inset 0px 5px 6px rgba(0,0,0,0.1);
-  box-shadow:         0px 3px 0px rgba(70,70,70,1), 0px 3px 6px rgba(0,0,0,.9), inset 0px 1px 3px rgba(255,255,255,0.5), inset 0px 5px 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 3px 0px #2B2929, 0px 3px 6px rgba(0,0,0,.9), inset 0px 1px 3px rgba(255,255,255,0.3), inset 0px -8px 11px rgba(0,0,0,0.15), inset 0px 5px 6px rgba(0,0,0,0.1);
+  -moz-box-shadow:    0px 3px 0px #2B2929, 0px 3px 6px rgba(0,0,0,.9), inset 0px 1px 3px rgba(255,255,255,0.3), inset 0px -8px 11px rgba(0,0,0,0.15), inset 0px 5px 6px rgba(0,0,0,0.1);
+  box-shadow:         0px 3px 0px #2B2929, 0px 3px 6px rgba(0,0,0,.9), inset 0px 1px 3px rgba(255,255,255,0.3), inset 0px -8px 11px rgba(0,0,0,0.15), inset 0px 5px 6px rgba(0,0,0,0.1);
   position: relative;
   top: 3px;
   background-image: url('back_trans.png');
