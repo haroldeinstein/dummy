@@ -25,7 +25,7 @@ class AdminController < ApplicationController
     @add_action = "new post"
 
     @uploader = Memoir.new.image
-    @uploader.success_action_redirect = "http://staging.dummyfilms.com/admin/the-special-ones"
+    @uploader.success_action_redirect = "/admin/the-special-ones"
   end
 
   protected
