@@ -1,0 +1,19 @@
+development:
+  app_key:    "AKIAIIG3NGTXGPNXBAIQ"
+  app_secret: "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"
+  s3_bucket: "special-ones"
+
+staging:
+  app_key:    "AKIAIIG3NGTXGPNXBAIQ"
+  app_secret: "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"
+  s3_bucket: "special-ones"
+
+test:
+  app_key:    "AKIAIIG3NGTXGPNXBAIQ"
+  app_secret: "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"
+  s3_bucket: "special-ones"
+
+production:
+  app_key:    "AKIAIIG3NGTXGPNXBAIQ"
+  app_secret: "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"
+  s3_bucket: "special-ones"
