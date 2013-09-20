@@ -12,16 +12,16 @@ Dummy::Application.routes.draw do
     get  '/admin',                  to: 'admin#index'
     get  '/admin/hey',              to: 'admin#contact',    as: 'admin_contact'
     get  '/admin/the-special-ones', to: 'admin#memoir'
-    post '/admin/the-special-ones', to: 'memoirs#create',    as: 'memoirs'
+    post '/admin/the-special-ones', to: 'memoirs#create',   as: 'memoirs'
     get  '/admin/:director',        to: 'admin#director',   as: 'admin_director'
   end
 
   # api
   begin
-    get '/api/admin/projects',      to: 'projects#show'
-    get '/api/admin/reps',          to: 'contact#show'
-    put '/api/admin/projects',      to: 'projects#update'
-    put '/api/admin/reps',          to: 'contact#update'
+    get '/api/admin/projects', to: 'projects#show'
+    get '/api/admin/reps',     to: 'contact#show'
+    put '/api/admin/projects', to: 'projects#update'
+    put '/api/admin/reps',     to: 'contact#update'
   end
 
   begin
