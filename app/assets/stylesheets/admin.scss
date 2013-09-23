@@ -2,6 +2,17 @@
 @import "admin/contact_admin.scss";
 @import "admin/memior_admin.scss";
 
+@mixin calc($perc, $px) {
+  height: -webkit-calc(#{$perc} - #{$px});
+     height: -moz-calc(#{$perc} - #{$px});
+       height: -o-calc(#{$perc} - #{$px});
+          height: calc(#{$perc} - #{$px});
+}
+
+#main-container {
+  @include calc(100%, 81px);
+}
+
 #admin-bar {
   height: 6.0em;
   width: 100%;

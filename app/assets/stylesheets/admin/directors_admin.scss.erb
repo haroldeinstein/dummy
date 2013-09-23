@@ -1,23 +1,11 @@
 @import "../mixins/animate.scss";
 @import "../uikit/fonts.scss";
 
-@mixin calc($perc, $px) {
-  height: -webkit-calc(#{$perc} - #{$px});
-     height: -moz-calc(#{$perc} - #{$px});
-       height: -o-calc(#{$perc} - #{$px});
-          height: calc(#{$perc} - #{$px});
-}
-
-#main-container {
-  @include calc(100%, 71px);
-}
-
 .admin-director #main-container {
   max-width: 113.0em;
 }
 
 #director {
-  height: 50.0em;
   @include transition-duration(0.2s);
 
   &.open {
@@ -43,11 +31,9 @@
   }
 }
 
-#videos-container {
-  float: right;
-  width: 70%;
-  margin-top: 3.0em;
-  height: 44.8em;
+#videos-list {
+  width: 100%;
+  height: auto;
 }
 
 #video-player-container {
