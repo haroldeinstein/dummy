@@ -11,10 +11,32 @@
 #post-container-container {
   width: 100%;
   overflow: hidden;
+  position: relative;
+  height: 500px;
+}
+
+.arrow {
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+#previous {
+  @extend .arrow;
+  left: 0px;
+}
+
+#next {
+  @extend .arrow;
+  right: 0px;
 }
 
 #post-container {
   width: 100%;
+  position: absolute;
 
   .post {
     position: relative;
