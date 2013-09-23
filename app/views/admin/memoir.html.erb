@@ -1,13 +1,21 @@
+<%= content_for :stylesheets do %>
+  <%= stylesheet_link_tag :memoir %>
+<% end %>
+
 <div id="special-ones">
-  <div id ="description">
-  <h2>the special ones</h2><br><br>
-    <p class="description">
-    They appeared in the films of the ‘70s. <br><br>
-    They are not named Pacino, De Niro, Streep, Dern, Cazale, Hoffman, Hackman, Holden, Voigt or Burstyn. They played the much smaller roles, the roles that no one tends to write about. Yet they deserve to be celebrated, for their performances remind us that good acting doesn’t require 90 pages of screen time. It can take place over two to three minutes, or in a span of thirty seconds.</p>
+  <div id="top">
+    <div id ="description">
+      <h2>the special ones</h2>
+      <br><br>
+      <p class="description">
+      They appeared in the films of the ‘70s. <br><br>
+      They are not named Pacino, De Niro, Streep, Dern, Cazale, Hoffman, Hackman, Holden, Voigt or Burstyn. They played the much smaller roles, the roles that no one tends to write about. Yet they deserve to be celebrated, for their performances remind us that good acting doesn’t require 90 pages of screen time. It can take place over two to three minutes, or in a span of thirty seconds.</p>
+    </div>
   </div>
+
   <div id="post-container" class="clearfix">
 
-    <div class="form-holder">
+    <div id="image-uploader">
       <div class="post clearfix">
         <%= form_for @memoir, html: {multipart: true} do  |f| %>
           <%= f.file_field :image %>
