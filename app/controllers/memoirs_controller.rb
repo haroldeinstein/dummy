@@ -3,9 +3,10 @@ class MemoirsController < ApplicationController
   end
 
   def create
+    puts params
     @memoir = Memoir.new(params[:memoir])
     if @memoir.save
-      render :json => @memoir.as_json
+      redirect_to "/admin/the-special-ones?unsaved"
     end
   end
 end
