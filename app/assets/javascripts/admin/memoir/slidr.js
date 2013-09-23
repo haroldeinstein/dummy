@@ -23,6 +23,23 @@ Slidr.prototype = {
     $('#post-container').prepend($post);
     $post.find('.image').append($uploader);
     $post.addClass('new').animate({'width': this.containerWidth}, 800);
+
+    $post.find('.captions').bind('click', function(e) {
+      $(this).replaceWith('<textarea class=""></textarea>');
+    });
+
+    $post.find('input[type="file"]').bind('change', function(e) {
+      var input = $(this)[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        var src = e.target.result;
+        $post.find('.image img').attr('src', src);
+      };
+
+      var src = reader.readAsDataURL(input.files[0]);
+    });
+
   },
 
   emptyPostHTML: function() {
@@ -31,7 +48,7 @@ Slidr.prototype = {
     html += '<div class="image">';
     html += '<img src="">';
     html += '</div>';
-    html += '<div class="captions">';
+    html += '<div class="captions empty">';
     html += '<p class="caption"></p>';
     html += '</div></div>';
 

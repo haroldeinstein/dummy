@@ -47,15 +47,17 @@
 
     &.new {
       .image {
-        background: #ccc;
+        background: rgba(255, 255, 255, 0.3);
       }
       .captions {
-        background: #ccc;
         height: 200px;
         width: 100%;
+
+        &.empty {
+          background: rgba(255, 255, 255, 0.3);
+        }
       }
     }
-
   }
 }
 
