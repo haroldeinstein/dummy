@@ -6,7 +6,14 @@ class MemoirsController < ApplicationController
     puts params
     @memoir = Memoir.new(params[:memoir])
     if @memoir.save
-      redirect_to "/admin/the-special-ones?unsaved"
+      redirect_to "/admin/the-special-ones"
     end
   end
+
+  protected
+
+  def memoirs
+    @memoirs || Memoir.published.all
+  end
+  helper_method :memoirs
 end

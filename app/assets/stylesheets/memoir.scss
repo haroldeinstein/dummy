@@ -16,15 +16,6 @@
   position: relative;
 }
 
-.arrow {
-  width: 60px;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  background: rgba(255, 255, 255, 0.6);
-  z-index: 1;
-}
-
 #post-container {
   width: 100%;
   padding-bottom: 30px;
@@ -37,7 +28,7 @@
     max-width: 103.8em;
 
     .image {
-      width: 61.0em;
+      width: 63.2em;
 
       img {
         width: 100%;

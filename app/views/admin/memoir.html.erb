@@ -15,64 +15,34 @@
 
   <div id="post-container-container-container">
     <div id="post-container-container" class="w1064 ">
-      <div id="previous"></div>
-      <div id="next"></div>
       <div id="post-container" class="clearfix">
 
-        <div class="hide image-uploader">
-          <%= form_for @memoir, html: {multipart: true} do  |f| %>
-            <%= f.file_field :image %>
-            <%= f.submit "Upload Image" %>
-          <% end %>
+        <div class="form-data hide">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="file" name="memoir[image]">
         </div>
 
-        <div class="post clearfix">
-          <div class="image">
-            <img src="<%= asset_path 'memoir/murray.png' %>">
+        <% memoirs.each do |memoir| %>
+          <div class="post clearfix">
+            <div class="image">
+              <img src="<%= memoir.image %>">
+            </div>
+            <div class="captions">
+              <p class="caption">
+                <%= memoir.caption %>
+              </p>
+            </div>
           </div>
-          <div class="captions">
-            <p class="caption">Murray Moston played Jacobs, the  bar owner in Scorsese’s Alice Doesn’t Live Here Anymore. There are a million ways to play this character, but it’s hard to imagine anything more believable than the way he did it.</p>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <div class="image">
-            <img src="<%= asset_path 'memoir/murray.png' %>">
-          </div>
-          <div class="captions">
-            <p class="caption">Murray Moston played Jacobs, the  bar owner in Scorsese’s Alice Doesn’t Live Here Anymore. There are a million ways to play this character, but it’s hard to imagine anything more believable than the way he did it.</p>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <div class="image">
-            <img src="<%= asset_path 'memoir/murray.png' %>">
-          </div>
-          <div class="captions">
-            <p class="caption">Murray Moston played Jacobs, the  bar owner in Scorsese’s Alice Doesn’t Live Here Anymore. There are a million ways to play this character, but it’s hard to imagine anything more believable than the way he did it.</p>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <div class="image">
-            <img src="<%= asset_path 'memoir/murray.png' %>">
-          </div>
-          <div class="captions">
-            <p class="caption">Murray Moston played Jacobs, the  bar owner in Scorsese’s Alice Doesn’t Live Here Anymore. There are a million ways to play this character, but it’s hard to imagine anything more believable than the way he did it.</p>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <div class="image">
-            <img src="<%= asset_path 'memoir/murray.png' %>">
-          </div>
-          <div class="captions">
-            <p class="caption">Murray Moston played Jacobs, the  bar owner in Scorsese’s Alice Doesn’t Live Here Anymore. There are a million ways to play this character, but it’s hard to imagine anything more believable than the way he did it.</p>
-          </div>
-        </div>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
 
 <script>
   var Bootstrap = Bootstrap || {};
-  Bootstrap.postCount = 5;
+  Bootstrap.postCount = <%= memoirs.length %>;
 </script>
 <%= javascript_include_tag :memoirs_admin %>
 

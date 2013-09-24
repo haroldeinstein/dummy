@@ -2,41 +2,71 @@
 
 function emptyPostHTML() {
   var html = '';
-  html += '<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" class="memoir">';
-  html += '<tr>';
-  html += '<td valign="middle">';
   html += '<div id="modal">';
-  html += '<div class="post clearfix">';
-  html += '<div class="image">';
-  html += '<img src="">';
+  html += '<form accept-charset="UTF-8" action="/admin/the-special-ones" class="new_memoir" enctype="multipart/form-data" id="new_memoir" method="post">';
+  html += '<h3>image</h3>';
+  html += '<div id="new-image"></div>';
+  html += '<h3>caption</h3>';
+  html += '<textarea name="memoir[caption]" id="new-caption"></textarea>';
+  html += '</form>'
   html += '</div>';
-  html += '<div class="captions empty">';
-  html += '<p class="caption"></p>';
-  html += '</div></div></div>';
-  html += '</td>';
-  html += '</tr>';
-  html += '</table>';
 
   return html;
 }
 
+function hideEmptyPost() {
+  var $overlay = $('#overlay');
+  $overlay.removeClass('open');
+  $('#modal').remove();
+  setTimeout(function() {
+    $overlay.remove();
+  }, 300);
+  $('#save-button').removeClass('active').addClass('disabled');
+}
+
 function showEmptyPost() {
+  var $window = $(window);
+  var windowHeight = $window.height();
+  var windowWidth = $window.width();
   var $post = $(this.emptyPostHTML());
-  var $uploader = $('.image-uploader').clone();
+  var $uploader = $('.form-data').clone();
   $uploader.removeClass('hide');
-  $post.find('.image').append($uploader);
-  $('body').append($post);
+  $('body').append($post).append('<div id="overlay"></div>');
+  $('#new-image').append($uploader);
+
+  var postHeight = $post.outerHeight();
+  var postWidth = $post.outerWidth();
+
+  $post.hide();
+
+  $post.css({
+    top: (windowHeight / 2) - (postHeight / 2),
+    left: (windowWidth / 2) - (postWidth / 2)
+  });
+
+  $post.show();
+
+  var $overlay = $('#overlay');
+  $overlay.addClass('open');
+  $overlay.bind('click', function() {
+    hideEmptyPost();
+  });
 
   $post.find('input[type="file"]').bind('change', function(e) {
-    var input = $(this)[0];
+    var $self = $(this);
+    var input = $self[0];
     var reader = new FileReader();
 
     reader.onload = function(e) {
       var src = e.target.result;
-      $post.find('.image img').attr('src', src);
+      var $img = $('<img src="' + src + '" />');
+      $self.hide();
+      $('#new-image').append($img);
     };
 
     var src = reader.readAsDataURL(input.files[0]);
+
+    $('#save-button').removeClass('disabled').addClass('active');
   });
 }
 
@@ -54,5 +84,10 @@ $(document).ready(function() {
 
   $('#add-action').bind('click', function() {
     showEmptyPost();
+  });
+
+  $('#save-button').bind('click', function(e) {
+    if ($(this).hasClass('disabled')) return;
+    $('#new_memoir').submit();
   });
 });
