@@ -15,40 +15,6 @@ Slidr.prototype = {
     $('.post').css('width', this.containerWidth);
   },
 
-  showEmptyPost: function() {
-    var $post = $(this.emptyPostHTML());
-    var $uploader = $('.image-uploader').clone();
-    $uploader.removeClass('hide');
-    $post.find('.image').append($uploader);
-    $('body').append($post);
-
-    $post.find('input[type="file"]').bind('change', function(e) {
-      var input = $(this)[0];
-      var reader = new FileReader();
-
-      reader.onload = function(e) {
-        var src = e.target.result;
-        $post.find('.image img').attr('src', src);
-      };
-
-      var src = reader.readAsDataURL(input.files[0]);
-    });
-  },
-
-  emptyPostHTML: function() {
-    var html = '';
-    html += '<div id="modal">';
-    html += '<div class="post clearfix">';
-    html += '<div class="image">';
-    html += '<img src="">';
-    html += '</div>';
-    html += '<div class="captions empty">';
-    html += '<p class="caption"></p>';
-    html += '</div></div></div>';
-
-    return html;
-  },
-
   seekTo: function(index) {
     $('#post-container').animate({ 'left' : -this.containerWidth * index });
   },
@@ -58,7 +24,6 @@ Slidr.prototype = {
     this.idx++;
     if (this.idx > test) {
       this.idx = test;
-      alert('last post');
       return;
     }
 
@@ -69,7 +34,6 @@ Slidr.prototype = {
     this.idx--;
     if (this.idx < 0) {
       this.idx = 0;
-      alert('first post');
       return;
     }
 

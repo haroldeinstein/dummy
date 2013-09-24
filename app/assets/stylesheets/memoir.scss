@@ -1,5 +1,5 @@
 #special-ones {
-  padding: 0em 0em 5.0em 0em ;
+  padding: 0em 0em 5.0em 0em;
 }
 
 #description {
@@ -8,11 +8,12 @@
   max-width: 63.2em;
 }
 
+#post-container-container-container {
+  overflow: scroll;
+}
+
 #post-container-container {
-  width: 100%;
-  overflow: hidden;
   position: relative;
-  height: 500px;
 }
 
 .arrow {
@@ -24,28 +25,19 @@
   z-index: 1;
 }
 
-#previous {
-  @extend .arrow;
-  left: 0px;
-}
-
-#next {
-  @extend .arrow;
-  right: 0px;
-}
-
 #post-container {
   width: 100%;
-  position: absolute;
+  padding-bottom: 30px;
 
   .post {
     position: relative;
     float: left;
     height: 100%;
     width: 0px;
+    max-width: 103.8em;
 
     .image {
-      width: 70%;
+      width: 61.0em;
 
       img {
         width: 100%;
