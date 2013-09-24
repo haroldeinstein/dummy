@@ -1,0 +1,42 @@
+<%= content_for :stylesheets do %>
+  <%= stylesheet_link_tag :directors %>
+<% end %>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="90%">
+  <tbody>
+    <tr>
+      <td valign="middle">
+        <div id="director" class="clearfix">
+          <div id="videos-list">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+              <tbody>
+                <tr>
+                  <td valign="middle">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="videos-container">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+              <tbody>
+                <tr>
+                  <td valign="middle">
+                    <div id="video-player">
+                      <iframe src="https://einstein.wiredrive.com/?routekey=iframe-embed&token=32b988487a0cab3085ce6f28fee20162&autoplay=0&loop=0&controls=1&color=4EB7D4" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency></iframe>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag :director %>
+<% end %>
