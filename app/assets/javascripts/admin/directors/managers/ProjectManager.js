@@ -54,6 +54,7 @@ ProjectManager.prototype = {
       type: 'PUT',
       success: function(response, status, xhr) {
         if (opts && opts.success) opts.success();
+        $('#save-button').removeClass('active').addClass('disabled');
       },
       error: function(response) {
       }
