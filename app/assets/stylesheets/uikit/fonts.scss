@@ -32,7 +32,7 @@ h3 {
   @extend .header;
 }
 
-p, address {
+textarea, p, address {
   font-size: 1.7em;
   font-family: $gotham;
   font-weight: 300;
