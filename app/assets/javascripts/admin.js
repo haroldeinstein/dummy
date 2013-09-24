@@ -3,6 +3,7 @@
 //= require libs/jquery-ui-min.js
 
 $(document).ready(function() {
+  /*
   $('#navbar').on('click', '.new-director', function() {
     var $li = $(this);
     var $input = $('<input type="text"></input>');
@@ -30,4 +31,5 @@ $(document).ready(function() {
       }
     });
   });
+  */
 });
