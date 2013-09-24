@@ -2,9 +2,21 @@ class MemoirsController < ApplicationController
   def index
   end
 
+  def show
+    render json: Memoir.all.as_json
+  end
+
   def create
     puts params
     @memoir = Memoir.new(params[:memoir])
+    if @memoir.save
+      redirect_to "/admin/the-special-ones"
+    end
+  end
+
+  def update
+    @memoir = Memoir.find(params[:memoir_id])
+    @memoir.attributes = params[:memoir]
     if @memoir.save
       redirect_to "/admin/the-special-ones"
     end

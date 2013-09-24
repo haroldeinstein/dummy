@@ -23,7 +23,7 @@
         </div>
 
         <% memoirs.each do |memoir| %>
-          <div class="post clearfix">
+          <div class="post clearfix" data-id="<%= memoir.id %>">
             <div class="image">
               <img src="<%= memoir.image %>">
             </div>
@@ -44,5 +44,7 @@
   var Bootstrap = Bootstrap || {};
   Bootstrap.postCount = <%= memoirs.length %>;
 </script>
-<%= javascript_include_tag :memoirs_admin %>
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag :memoirs_admin %>
+<% end %>
 
