@@ -28,7 +28,7 @@ class AdminController < ApplicationController
   protected
 
   def memoirs
-    @memoirs || Memoir.all
+    @memoirs ||= Memoir.published.all
   end
   helper_method :memoirs
 
