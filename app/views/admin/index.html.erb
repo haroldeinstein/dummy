@@ -26,6 +26,7 @@
                 <% for director in @directors %>
                   <li><h2 class="home"><%= link_to director.name.downcase, admin_director_path(director) %></h2></li>
                 <% end %>
+                <li class="new-director"><div class="add"></div><h3>new director</h3></li>
               </ul>
             </div>
 

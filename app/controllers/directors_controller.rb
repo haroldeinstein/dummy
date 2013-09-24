@@ -2,6 +2,13 @@ class DirectorsController < ApplicationController
   def index
   end
 
+  def create
+    @director = Director.new(params[:director])
+    if @director.save
+      render json: @director.as_json
+    end
+  end
+
   private
 
   def director

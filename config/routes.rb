@@ -19,11 +19,12 @@ Dummy::Application.routes.draw do
 
   # api
   begin
-    get '/api/admin/projects', to: 'projects#show'
-    get '/api/admin/reps',     to: 'contact#show'
-    get '/api/admin/memoirs',  to: 'memoirs#show'
-    put '/api/admin/projects', to: 'projects#update'
-    put '/api/admin/reps',     to: 'contact#update'
+    get  '/api/admin/projects',  to: 'projects#show'
+    get  '/api/admin/reps',      to: 'contact#show'
+    get  '/api/admin/memoirs',   to: 'memoirs#show'
+    put  '/api/admin/projects',  to: 'projects#update'
+    put  '/api/admin/reps',      to: 'contact#update'
+    post '/api/admin/directors', to: 'directors#create'
   end
 
   begin
