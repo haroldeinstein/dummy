@@ -27,7 +27,7 @@
       <% @rep_locations.each do |rl| %>
         <div class="rep" id="p_<%= rl.location %>" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
           <p class="location"><%= rl.location %></p>
-          <% rl.reps.sort_by!{|rep| rep.id}.each do |r| %>
+          <% rl.reps.order('id ASC').each do |r| %>
             <p class="bold"><%= r.name %></p>
           <% end %>
         </div>

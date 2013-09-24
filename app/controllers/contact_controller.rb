@@ -1,6 +1,6 @@
 class ContactController < ApplicationController
   def index
-    @rep_locations = RepLocation.all
+    @rep_locations = RepLocation.order("id ASC").all
   end
 
   def show
