@@ -101,7 +101,6 @@ RepManager.prototype = {
   updateSort: function(sort) {
     var ids = sort.match(/(\d+)/g);
     $('#save-button').removeClass('disabled').addClass('active');
-    console.log(ids);
 
     for (var i = 0; i < ids.length; i++) {
       var video = this.repLocations.where({vimeo_id: parseInt(ids[i])})[0];
@@ -210,7 +209,6 @@ RepManager.prototype = {
   },
 
   repTemplate: function(data) {
-    console.log(data);
     var html = '';
     html += '<div class="rep" data-id="' + data.id + '" data-location="' + data.location + '">';
     html += '<p class="location">';

@@ -6,15 +6,15 @@ function WiredriveManager(opts) {
 
 WiredriveManager.prototype = {
   prepareVideoData: function(v) {
+    var date = new Date(v.pubDate);
     var obj = {
-      id: v.id,
+      id: parseInt([date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()].join(''), 10),
       wiredrive_id: v.id,
-      title: v.title,
-      video_url: v.video_url,
-      // video_url: v.video_url.match(/token=[a-zA-Z0-9]+/)[0].replace('token=', ''),
-      thumbnail_small: v.thumbnail_small,
-      thumbnail_medium: v.thumbnail_medium,
-      thumbnail_large: v.thumbnail_large
+      title: [v.credit, v.title].join('-'),
+      video_url: v.enclosure.url,
+      thumbnail_small: v.thumbnail[2].url,
+      thumbnail_medium: v.thumbnail[0].url,
+      thumbnail_large: v.thumbnail[3].url
     }
     return obj;
   },
@@ -22,8 +22,10 @@ WiredriveManager.prototype = {
   fetch: function(opts) {
     var manager = this;
     $.get('/api/admin/news', function(response) {
-      for (var i = 0; i < response.length; i++) {
-        var model = new VideoModel(manager.prepareVideoData(response[i]));
+      var items = response.rss.channel.item;
+      for (var i = 0; i < items.length; i++) {
+        var obj = manager.prepareVideoData(items[i]);
+        var model = new VideoModel(obj);
         manager.videos.add(model);
       }
       opts.onFetch();
