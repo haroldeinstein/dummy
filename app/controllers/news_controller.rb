@@ -57,4 +57,11 @@ class NewsController < ApplicationController
     render json: News.all.as_json
   end
 
+  protected
+
+  def news
+    @news ||= News.order("sort_index").all
+  end
+  helper_method :news
+
 end

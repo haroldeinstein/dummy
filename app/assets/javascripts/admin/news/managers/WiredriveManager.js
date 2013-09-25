@@ -11,6 +11,7 @@ WiredriveManager.prototype = {
       wiredrive_id: v.id,
       title: v.title,
       video_url: v.video_url,
+      // video_url: v.video_url.match(/token=[a-zA-Z0-9]+/)[0].replace('token=', ''),
       thumbnail_small: v.thumbnail_small,
       thumbnail_medium: v.thumbnail_medium,
       thumbnail_large: v.thumbnail_large

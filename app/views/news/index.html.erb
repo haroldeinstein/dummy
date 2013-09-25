@@ -12,6 +12,13 @@
               <tbody>
                 <tr>
                   <td valign="middle">
+                    <% news.each do |n| %>
+                      <h3 class="project">
+                        <a data-wiredriveid="<%= n.wiredrive_id %>" data-id="<%= n.id %>" href="#">
+                          <%= n.title %>
+                        </a>
+                      </h3>
+                    <% end %>
                   </td>
                 </tr>
               </tbody>
@@ -24,7 +31,7 @@
                 <tr>
                   <td valign="middle">
                     <div id="video-player">
-                      <iframe src="https://einstein.wiredrive.com/?routekey=iframe-embed&token=32b988487a0cab3085ce6f28fee20162&autoplay=0&loop=0&controls=1&color=4EB7D4" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency></iframe>
+                      <iframe src="https://einstein.wiredrive.com/?routekey=iframe-embed&token=<%= news.last.try(:video_url) %>&autoplay=0&loop=0&controls=1&color=4EB7D4" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency></iframe>
                     </div>
                   </td>
                 </tr>
