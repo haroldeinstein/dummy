@@ -11,6 +11,7 @@ VimeoManager.prototype = {
       video_url: v.url,
       vimeo_id: v.id,
       id: v.id,
+      director_id: Bootstrap.director_id,
       thumbnail_small: v.thumbnail_small,
       thumbnail_medium: v.thumbnail_medium,
       thumbnail_large: v.thumbnail_large
