@@ -52,6 +52,7 @@
 <script>
   var Bootstrap = {};
   Bootstrap.director_id = <%= @director.id %>;
+  Bootstrap.username = "<%= @director.vimeo_username %>";
 </script>
 
 <%= content_for :javascripts do %>
