@@ -1,3 +1,0 @@
-url: https://einstein.wiredrive.com/
-username: heinstein
-password: scooter

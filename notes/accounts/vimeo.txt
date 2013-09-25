@@ -1,2 +1,0 @@
-email: harold.einstein@mac.com
-password: vimeoscooter
