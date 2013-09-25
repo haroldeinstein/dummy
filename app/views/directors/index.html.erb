@@ -13,7 +13,11 @@
                 <tr>
                   <td valign="middle">
                     <% projects.each do |p| %>
-                      <h3 class="project" data-vimeoid="<%= p.vimeo_id %>" data-id="<%= p.id %>"><%= p.title %></h3>
+                      <h3 class="project">
+                        <a data-vimeoid="<%= p.vimeo_id %>" data-id="<%= p.id %>" href="#">
+                          <%= p.title %>
+                        </a>
+                      </h3>
                     <% end %>
                   </td>
                 </tr>
