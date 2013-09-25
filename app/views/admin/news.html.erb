@@ -16,11 +16,11 @@
                 <tr>
                   <td valign="middle">
                     <div id="videos-list">
-                      <% @projects.each do |p| %>
-                        <div style="position: relative;" class="video-title" id="p_<%= p.vimeo_id %>">
-                          <h3 class="project"><%= p.title %></h3>
-                          <a href="#" class="reorder-video" data-id="<%= p.vimeo_id %>"></a>
-                          <a href="#" class="remove-video" data-id="<%= p.vimeo_id %>"></a>
+                      <% @news.each do |n| %>
+                        <div style="position: relative;" class="video-title" id="n_<%= n.wiredrive_id %>">
+                          <h3 class="project"><%= n.title %></h3>
+                          <a href="#" class="reorder-video" data-id="<%= n.wiredrive_id %>"></a>
+                          <a href="#" class="remove-video" data-id="<%= n.wiredrive_id %>"></a>
                         </div>
                       <% end %>
                     </div>
@@ -36,7 +36,7 @@
                 <tr>
                   <td valign="middle">
                     <div id="video-player-container">
-                      <div id="videos" style="background-image: url(<%= @projects.first.try(:thumbnail_large) %>);"></div>
+                      <div id="videos" style="background-image: url(<%= @news.first.try(:thumbnail_large) %>);"></div>
                     </div>
                   </td>
                 </tr>
@@ -51,11 +51,9 @@
 
 <script>
   var Bootstrap = {};
-  Bootstrap.director_id = <%= @director.id %>;
-  Bootstrap.username = "<%= @director.vimeo_username %>";
 </script>
 
 <%= content_for :javascripts do %>
-  <%= javascript_include_tag :directors_admin %>
+  <%= javascript_include_tag :news_admin %>
 <% end %>
 

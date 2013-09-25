@@ -210,6 +210,7 @@ RepManager.prototype = {
   },
 
   repTemplate: function(data) {
+    console.log(data);
     var html = '';
     html += '<div class="rep" data-id="' + data.id + '" data-location="' + data.location + '">';
     html += '<p class="location">';

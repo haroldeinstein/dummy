@@ -21,8 +21,13 @@ class AdminController < ApplicationController
   end
 
   def memoir
-    @memoir = Memoir.new()
+    @memoir = Memoir.new
     @add_action = "new post"
+  end
+
+  def news
+    @news = News.order("sort_index ASC")
+    @add_action = "show videos"
   end
 
   protected

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130924204750) do
+ActiveRecord::Schema.define(:version => 20130925181934) do
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(:version => 20130924204750) do
     t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.string   "video_url"
+    t.string   "thumbnail_large"
+    t.string   "thumbnail_medium"
+    t.string   "thumbnail_small"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "wiredrive_id",     :limit => 8
+    t.integer  "sort_index",                    :default => 0
   end
 
   create_table "projects", :force => true do |t|

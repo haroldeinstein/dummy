@@ -1,12 +1,10 @@
-function ProjectManager() {
-  this.videos = new VideosCollection();
+function NewsEntryManager() {
+  this.videos = new NewsCollection();
 
-  this.videos.fetch({
-    data: { director_id: Bootstrap.director_id }
-  });
+  this.videos.fetch()
 }
 
-ProjectManager.prototype = {
+NewsEntryManager.prototype = {
   addVideo: function(video, opts) {
     var manager = this;
     this.videos.add(video);
@@ -34,7 +32,7 @@ ProjectManager.prototype = {
     var ids = sort.match(/(\d+)/g);
     $('#save-button').removeClass('disabled').addClass('active');
     for (var i = 0; i < ids.length; i++) {
-      var video = this.videos.where({vimeo_id: parseInt(ids[i])})[0];
+      var video = this.videos.where({wiredrive_id: parseInt(ids[i])})[0];
       video.set('sort_index', i);
     }
   },
@@ -43,12 +41,11 @@ ProjectManager.prototype = {
     var videos = this.videos.toJSON();
     var data = {
       authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
-      director_id: Bootstrap.director_id,
-      projects: this.videos.toJSON()
+      news: videos
     };
 
     $.ajax({
-      url: '/api/admin/projects',
+      url: '/api/admin/news',
       data: data,
       type: 'PUT',
       success: function(response, status, xhr) {
