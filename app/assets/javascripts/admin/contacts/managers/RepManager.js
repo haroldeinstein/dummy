@@ -147,6 +147,7 @@ RepManager.prototype = {
       data: data,
       type: 'PUT',
       success: function(response, status, xhr) {
+        $('#save-button').removeClass('active').addClass('disabled');
         if (opts && opts.success) opts.success();
       },
       error: function(response) {
