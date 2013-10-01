@@ -22,3 +22,34 @@
   height: 90px;
   text-transform: lowercase;
 }
+
+@media screen and (max-width: 780px) {
+  #office, #reps {
+    float: none;
+  }
+
+  #reps {
+    margin-left: 10.0em;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .contact-content {
+    padding-top: 4.0em;
+  }
+
+  #office, #reps {
+    margin-left: 5em;
+    margin-top: 5em;
+  }
+
+  #reps {
+    width: auto;
+  }
+
+  .rep {
+    width: auto;
+    float: none;
+  }
+}
+

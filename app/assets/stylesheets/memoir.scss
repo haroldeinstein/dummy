@@ -80,20 +80,23 @@
 @media screen and (max-width: 718px) {
   #post-container {
     width: 100% !important;
-  }
-  .post {
-    float: none;
-  }
-  .image {
-    float: none;
-  }
-  .captions {
-    position: relative;
-    float: right;
-  }
-  p.caption {
-    font-size: 1.7em;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    .post {
+      float: none;
+      margin-bottom: 5.0em;
+      width: 100% !important;
+    }
+    .image {
+      float: none;
+      width: 100%;
+    }
+    .captions {
+      position: relative;
+      float: right;
+    }
+    p.caption {
+      font-size: 1.7em;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
   }
 }
