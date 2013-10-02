@@ -97,17 +97,14 @@ RepManager.prototype = {
     $("#reps").append($(html));
   },
 
-  /*
   updateSort: function(sort) {
-    var ids = sort.match(/(\d+)/g);
-    $('#save-button').removeClass('disabled').addClass('active');
-
-    for (var i = 0; i < ids.length; i++) {
-      var video = this.repLocations.where({vimeo_id: parseInt(ids[i])})[0];
-      video.set('sort_index', i);
+    var locations = sort.replace(/sort=/g, '').split('&');
+    for (var i = 0; i < locations.length; i++) {
+      var location = this.repLocations.where({"location": locations[i]})[0];
+      location.set('sort_index', i);
     }
+    $('#save-button').removeClass('disabled').addClass('active');
   },
-  */
 
   updateRepLocation: function(location, data, success) {
     repLocation = this.repLocations.where({"location":location})[0];

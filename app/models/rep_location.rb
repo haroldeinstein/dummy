@@ -1,5 +1,5 @@
 class RepLocation < ActiveRecord::Base
-  attr_accessible :location
+  attr_accessible :location, :sort_index
 
   has_many :reps, dependent: :destroy
 
@@ -12,3 +12,15 @@ class RepLocation < ActiveRecord::Base
     )
   end
 end
+
+# == Schema Information
+#
+# Table name: rep_locations
+#
+#  id         :integer          not null, primary key
+#  location   :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  sort_index :string(255)
+#
+
