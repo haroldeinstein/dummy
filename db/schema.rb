@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925181934) do
+ActiveRecord::Schema.define(:version => 20131002215050) do
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -57,10 +57,7 @@ ActiveRecord::Schema.define(:version => 20130925181934) do
     t.string   "location"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "sort_index"
   end
-
-  add_index "rep_locations", ["sort_index"], :name => "index_rep_locations_on_sort_index"
 
   create_table "reps", :force => true do |t|
     t.integer  "rep_location_id"
