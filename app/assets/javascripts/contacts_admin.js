@@ -28,6 +28,7 @@ $(document).ready(function() {
   });
 
   $('#save-button').bind('click', function(e) {
+    if ($(this).hasClass('disabled')) return;
     manager.save();
   });
 });

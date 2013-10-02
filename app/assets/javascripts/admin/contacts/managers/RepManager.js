@@ -66,8 +66,17 @@ RepManager.prototype = {
 
 
     $('#cancel').bind('click', function() {
-      $body.removeClass('has-modal');
       manager.hideModal();
+    });
+
+    $('#delete').bind('click', function() {
+      var loc = $('#hidden-location').val();
+      var repLocation = manager.repLocations.where({"location": loc})[0];
+      console.log(repLocation);
+      repLocation.set('delete', true);
+      manager.hideModal();
+      $('.rep').filter('[data-location="'+repLocation.get("location")+'"]').remove();
+      $('#save-button').removeClass('disabled').addClass('active');
     });
 
     $(document).bind('keypress', function(e) {
@@ -81,6 +90,7 @@ RepManager.prototype = {
   },
 
   hideModal: function() {
+    $('body').removeClass('has-modal');
     $('#rep-modal-container').remove();
   },
 
@@ -157,6 +167,9 @@ RepManager.prototype = {
     html = '<div id="rep-modal-container">';
     html += '<div id="rep-modal">';
 
+    if (repLocation)
+      html += '<input type="hidden" id="hidden-location" value="' + repLocation.location + '">';
+
     html += '<input class="light" id="location" type="text" placeholder="location" value="';
     if (repLocation)
       html += repLocation.location;
@@ -194,9 +207,11 @@ RepManager.prototype = {
         html += repLocation.reps[1].email_address;
       html += '" /><br>';
 
-    html += '<button id="cancel" class="btn neutral" style="width: 48%;">cancel</button>';
-    if (repLocation)
+    html += '<button id="cancel" class="delete-location"></button>';
+    if (repLocation) {
+      html += '<button id="delete" class="btn neutral" style="width: 48%;">delete</button>';
       html += '<button id="add-rep" class="btn positive" style="width: 48%;margin-left:8px;">update</button>';
+    }
     else
       html += '<button id="add-rep" class="btn positive" style="width: 48%;margin-left:8px;">add</button>';
 
