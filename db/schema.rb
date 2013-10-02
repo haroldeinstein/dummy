@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131002215050) do
+ActiveRecord::Schema.define(:version => 20131002215141) do
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -55,8 +55,9 @@ ActiveRecord::Schema.define(:version => 20131002215050) do
 
   create_table "rep_locations", :force => true do |t|
     t.string   "location"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "sort_index", :default => 0
   end
 
   create_table "reps", :force => true do |t|
