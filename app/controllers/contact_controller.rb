@@ -15,7 +15,7 @@ class ContactController < ApplicationController
         rep_location.destroy
       else
         rep_location.location = rl["location"]
-        rep_location.sort_index = rl["sort_index"]
+        rep_location.sort_index = rl["sort_index"] || rep_location.sort_index
 
         (rl["reps"] || []).each do |k, r|
           rep = Rep.find(r["id"]) if r["id"].present?
