@@ -3,6 +3,7 @@
 <head>
   <title>Dummy</title>
   <%= stylesheet_link_tag "base", :media => "all" %>
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7214052/788882/css/fonts.css" />
   <%= yield :stylesheets %>
   <%= javascript_include_tag "base" %>
   <meta charset="utf-8">
@@ -20,6 +21,10 @@
   <%= yield %>
 </div>
 
+<script>
+  var customPath = "../../fonts";
+</script>
+<script type="text/javascript" src="../../fonts/dummyfilm.js"></script>
 <%= yield :javascripts %>
 
 </body>
