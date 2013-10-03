@@ -57,11 +57,11 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: #fff32a;
+    color: rgb(255, 243, 42);
   }
 }
 
-@media screen and (max-width: 1063px) {
+@media screen and (max-width: 1064px) {
   h2 {
     font-size: 2.2em;
   }
