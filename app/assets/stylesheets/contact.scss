@@ -2,34 +2,42 @@
   padding-top: 8.0em;
 }
 
+.contact-headline {
+  text-align: center;
+}
+
+.contact-body {
+  padding: 0em 9.0em;
+  margin: 0px auto;
+}
+
 #office, #reps {
   margin-top: 10.0em;
 }
 
 #office {
   float: left;
-  margin-left: 10.0em;
 }
 
 #reps {
   float: right;
-  width: 400px;
+  display: inline-block;
 }
 
 .rep {
   float: left;
-  width: 200px;
-  height: 90px;
+  min-height: 9.0em;
+  margin-left: 6.0em;
   text-transform: lowercase;
+
+  &.first {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 780px) {
   #office, #reps {
     float: none;
-  }
-
-  #reps {
-    margin-left: 10.0em;
   }
 }
 
