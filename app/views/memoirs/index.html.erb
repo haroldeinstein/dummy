@@ -13,22 +13,24 @@
     </div>
   </div>
 
-  <div id="post-container-container-container">
-    <div id="post-container-container" class="w1064 ">
-      <div id="post-container" class="clearfix">
+  <div id="post-container-container-container-container">
+    <div id="post-container-container-container">
+      <div id="post-container-container" class="w1064 ">
+        <div id="post-container" class="clearfix">
 
-        <% memoirs.each do |memoir| %>
-          <div class="post clearfix">
-            <div class="image">
-              <img src="<%= memoir.image %>">
+          <% memoirs.each do |memoir| %>
+            <div class="post clearfix">
+              <div class="image">
+                <img src="<%= memoir.image %>">
+              </div>
+              <div class="captions">
+                <p class="caption">
+                  <%= memoir.caption %>
+                </p>
+              </div>
             </div>
-            <div class="captions">
-              <p class="caption">
-                <%= memoir.caption %>
-              </p>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
