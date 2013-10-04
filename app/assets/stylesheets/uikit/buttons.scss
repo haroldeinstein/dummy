@@ -98,3 +98,9 @@
 .welcome-index .back {
   display: none;
 }
+
+@media screen and (max-width: 320px) {
+  .back {
+    display: none;
+  }
+}

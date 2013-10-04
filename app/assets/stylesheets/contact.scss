@@ -61,3 +61,23 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .contact-headline {
+    text-align: left;
+  }
+
+  .rep {
+    margin-left: 0px;
+  }
+
+  .contact-body {
+    padding: 0px;
+  }
+
+  #office, #reps {
+    margin-left: 0px;
+    float: none;
+    display: block;
+  }
+}
+
