@@ -9,6 +9,7 @@
   margin: 0px auto;
   padding: 0em 2.0em;
   max-width: 106.4em;
+  min-width: 96.0em;
   width: 100%;
   box-sizing: border-box;
 }
@@ -25,4 +26,10 @@
 
 .clearfix {
   *zoom: 1;
+}
+
+@media screen and (max-width: 320px) {
+  .w1064 {
+    min-width: 0px;
+  }
 }

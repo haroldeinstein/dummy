@@ -74,14 +74,14 @@
   .nav-item {
     float: none;
     display: inline-block;
-    margin-left: 0px;
-    margin-bottom: 16px;
-
+    margin-left: 0em;
+    margin-bottom: 1.6em;
+    width: 100%;
   }
 
   h2.home {
     font-weight: normal;
-    font-size: 24px;
+    font-size: 2.4em;
     text-align: center;
   }
 
@@ -97,5 +97,24 @@
     height: 80% !important;
   }
 
+  h2.home a {
+    display: block;
+  }
 }
 
+@media screen and (max-height: 360px) {
+  body {
+
+  }
+  #navbar {
+    margin-top: 3em;
+  }
+
+  .nav-item {
+    margin-bottom: 1.2em;
+  }
+
+  h2.news {
+    padding-top: 14px;
+  }
+}
