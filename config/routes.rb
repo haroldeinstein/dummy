@@ -35,7 +35,9 @@ Dummy::Application.routes.draw do
     get '/hey',              to: 'contact#index'
     get '/news',             to: 'news#index'
     get '/the-special-ones', to: 'memoirs#index'
-    get '/:director',        to: 'directors#index', as: 'director'
   end
 
+  get '/auth/vimeo/callback', to: 'auths#vimeo'
+
+  get '/:director',        to: 'directors#index', as: 'director'
 end
