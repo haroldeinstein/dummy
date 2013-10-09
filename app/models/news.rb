@@ -1,5 +1,5 @@
 class News < ActiveRecord::Base
-  attr_accessible :sort_index, :thumbnail_large, :thumbnail_medium, :thumbnail_small, :title, :video_url, :wiredrive_id, :created_at, :updated_at
+  attr_accessible :sort_index, :thumbnail_large, :thumbnail_medium, :thumbnail_small, :title, :video_url, :vimeo_id, :created_at, :updated_at
 end
 
 # == Schema Information
@@ -14,7 +14,7 @@ end
 #  thumbnail_small  :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  wiredrive_id     :integer
+#  vimeo_id         :integer
 #  sort_index       :integer          default(0)
 #
 

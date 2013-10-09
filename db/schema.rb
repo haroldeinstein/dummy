@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131002215141) do
+ActiveRecord::Schema.define(:version => 20131009220751) do
+
+  create_table "auths", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "verifier"
+  end
+
+  add_index "auths", ["user_id"], :name => "index_auths_on_user_id"
 
   create_table "directors", :force => true do |t|
     t.string   "name"
@@ -36,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20131002215141) do
     t.string   "thumbnail_small"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
-    t.integer  "wiredrive_id",     :limit => 8
+    t.integer  "vimeo_id",         :limit => 8
     t.integer  "sort_index",                    :default => 0
   end
 

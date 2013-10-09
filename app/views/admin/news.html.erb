@@ -17,10 +17,10 @@
                   <td valign="middle">
                     <div id="videos-list">
                       <% @news.each do |n| %>
-                        <div style="position: relative;" class="video-title" id="n_<%= n.wiredrive_id %>">
+                        <div style="position: relative;" class="video-title" id="n_<%= n.vimeo_id %>">
                           <h3 class="project"><%= n.title %></h3>
-                          <a href="#" class="reorder-video" data-id="<%= n.wiredrive_id %>"></a>
-                          <a href="#" class="remove-video" data-id="<%= n.wiredrive_id %>"></a>
+                          <a href="#" class="reorder-video" data-id="<%= n.vimeo_id %>"></a>
+                          <a href="#" class="remove-video" data-id="<%= n.vimeo_id %>"></a>
                         </div>
                       <% end %>
                     </div>
@@ -51,6 +51,7 @@
 
 <script>
   var Bootstrap = {};
+  Bootstrap.has_auth = <%= @has_auth %>
 </script>
 
 <%= content_for :javascripts do %>

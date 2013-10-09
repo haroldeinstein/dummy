@@ -3,14 +3,14 @@
 //= require_tree ./admin/news/managers
 
 function NewsManager() {
-  this.wdManager = {};
+  this.vManager = {};
   this.neManager = {};
 }
 
 NewsManager.prototype = {
   displayVideos: function() {
     var $container = $('#video-options');
-    var videos = this.wdManager.videos.toJSON();
+    var videos = this.vManager.videos.toJSON();
     for (var i = 0; i < videos.length; i++) {
       var video = videos[i];
       var $elem = $('<div class="video" id="'+ video.id +'"><a href="#" data-id="' + video.id + '"><img src="' + video.thumbnail_large + '"></a></div>');
@@ -47,10 +47,17 @@ NewsManager.prototype = {
     }, 300);
   },
 
+  showAuthPopup: function() {
+    var $container = $('<div id="auth-container"></div>');
+    $container.html('<a href="/auth/vimeo">authenticate</a>');
+
+    $('body').append($container);
+  },
+
   makeNameEditable: function($elem) {
     var manager = this;
     var id = $elem.attr('id').split('_')[1];
-    var video = this.neManager.videos.where({wiredrive_id: parseInt(id, 10)})[0];
+    var video = this.neManager.videos.where({vimeo_id: parseInt(id, 10)})[0];
     var title = video.get('title');
     var $input = $('<input class="edit-title" value=""></input>');
     $elem.replaceWith($input);
@@ -64,10 +71,10 @@ NewsManager.prototype = {
     $input.val(title).focus().bind({
       blur: function(e) {
         var $self = $(this);
-        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('wiredrive_id') +'">';
+        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
         html += '<h3 class="project">'+ video.get('title') +'</h3>';
-        html += '<a href="#" class="reorder-video" data-id="'+ video.get('wiredrive_id') +'"></a>';
-        html += '<a href="#" class="remove-video" data-id="'+ video.get('wiredrive_id') +'"></a>';
+        html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'"></a>';
+        html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'"></a>';
         html += '</div>';
 
         $self.replaceWith(html);
@@ -81,7 +88,7 @@ NewsManager.prototype = {
   },
 
   updateSelectedVideos: function() {
-    var ids = this.neManager.videos.pluck('wiredrive_id');
+    var ids = this.neManager.videos.pluck('vimeo_id');
 
     for (var i = 0; i < ids.length; i++) {
       $('#'+ids[i]).addClass('selected');
@@ -92,7 +99,7 @@ NewsManager.prototype = {
 $(document).ready(function() {
   var manager = new NewsManager();
 
-  manager.wdManager = new WiredriveManager({
+  manager.vManager = new VimeoManager({
     onFetch: function() {
       manager.displayVideos();
     }
@@ -110,7 +117,7 @@ $(document).ready(function() {
     var $self = $(this);
     var id = $self.attr('data-id');
 
-    if (manager.neManager.videos.where({wiredrive_id: parseInt(id, 10)}).length > 0) {
+    if (manager.neManager.videos.where({vimeo_id: parseInt(id, 10)}).length > 0) {
       alert("That video is already selected");
       return;
     }
@@ -120,17 +127,17 @@ $(document).ready(function() {
       return;
     }
 
-    var video = new VideoModel(manager.wdManager.videos.get(id).toJSON());
+    var video = new VideoModel(manager.vManager.videos.get(id).toJSON());
 
-    video.set('wiredrive_id', parseInt(id, 10));
+    video.set('vimeo_id', parseInt(id, 10));
     video.unset('id');
 
     manager.neManager.addVideo(video, {
       success: function(video) {
-        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('wiredrive_id') +'">';
+        html =  '<div style="position: relative;" class="video-title" id="p_'+ video.get('vimeo_id') +'">';
         html += '<h3 class="project">'+ video.get('title') +'</h3>';
-        html += '<a href="#" class="reorder-video" data-id="'+ video.get('wiredrive_id') +'"></a>';
-        html += '<a href="#" class="remove-video" data-id="'+ video.get('wiredrive_id') +'"></a>';
+        html += '<a href="#" class="reorder-video" data-id="'+ video.get('vimeo_id') +'"></a>';
+        html += '<a href="#" class="remove-video" data-id="'+ video.get('vimeo_id') +'"></a>';
         html += '</div>';
 
         $('#videos-list').prepend(html);
@@ -144,7 +151,7 @@ $(document).ready(function() {
     e.preventDefault();
     var $self = $(this);
     var id = $self.attr('data-id');
-    var video = manager.neManager.videos.where({wiredrive_id: parseInt(id, 10)})[0];
+    var video = manager.neManager.videos.where({vimeo_id: parseInt(id, 10)})[0];
     manager.neManager.removeVideo(video, {
       success: function() {
         $self.parent('.video-title').remove();
@@ -175,4 +182,8 @@ $(document).ready(function() {
     if ($(this).hasClass('disabled')) return;
     manager.neManager.save();
   });
+
+  if (!Bootstrap.has_auth) {
+    manager.showAuthPopup();
+  }
 });

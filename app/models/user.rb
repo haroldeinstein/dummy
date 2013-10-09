@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :password_digest, :username, :password, :password_confirmation
 
+  has_many :auths
 end
 
 # == Schema Information

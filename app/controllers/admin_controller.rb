@@ -27,6 +27,7 @@ class AdminController < ApplicationController
 
   def news
     @news = News.order("sort_index ASC")
+    @has_auth = Auth.where(provider: "vimeo").count > 0
     @add_action = "show videos"
   end
 

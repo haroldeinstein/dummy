@@ -8,10 +8,21 @@ class NewsController < ApplicationController
   end
 
   def show
+    # xml = RestClient.get "http://www.wdcdn.net/rss/presentation/library/client/einstein/id/6ec339069c4992c58105fbece54e6e30"
+    # json = Hash.from_xml(xml).to_json
+    auth = Auth.last
+    album = Vimeo::Advanced::Album.new(VIMEO_CONFIG["key"], VIMEO_CONFIG["secret"], :token => auth.token, :secret => auth.verifier)
+    videos = album.get_videos("2561992", { :page => "1", :per_page => "100", :full_response => "0", :password => "scooter" })["videos"]
+    # ids = videos["video"].map(&:id)
+    ids = []
+    @videos = []
+    videos["video"].each { |v| ids << v["id"] }
+    ids.each do |id|
+      video = Vimeo::Advanced::Video.new(VIMEO_CONFIG["key"], VIMEO_CONFIG["secret"], :token => auth.token, :secret => auth.verifier)
+      @videos << video.get_info(id)["video"]
+    end
 
-    xml = RestClient.get "http://www.wdcdn.net/rss/presentation/library/client/einstein/id/6ec339069c4992c58105fbece54e6e30"
-    json = Hash.from_xml(xml).to_json
-    render json: json
+    render json: @videos
   end
 
   def update

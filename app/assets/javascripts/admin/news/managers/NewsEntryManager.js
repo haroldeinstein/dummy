@@ -32,7 +32,7 @@ NewsEntryManager.prototype = {
     var ids = sort.match(/(\d+)/g);
     $('#save-button').removeClass('disabled').addClass('active');
     for (var i = 0; i < ids.length; i++) {
-      var video = this.videos.where({wiredrive_id: parseInt(ids[i])})[0];
+      var video = this.videos.where({vimeo_id: parseInt(ids[i])})[0];
       video.set('sort_index', i);
     }
   },
