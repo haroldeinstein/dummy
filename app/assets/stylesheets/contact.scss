@@ -6,6 +6,13 @@
   text-align: center;
 }
 
+@media screen and (max-width:1070px) {
+  .contact-headline {
+    padding-left: 88px;
+    text-align: left;
+  }
+}
+
 .contact-body {
   padding: 0em 9.0em;
   margin: 0px auto;
@@ -35,38 +42,18 @@
   }
 }
 
-@media screen and (max-width: 780px) {
-  #office, #reps {
-    float: none;
-  }
-}
-
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 320px) {
   .contact-content {
     padding-top: 4.0em;
   }
 
-  #office, #reps {
-    margin-left: 5em;
-    margin-top: 5em;
-  }
-
-  #reps {
-    width: auto;
-  }
-
-  .rep {
-    width: auto;
-    float: none;
-  }
-}
-
-@media screen and (max-width: 320px) {
   .contact-headline {
     text-align: left;
+    padding-left: 0px;
   }
 
   .rep {
+    float: none;
     margin-left: 0px;
   }
 
@@ -76,6 +63,7 @@
 
   #office, #reps {
     margin-left: 0px;
+    margin-top: 5.0em;
     float: none;
     display: block;
   }

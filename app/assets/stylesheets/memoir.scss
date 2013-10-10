@@ -82,20 +82,32 @@
 }
 
 @media screen and (max-width: 718px) {
+  #description {
+    padding-top: 4.0em;
+  }
+
+  #special-ones {
+    padding: 0em;
+  }
+
+  #post-container-container-container-container {
+    height: auto;
+  }
+
   #post-container {
     width: 100% !important;
     .post {
       float: none;
       margin-bottom: 5.0em;
       width: 100% !important;
-    }
-    .image {
-      float: none;
-      width: 100%;
-    }
-    .captions {
-      position: relative;
-      float: right;
+      .image {
+        float: none;
+        width: 100%;
+      }
+      .captions {
+        position: relative;
+        float: right;
+      }
     }
     p.caption {
       font-size: 1.7em;

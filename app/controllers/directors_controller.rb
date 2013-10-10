@@ -1,5 +1,7 @@
 class DirectorsController < ApplicationController
   def index
+    @video_id = director.projects.order("sort_index").first.try(:vimeo_id)
+    @video_id = Project.find(params[:vid]).vimeo_id if params[:vid].present?
   end
 
   def create

@@ -5,6 +5,7 @@
 
 #director {
   height: 50.0em;
+  min-width: 96.0em;
 }
 
 @media screen and (max-width: 113.0em) {
@@ -26,6 +27,10 @@
   cursor: pointer;
 }
 
+h3.small {
+  display: none;
+}
+
 #videos-container {
   float: right;
   width: 70%;
@@ -45,5 +50,39 @@ iframe {
   position: absolute;
   top: 0em;
   left: 0em;
+}
+
+@media screen and (max-width: 320px) {
+  #director {
+    padding: 0px;
+    min-width: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  #videos-list {
+    padding: 0px;
+    width: 100%;
+  }
+
+  #videos-container {
+    display: none;
+
+    &.show {
+      display: block;
+      width: 100%;
+      margin-top: 0px;
+      height: 35.0em;
+    }
+  }
+
+  h3.large {
+    display: none;
+  }
+
+  h3.small {
+    display: block;
+  }
+
 }
 
