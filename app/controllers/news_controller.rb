@@ -1,6 +1,8 @@
 class NewsController < ApplicationController
 
   def index
+    @video_id = News.order("sort_index").first.try(:vimeo_id)
+    @video_id = News.find(params[:vid]).vimeo_id if params[:vid].present?
   end
 
   def news_entries
