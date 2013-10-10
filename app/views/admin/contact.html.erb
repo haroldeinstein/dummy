@@ -3,40 +3,42 @@
 <% end %>
 
 <div id="contact" class="w1064">
-  <div class="contact_content">
-    <p>
+  <div class="contact-content clearfix">
+    <p class="contact-headline">
       Dummy was started on October 1, 2013 by Director Harold Einstein and his
       longtime Executive Producer, Eric Liney.
     </p>
-    <div id="office">
-      <h2>office</h2>
-      <address>
-        1134 abbot kinney<br>
-        venice, ca 94354<br>
-        phone 310.444.1234
-      </address>
-      <br>
-      <br>
-      <br>
-      <p>executive producer</p>
-      <p class="bold">eric liney</p>
-    </div>
+    <div class="contact-body clearfix">
+      <div id="office">
+        <h2>office</h2>
+        <address>
+          1134 abbot kinney<br>
+          venice, ca 94354<br>
+          phone 310.444.1234
+        </address>
 
-    <div id="reps">
-      <h2>reps</h2>
-      <% @rep_locations.each do |rl| %>
-        <div class="rep" id="p_<%= rl.location %>" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
-          <p class="location"><%= rl.location %></p>
-          <% rl.reps.order('id ASC').each do |r| %>
-            <p class="bold"><%= r.name %></p>
+        <br>
+        <br>
+        <br>
+
+        <p>executive producer</p>
+        <p class="bold">eric liney</p>
+      </div>
+      <div id="reps">
+        <h2>reps</h2>
+        <% @rep_locations.each_with_index do |rl, i| %>
+          <% if i != 0 && i % 2 == 0 %>
+            <br>
           <% end %>
-        </div>
-      <% end  %>
-      <div class="rep blank">
-        <p class="location"></p>
+          <div class="rep <%= "first" if i % 2 == 0  %>" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
+            <p class="location"><%= rl.location %></p>
+            <% rl.reps.order('id ASC').each do |r| %>
+              <p class="bold"><a href="mailto:<%= r.email_address %>"><%= r.name %></a></p>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
-
   </div>
 </div>
 
