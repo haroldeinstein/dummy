@@ -2,6 +2,7 @@ class ContactController < ApplicationController
   def index
     @rep_locations = RepLocation.order("sort_index ASC").all
     @address = Address.last || Address.new
+    @headline = ContactLine.last || ContactLine.new
   end
 
   def show
