@@ -16,7 +16,7 @@ class AdminController < ApplicationController
 
   def contact
     @rep_locations = RepLocation.order("sort_index ASC").all
-    @address = Address.last
+    @address = Address.last || Address.new
     @blanks = Array.new(8 - @rep_locations.length)
     @add_action = "new rep"
   end
