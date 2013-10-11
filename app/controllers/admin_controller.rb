@@ -25,6 +25,7 @@ class AdminController < ApplicationController
 
   def memoir
     @memoir = Memoir.new
+    @description = MemoirDescription.last || MemoirDescription.new
     @add_action = "new post"
   end
 

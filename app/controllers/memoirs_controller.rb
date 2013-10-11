@@ -1,9 +1,19 @@
 class MemoirsController < ApplicationController
   def index
+    @description = MemoirDescription.last || MemoirDescription.new
   end
 
   def show
     render json: Memoir.all.as_json
+  end
+
+  def update_description
+    description = MemoirDescription.last || MemoirDescription.new
+    description.title = params[:description][:title]
+    description.description = params[:description][:description]
+    description.save
+
+    render json: description.as_json
   end
 
   def create

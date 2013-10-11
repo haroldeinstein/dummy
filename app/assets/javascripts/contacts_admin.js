@@ -25,7 +25,7 @@ function showEditHeadline($elem) {
 
   $cancel.css({
     'position' : 'absolute',
-    'left' : offsetLeft - saveWidth - cancelWidth,
+    'left' : offsetLeft - saveWidth - cancelWidth - 2,
     'top' : inputHeight + offsetTop
   });
 
@@ -53,13 +53,13 @@ function hideEditHeadline($input, save) {
       success: function(response, status, xhr) {
         $('#save-headline').remove();
         $('#cancel-headline').remove();
-        $input.replaceWith('<p class="contact-headline">'+headline+'</p>');
+        $input.replaceWith('<p class="contact-headline">' + headline + '</p>');
       }
     });
   } else {
     $('#save-headline').remove();
     $('#cancel-headline').remove();
-    $input.replaceWith('<p class="contact-headline">'+headline+'</p>');
+    $input.replaceWith('<p class="contact-headline">' + headline + '</p>');
   }
 }
 

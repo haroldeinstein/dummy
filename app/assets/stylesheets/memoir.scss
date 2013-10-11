@@ -6,6 +6,7 @@
   padding-top: 8.0em;
   padding-bottom: 4.0em;
   max-width: 63.2em;
+  white-space: pre-wrap;
 }
 
 #post-container-container-container-container {
@@ -84,6 +85,7 @@
 @media screen and (max-width: 718px) {
   #description {
     padding-top: 4.0em;
+    white-space: pre-wrap;
   }
 
   #special-ones {

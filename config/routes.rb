@@ -28,6 +28,7 @@ Dummy::Application.routes.draw do
     put  '/api/admin/headline',     to: 'contact#update_headline'
     put  '/api/admin/address',      to: 'contact#update_address'
     put  '/api/admin/person',       to: 'contact#update_person'
+    put  '/api/admin/description',  to: 'memoirs#update_description'
     post '/api/admin/directors',    to: 'directors#create'
     get  '/api/admin/news',         to: 'news#show'
     get  '/api/admin/news-entries', to: 'news#news_entries'
