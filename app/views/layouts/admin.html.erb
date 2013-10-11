@@ -28,8 +28,12 @@
   <%= yield %>
 </div>
 
-<%= javascript_include_tag :admin %>
-<%= yield :javascripts %>
-
 </body>
+
+<%= javascript_include_tag :admin %>
+<script>
+  var customPath = "../../fonts";
+</script>
+<script type="text/javascript" src="../../fonts/dummyfilm.js"></script>
+<%= yield :javascripts %>
 </html>
