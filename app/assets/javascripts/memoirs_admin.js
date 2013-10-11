@@ -28,7 +28,7 @@ function showEditDescription($elem) {
       data: data,
       success: function(response, status, xhr) {
         hideEditDescription();
-        html = '<h2>' + response.title + '</h2><br><br>';
+        html = '<h2>' + response.title + '</h2>';
         html += '<p class="description">' + response.description + '</p>';
 
         $('#description').html(html);
