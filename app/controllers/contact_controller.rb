@@ -8,7 +8,9 @@ class ContactController < ApplicationController
   end
 
   def update_headline
-    ContactLine.last.update_attribute(:line, params['headline'])
+    line = ContactLine.last || ContactLine.new
+    line.update_attribute(:line, params['headline'])
+
     head :ok
   end
 
