@@ -7,7 +7,7 @@ function showEditHeadline($elem) {
   $elem.replaceWith($input);
 
   var $save = $('<button class="btn active" id="save-headline">save</button>');
-  var $cancel = $('<button class="btn negative" id="cancel-headline">cancel</button>');
+  var $cancel = $('<button class="btn neutral" id="cancel-headline">cancel</button>');
   $save.appendTo('body');
   $cancel.appendTo('body');
 
@@ -132,6 +132,70 @@ function addressHTML(address) {
   return html;
 }
 
+function showEditPerson($elem) {
+  var person = {};
+  person.title = $elem.find('.title').html();
+  person.name = $elem.find('.name').html();
+  person.email = $elem.find('.name').attr('data-email');
+  var $html = $(personHTML(person));
+  $html.appendTo("body").show();
+  var $window = $(window);
+  var $modal = $('#rep-modal-container');
+  $modal.css({
+    left: ($window.width() / 2) - ($modal.outerWidth() / 2),
+    top: ($window.height() / 2) - ($modal.outerHeight() / 2)
+  });
+
+  $('#edit-person-form').bind('submit', function(e) {
+    e.preventDefault();
+    data = $(this).serialize();
+    $.ajax({
+      url: '/api/admin/person',
+      type: 'PUT',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      },
+      data: data,
+      success: function(response, status, xhr) {
+        hideEditAddress();
+        html = '<p class="title">' + response.title + '</p>';
+        html += '<p class="bold name" data-email="' + response.email + '">' + response.name + '</p>';
+
+        $('.office-person').html(html);
+      }
+    });
+    return false;
+  });
+
+  $('#save-person').bind('click', function() {
+    $('#edit-person-form').submit();
+  });
+
+  $('#cancel-person').bind('click', function() {
+    hideEditPerson();
+  });
+}
+
+function hideEditPerson() {
+  $("#rep-modal-container").remove();
+}
+
+function personHTML(person) {
+  var html = '';
+  html += '<div id="rep-modal-container">';
+  html += '<div id="rep-modal">';
+  html += '<form id="edit-person-form" method="put" action="/api/admin/person">';
+  html += '<input name="person[title]" type="text" value="' + person.title + '">';
+  html += '<input name="person[name]" type="text" value="' + person.name + '">';
+  html += '<input name="person[email]" type="text" value="' + person.email + '">';
+  html += '</form>';
+  html += '<button class="btn neutral" id="cancel-person">cancel</button>';
+  html += '<button class="btn active" id="save-person">save</button>';
+  html += '</div>';
+  html += '</div>';
+  return html;
+}
+
 
 $(document).ready(function() {
   var manager = new RepManager();
@@ -171,5 +235,9 @@ $(document).ready(function() {
 
   $('#contact').on('click', '.office-address', function() {
     showEditAddress($(this));
+  });
+
+  $('#contact').on('click', '.office-person', function() {
+    showEditPerson($(this));
   });
 });

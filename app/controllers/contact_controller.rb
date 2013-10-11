@@ -3,6 +3,7 @@ class ContactController < ApplicationController
     @rep_locations = RepLocation.order("sort_index ASC").all
     @address = Address.last || Address.new
     @headline = ContactLine.last || ContactLine.new
+    @person = ContactPerson.last || ContactPerson.new
   end
 
   def show
@@ -21,6 +22,13 @@ class ContactController < ApplicationController
     address.update_attributes(params[:address])
 
     render json: address.as_json
+  end
+
+  def update_person
+    person = ContactPerson.last || ContactPerson.new
+    person.update_attributes(params[:person])
+
+    render json: person.as_json
   end
 
   def update
