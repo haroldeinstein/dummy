@@ -209,7 +209,7 @@ RepManager.prototype = {
 
     html += '<button id="cancel" class="delete-location"></button>';
     if (repLocation) {
-      html += '<button id="delete" class="btn neutral" style="width: 48%;">delete</button>';
+      html += '<button id="delete" class="btn negative" style="width: 48%;">delete</button>';
       html += '<button id="add-rep" class="btn positive" style="width: 48%;margin-left:8px;">update</button>';
     }
     else

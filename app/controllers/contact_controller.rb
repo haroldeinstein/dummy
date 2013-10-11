@@ -7,6 +7,11 @@ class ContactController < ApplicationController
     render json: RepLocation.all
   end
 
+  def update_headline
+    ContactLine.last.update_attribute(:line, params['headline'])
+    head :ok
+  end
+
   def update
     (params[:rep_locations] || []).each do |k, rl|
       rep_location = RepLocation.find(rl["id"]) if rl["id"].present?
