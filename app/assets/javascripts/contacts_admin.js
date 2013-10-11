@@ -63,6 +63,75 @@ function hideEditHeadline($input, save) {
   }
 }
 
+function showEditAddress($elem) {
+  var address = {};
+  address.address = $elem.find('.address1').html();
+  address.city = $elem.find('.city').html();
+  address.state = $elem.find('.state').html();
+  address.zip = $elem.find('.zip').html();
+  address.phone = $elem.find('.phone').html();
+  var $html = $(addressHTML(address));
+  $html.appendTo("body").show();
+  var $window = $(window);
+  var $modal = $('#rep-modal-container');
+  $modal.css({
+    left: ($window.width() / 2) - ($modal.outerWidth() / 2),
+    top: ($window.height() / 2) - ($modal.outerHeight() / 2)
+  });
+
+  $('#edit-address-form').bind('submit', function(e) {
+    e.preventDefault();
+    data = $(this).serialize();
+    $.ajax({
+      url: '/api/admin/address',
+      type: 'PUT',
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+      },
+      data: data,
+      success: function(response, status, xhr) {
+        hideEditAddress();
+        html = '<span class="address1">' + response.address1 + '</span><br>';
+        html += '<span class="city">' + response.city + '</span>, <span class="state">' + response.state + '</span> <span class="zip">' + response.zip + '</span><br>';
+        html += 'phone <span class="phone">' + response.phone  + '</span>';
+
+        $('.office-address').find('address').html(html);
+      }
+    });
+    return false;
+  });
+
+  $('#save-address').bind('click', function() {
+    $('#edit-address-form').submit();
+  });
+
+  $('#cancel-address').bind('click', function() {
+    hideEditAddress();
+  });
+}
+
+function hideEditAddress() {
+  $("#rep-modal-container").remove();
+}
+
+function addressHTML(address) {
+  var html = '';
+  html += '<div id="rep-modal-container">';
+  html += '<div id="rep-modal">';
+  html += '<form id="edit-address-form" method="put" action="/api/admin/address">';
+  html += '<input name="address[address1]" type="text" value="' + address.address + '">';
+  html += '<input name="address[city]" type="text" value="' + address.city + '">';
+  html += '<input name="address[state]" type="text" value="' + address.state + '">';
+  html += '<input name="address[zip]" type="text" value="' + address.zip + '">';
+  html += '<input name="address[phone]" type="text" value="' + address.phone + '">';
+  html += '</form>';
+  html += '<button class="btn neutral" id="cancel-address">cancel</button>';
+  html += '<button class="btn active" id="save-address">save</button>';
+  html += '</div>';
+  html += '</div>';
+  return html;
+}
+
 
 $(document).ready(function() {
   var manager = new RepManager();
@@ -98,5 +167,9 @@ $(document).ready(function() {
 
   $('#contact').on('click', '.contact-headline', function() {
     showEditHeadline($(this));
+  });
+
+  $('#contact').on('click', '.office-address', function() {
+    showEditAddress($(this));
   });
 });

@@ -21,6 +21,6 @@ end
 #  location   :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  sort_index :string(255)
+#  sort_index :integer          default(0)
 #
 

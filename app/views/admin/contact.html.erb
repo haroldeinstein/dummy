@@ -8,15 +8,13 @@
     <div class="contact-body clearfix">
       <div id="office">
         <h2>office</h2>
-        <address>
-          1134 abbot kinney<br>
-          venice, ca 94354<br>
-          phone 310.444.1234
-        </address>
-
-        <br>
-        <br>
-        <br>
+        <div class="office-address">
+          <address>
+            <span class="address1"><%= @address.address1 %></span><br>
+            <span class="city"><%= @address.city %></span>, <span class="state"><%= @address.state %></span> <span class="zip"><%= @address.zip %></span><br>
+            phone <span class="phone"><%= @address.phone %></span>
+          </address>
+        </div>
 
         <p>executive producer</p>
         <p class="bold">eric liney</p>

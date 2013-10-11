@@ -12,6 +12,13 @@ class ContactController < ApplicationController
     head :ok
   end
 
+  def update_address
+    address = Address.last || Address.new
+    address.update_attributes(params[:address])
+
+    render json: address.as_json
+  end
+
   def update
     (params[:rep_locations] || []).each do |k, rl|
       rep_location = RepLocation.find(rl["id"]) if rl["id"].present?
