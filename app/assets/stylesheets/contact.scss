@@ -33,18 +33,20 @@
 #reps {
   float: right;
   display: inline-block;
-}
+  max-width: 35.0em;
 
-.rep {
-  float: left;
-  min-height: 9.0em;
-  margin-left: 6.0em;
-  text-transform: lowercase;
+  .rep {
+    float: left;
+    min-height: 9.0em;
+    margin-left: 6.0em;
+    width: 13.0em;
 
-  &.first {
-    margin-left: 0px;
+    &.first {
+      margin-left: 0em;
+    }
   }
 }
+
 
 @media screen and (max-width: 320px) {
   .contact-content {
