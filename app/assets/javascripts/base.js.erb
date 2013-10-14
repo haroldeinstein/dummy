@@ -1,9 +1,6 @@
 //= require jquery
 //= require widgets/easy-audio.js
 
-Audio = $('<audio src="<%= audio_path "click_down.mpg" %>">');
-$('body').append(Audio);
-
 $(document).ready(function() {
   $('.back').easyAudio({
     mpeg: '<%= audio_path "click_down.mp3" %>',
