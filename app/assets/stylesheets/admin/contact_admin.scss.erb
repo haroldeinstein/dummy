@@ -1,6 +1,9 @@
+$yellow: rgba(255, 243, 42, 0.5);
+$other-yellow: rgba(255, 243, 42, 1);
+
 #rep-modal-container {
   width: 262px;
-  background: rgba(255, 243, 42, 0.5);
+  background-color: $yellow;
   position: absolute;
   display: none;
   padding: 24px;
@@ -22,9 +25,14 @@ label {
   position: absolute;
   left: -15px;
   top: -15px;
-  background: #ccc;
   border-radius: 40px;
   border: none;
+  font-family: $gotham;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  line-height: 28px;
+  background-color: $other-yellow;
 }
 
 #add-rep {

@@ -207,7 +207,7 @@ RepManager.prototype = {
         html += repLocation.reps[1].email_address;
       html += '" /><br>';
 
-    html += '<button id="cancel" class="delete-location"></button>';
+    html += '<button id="cancel" class="delete-location">&#x2715;</button>';
     if (repLocation) {
       html += '<button id="delete" class="btn negative" style="width: 48%;">delete</button>';
       html += '<button id="add-rep" class="btn positive" style="width: 48%;margin-left:8px;">update</button>';
