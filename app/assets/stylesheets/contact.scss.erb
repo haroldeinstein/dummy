@@ -20,6 +20,10 @@
 
 #office, #reps {
   margin-top: 10.0em;
+
+  h2 {
+    margin-bottom: 1em;
+  }
 }
 
 #office {
@@ -45,13 +49,17 @@
     }
 
     .name {
-      padding-left: 30px;
-      margin-left: -30px;
+      text-transform: lowercase;
 
-      &:hover {
-        background-image: url(<%= asset_path "mail.png" %>);
-        background-position: left center;
-        background-repeat: no-repeat;
+      a {
+        padding-left: 24px;
+        margin-left: -24px;
+
+        &:hover {
+          background-image: url(<%= asset_path "contact/mail.png" %>);
+          background-position: left 0px;
+          background-repeat: no-repeat;
+        }
       }
     }
   }
