@@ -51,6 +51,53 @@
   </tbody>
 </table>
 
+<script>
+  var $window = $(window);
+
+  function positionBtn($btn) {
+    var windowHeight = $window.height();
+    var windowWidth = $window.width();
+    if (windowHeight < 610) {
+      $btn.css({
+        'top': 610 - 102 ,
+        'bottom': 'auto'
+      });
+    } else {
+      $btn.css({
+        'top': 'auto',
+        'bottom': '5.0em'
+      });
+    }
+
+    if (windowWidth < 1190) {
+      if (windowWidth < 1000) {
+        $btn.css({
+          'left': 928,
+          'right': 'auto'
+        });
+      } else {
+        $btn.css({
+          'left': 'auto',
+          'right': '20px'
+        });
+      }
+    } else {
+      $btn.css({
+        'left': 'auto',
+        'right': '5.0em'
+      });
+    }
+  }
+
+  $(document).ready(function() {
+    var $btn = $('.back');
+
+    $window.bind('resize', function() {
+      positionBtn($btn);
+    });
+  });
+</script>
+
 <%= content_for :javascripts do %>
   <%= javascript_include_tag :director %>
 <% end %>

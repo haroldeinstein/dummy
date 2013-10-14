@@ -36,6 +36,31 @@
 <script>
   var Bootstrap = Bootstrap || {};
   Bootstrap.postCount = <%= memoirs.length %>;
+
+  var $window = $(window);
+  function positionBtn($btn) {
+    if ($window.height() < 830) {
+      $btn.css({
+        'top': '730px',
+        'bottom': 'auto'
+      });
+    } else {
+      $btn.css({
+        'top': 'auto',
+        'bottom': '5.0em'
+      });
+    }
+  }
+
+  $(document).ready(function() {
+    var $btn = $('.back');
+
+    $window.bind('resize', function() {
+      positionBtn($btn);
+    });
+
+    positionBtn($btn);
+  });
 </script>
 <%= javascript_include_tag :memoirs %>
 
