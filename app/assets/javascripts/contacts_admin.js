@@ -158,8 +158,8 @@ function showEditPerson($elem) {
       data: data,
       success: function(response, status, xhr) {
         hideEditAddress();
-        html = '<p class="title">' + response.title + '</p>';
-        html += '<p class="bold name" data-email="' + response.email + '">' + response.name + '</p>';
+        html = '<p class="bold name" data-email="' + response.email + '">' + response.name + '</p>';
+        html += '<p class="bold title">' + response.title + '</p>';
 
         $('.office-person').html(html);
       }
@@ -185,9 +185,9 @@ function personHTML(person) {
   html += '<div id="rep-modal-container">';
   html += '<div id="rep-modal">';
   html += '<form id="edit-person-form" method="put" action="/api/admin/person">';
-  html += '<input name="person[title]" type="text" value="' + person.title + '">';
   html += '<input name="person[name]" type="text" value="' + person.name + '">';
   html += '<input name="person[email]" type="text" value="' + person.email + '">';
+  html += '<input name="person[title]" type="text" value="' + person.title + '">';
   html += '</form>';
   html += '<button class="btn neutral" id="cancel-person">cancel</button>';
   html += '<button class="btn active" id="save-person">save</button>';
