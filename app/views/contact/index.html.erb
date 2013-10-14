@@ -37,4 +37,43 @@
       </div>
     </div>
   </div>
+  <div class="back">
+    <a style="display: block; width: 100%; height: 100%;" href="/"></a>
+  </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    var $window = $(window);
+    var $reps = $('#reps');
+    var $body = $('.contact-body');
+    var $btn = $('.back');
+    var offsetTop = $reps.offset().top + $reps.outerHeight();
+
+    $window.bind('resize', function() {
+      if ($window.width() < 965) {
+        $btn.css({
+          'left': '861px',
+          'right': 'auto'
+        });
+      } else {
+        $btn.css({
+          'left': 'auto',
+          'right': '5.0em'
+        });
+      }
+
+      if ($window.height() - 102 < offsetTop) {
+        $btn.css({
+          'top': offsetTop,
+          'bottom': 'auto'
+        });
+      } else {
+        $btn.css({
+          'top': 'auto',
+          'bottom': '5.0em'
+        });
+      }
+    });
+  });
+</script>
