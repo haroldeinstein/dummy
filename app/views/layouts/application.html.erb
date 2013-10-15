@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Dummy</title>
-  <%= stylesheet_link_tag "base", :media => "all" %>
-  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7214052/788882/css/fonts.css" />
-  <%= yield :stylesheets %>
-  <%= javascript_include_tag "base" %>
   <meta charset="utf-8">
   <meta name="description" content="The collected works of Director Harold Einstein.">
   <meta name="keywords" content="harold einstein, dummy films, dummy">
   <meta name="viewport" content="width=device-width">
   <%= csrf_meta_tags %>
+
+  <title>Dummy</title>
+
+  <%= javascript_include_tag "base" %>
+
+  <%= stylesheet_link_tag "base", :media => "all" %>
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7214052/788882/css/fonts.css" />
+  <%= yield :stylesheets %>
 </head>
 <body class="<%= "#{current_controller}-#{current_action}" %>">
 
