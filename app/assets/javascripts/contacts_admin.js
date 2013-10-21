@@ -213,15 +213,13 @@ $(document).ready(function() {
 
   $('#reps').on('click', '.rep',  function(e) {
     var $self = $(this);
-    if ($self.hasClass('blank')) return;
-    var id = parseInt($self.attr('data-id'));
     var location = $self.attr('data-location');
-    manager.showModal(location, $(e.currentTarget));
+    manager.showModal(location);
   });
 
   $('#add-action').bind('click', function(e) {
     e.preventDefault();
-    manager.showModal(null, $('.rep.blank').first());
+    manager.showModal();
   });
 
   $('#save-button').bind('click', function(e) {

@@ -34,10 +34,10 @@ class ContactController < ApplicationController
   def update
     (params[:rep_locations] || []).each do |k, rl|
       rep_location = RepLocation.find(rl["id"]) if rl["id"].present?
-      rep_location ||= RepLocation.new
       if rl["delete"]
         rep_location.destroy
       else
+        rep_location ||= RepLocation.new
         rep_location.location = rl["location"]
         rep_location.sort_index = rl["sort_index"] || rep_location.sort_index
 

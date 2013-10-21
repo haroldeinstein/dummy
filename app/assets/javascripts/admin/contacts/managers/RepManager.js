@@ -4,7 +4,7 @@ function RepManager() {
 }
 
 RepManager.prototype = {
-  showModal: function(location, $elem) {
+  showModal: function(location) {
     var $body = $('body');
     if ($body.hasClass('has-modal')) return;
 
@@ -17,16 +17,17 @@ RepManager.prototype = {
     $body.append($modal);
     $modal.show();
 
+    var $window = $(window);
     var modalHeight = $modal.outerHeight();
     var modalWidth = $modal.outerWidth();
-    var offsetLeft = $elem.offset().left;
-    var offsetTop = $elem.offset().top;
+    var windowHeight = $window.height();
+    var windowWidth = $window.width();
 
     $modal.hide();
 
     $modal.css({
-      top : offsetTop,
-      left : offsetLeft - modalWidth - 25
+      top : (windowHeight / 2) - (modalHeight / 2),
+      left : (windowWidth / 2) - (modalWidth / 2)
     });
 
     $modal.show();
@@ -53,7 +54,7 @@ RepManager.prototype = {
       };
 
       var success = function() {
-        $elem.replaceWith($(manager.repTemplate(data)));
+        $('#reps').append($(manager.repTemplate(data)));
         $body.removeClass('has-modal');
         manager.hideModal();
       };
