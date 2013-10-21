@@ -38,7 +38,7 @@ class AdminController < ApplicationController
   protected
 
   def memoirs
-    @memoirs ||= Memoir.published.all
+    @memoirs ||= Memoir.published.order('created_at DESC').all
   end
   helper_method :memoirs
 

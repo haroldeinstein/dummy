@@ -2,7 +2,7 @@ class Memoir < ActiveRecord::Base
   attr_accessible :caption, :image
   mount_uploader :image, ImageUploader
 
-  scope :published, -> { where("caption IS NOT NULL").order("id ASC") }
+  scope :published, -> { where("caption IS NOT NULL AND caption != ''").order("id DESC") }
 end
 
 # == Schema Information

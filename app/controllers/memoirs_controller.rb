@@ -34,7 +34,7 @@ class MemoirsController < ApplicationController
   protected
 
   def memoirs
-    @memoirs ||= Memoir.published.all
+    @memoirs ||= Memoir.published.order('id ASC').all
   end
   helper_method :memoirs
 end
