@@ -21,6 +21,7 @@ VimeoManager.prototype = {
 
   fetch: function(opts) {
     var manager = this;
+
     $.ajax({
       url: 'http://vimeo.com/api/v2/' + Bootstrap.username + '/videos.json',
       type: 'GET',
