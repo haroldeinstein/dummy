@@ -17,6 +17,8 @@
 </head>
 <body class="<%= "#{current_controller}-#{current_action}" %>">
 
+<div style="color: #000; position: absolute; top: 0px; left: 0px;">The production company started by Director Harold Einstein and Executive Producer Eric Liney.</div>
+
 <% flash.each do |type, msg| %>
   <p class="flash <%= "#{type}" %>"><%= msg %></p>
 <% end %>
