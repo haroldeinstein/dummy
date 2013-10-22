@@ -200,9 +200,10 @@ function personHTML(person) {
 $(document).ready(function() {
   var manager = new RepManager();
 
-  $('#reps').sortable({
+  $('.column').sortable({
     cursor: 'move',
     items: '.rep',
+    connectWith: '.column',
     stop: function(e, ui) {
       var sort = $('#reps').sortable("serialize", {
         key: "sort"

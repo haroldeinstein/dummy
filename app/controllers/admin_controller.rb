@@ -17,10 +17,10 @@ class AdminController < ApplicationController
 
   def contact
     @headline = ContactLine.last || ContactLine.new
-    @rep_locations = RepLocation.order("sort_index ASC").all
+    @column_one = RepLocation.order("sort_index ASC").where(column: 1).all
+    @column_two = RepLocation.order("sort_index ASC").where(column: 2).all
     @person = ContactPerson.last || ContactPerson.new
     @address = Address.last || Address.new
-    @blanks = Array.new(8 - @rep_locations.length)
     @add_action = "new rep"
   end
 

@@ -23,7 +23,8 @@
       </div>
       <div id="reps">
         <h2>reps</h2>
-        <% @rep_locations.each_with_index do |rl, i| %>
+        <div class="column">
+        <% @column_one.each_with_index do |rl, i| %>
           <% if i != 0 && i % 2 == 0 %>
             <br>
           <% end %>
@@ -34,6 +35,9 @@
             <% end %>
           </div>
         <% end %>
+        </div>
+        <div class="column">
+        </div>
       </div>
     </div>
   </div>
