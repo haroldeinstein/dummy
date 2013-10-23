@@ -4,6 +4,8 @@ class ContactController < ApplicationController
     @address = Address.last || Address.new
     @headline = ContactLine.last || ContactLine.new
     @person = ContactPerson.last || ContactPerson.new
+    @column_one = RepLocation.order("sort_index ASC").where(column: 1).all
+    @column_two = RepLocation.order("sort_index ASC").where(column: 2).all
   end
 
   def show

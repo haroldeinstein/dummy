@@ -54,7 +54,7 @@ RepManager.prototype = {
       };
 
       var success = function() {
-        $('#reps').append($(manager.repTemplate(data)));
+        $('.column').first().append($(manager.repTemplate(data)));
         $body.removeClass('has-modal');
         manager.hideModal();
       };
@@ -64,7 +64,6 @@ RepManager.prototype = {
 
       $(document).unbind('keypress');
     }
-
 
     $('#cancel').bind('click', function() {
       manager.hideModal();
@@ -99,19 +98,12 @@ RepManager.prototype = {
     var rep = new RepLocationModel(data);
     this.repLocations.add(rep);
     if (success) success();
-
-    var html = "";
-    html += '<div class="rep blank">';
-    html += '<p class="location"></p>';
-    html += '</div>';
-
-    $("#reps").append($(html));
   },
 
   updateSort: function(sort, column) {
     var locations = sort.replace(/sort=/g, '').split('&');
     for (var i = 0; i < locations.length; i++) {
-      var location = this.repLocations.where({"location": locations[i]})[0];
+      var location = this.repLocations.where({"location": locations[i].replace('+', ' ')})[0];
       location.set({'sort_index': i, 'column' : column});
     }
     $('#save-button').removeClass('disabled').addClass('active');
