@@ -23,7 +23,7 @@
       </div>
       <div id="reps">
         <h2>reps</h2>
-        <div class="column">
+        <div class="column" id="first-column" data-id="1">
         <% @column_one.each_with_index do |rl, i| %>
           <% if i != 0 && i % 2 == 0 %>
             <br>
@@ -36,7 +36,18 @@
           </div>
         <% end %>
         </div>
-        <div class="column">
+        <div class="column" id="second-column" data-id="2">
+        <% @column_two.each_with_index do |rl, i| %>
+          <% if i != 0 && i % 2 == 0 %>
+            <br>
+          <% end %>
+          <div class="rep <%= "first" if i % 2 == 0  %>" id="p_<%= rl.location %>" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
+            <p class="location"><%= rl.location %></p>
+            <% rl.reps.order('id ASC').each do |r| %>
+              <p class="bold"><a href="#"><%= r.name %></a></p>
+            <% end %>
+          </div>
+        <% end %>
         </div>
       </div>
     </div>

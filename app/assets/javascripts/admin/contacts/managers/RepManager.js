@@ -108,11 +108,11 @@ RepManager.prototype = {
     $("#reps").append($(html));
   },
 
-  updateSort: function(sort) {
+  updateSort: function(sort, column) {
     var locations = sort.replace(/sort=/g, '').split('&');
     for (var i = 0; i < locations.length; i++) {
       var location = this.repLocations.where({"location": locations[i]})[0];
-      location.set('sort_index', i);
+      location.set({'sort_index': i, 'column' : column});
     }
     $('#save-button').removeClass('disabled').addClass('active');
   },

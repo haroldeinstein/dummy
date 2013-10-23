@@ -36,7 +36,6 @@ function showEditHeadline($elem) {
   $('#cancel-headline').bind('click', function() {
     hideEditHeadline($input, false);
   });
-
 }
 
 function hideEditHeadline($input, save) {
@@ -205,12 +204,16 @@ $(document).ready(function() {
     items: '.rep',
     connectWith: '.column',
     stop: function(e, ui) {
-      var sort = $('#reps').sortable("serialize", {
-        key: "sort"
+      var column = 1;
+      $('.column').each(function(e) {
+        column = $(this).index();
+        var sort = $(this).sortable("serialize", {
+          key: "sort"
+        });
+        manager.updateSort(sort, column);
       });
-      manager.updateSort(sort);
     }
-  });
+  }).disableSelection();
 
   $('#reps').on('click', '.rep',  function(e) {
     var $self = $(this);

@@ -40,6 +40,7 @@ class ContactController < ApplicationController
         rep_location ||= RepLocation.new
         rep_location.location = rl["location"]
         rep_location.sort_index = rl["sort_index"] || rep_location.sort_index
+        rep_location.column = rl["column"] || rep_location.column
 
         (rl["reps"] || []).each do |k, r|
           rep = Rep.find(r["id"]) if r["id"].present?
