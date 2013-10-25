@@ -6,30 +6,37 @@ Dummy::Application.routes.draw do
   begin
     get  '/admin/login',            to: 'sessions#new',     as: 'login'
     get  '/admin/logout',           to: 'sessions#destroy', as: 'logout'
+    post '/sessions',               to: 'sessions#create'
+    #
     get  '/admin/signup',           to: 'users#new',        as: 'signup'
     post '/admin',                  to: 'users#create'
-    post '/sessions',               to: 'sessions#create'
+    #
+    post '/admin/the-special-ones', to: 'memoirs#create',   as: 'memoirs'
+    put  '/admin/the-special-ones', to: 'memoirs#update'
+    #
     get  '/admin',                  to: 'admin#index'
     get  '/admin/hey',              to: 'admin#contact',    as: 'admin_contact'
     get  '/admin/the-special-ones', to: 'admin#memoir'
-    post '/admin/the-special-ones', to: 'memoirs#create',   as: 'memoirs'
-    put  '/admin/the-special-ones', to: 'memoirs#update'
     get  '/admin/news',             to: 'admin#news'
     get  '/admin/:director',        to: 'admin#director',   as: 'admin_director'
   end
 
   # api
   begin
-    get  '/api/admin/projects',     to: 'projects#show'
-    get  '/api/admin/reps',         to: 'contact#show'
+    put  '/api/admin/description',  to: 'memoirs#update_description'
     get  '/api/admin/memoirs',      to: 'memoirs#show'
+    #
+    post '/api/admin/directors',    to: 'directors#create'
+    #
+    get  '/api/admin/projects',     to: 'projects#show'
     put  '/api/admin/projects',     to: 'projects#update'
+    #
+    get  '/api/admin/reps',         to: 'contact#show'
     put  '/api/admin/reps',         to: 'contact#update'
     put  '/api/admin/headline',     to: 'contact#update_headline'
     put  '/api/admin/address',      to: 'contact#update_address'
     put  '/api/admin/person',       to: 'contact#update_person'
-    put  '/api/admin/description',  to: 'memoirs#update_description'
-    post '/api/admin/directors',    to: 'directors#create'
+    #
     get  '/api/admin/news',         to: 'news#show'
     get  '/api/admin/news-entries', to: 'news#news_entries'
     put  '/api/admin/news',         to: 'news#update'
