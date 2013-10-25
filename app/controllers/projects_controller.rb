@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    return head :ok if current_user.username == "vimeo"
+
     (params[:projects] || []).each do |k, p|
       project = Project.find(p["id"]) if p["id"]
       project ||= Project.new
