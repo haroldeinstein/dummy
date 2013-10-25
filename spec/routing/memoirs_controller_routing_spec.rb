@@ -3,7 +3,7 @@ require "spec_helper"
 describe MemoirsController do
   describe "routing" do
     it "should route to #index" do
-      expect(post: "/the-special-ones").to route_to(controller: "memoirs", action: "index")
+      expect(get: "/the-special-ones").to route_to(controller: "memoirs", action: "index")
     end
     it "should route to #create" do
       expect(post: "/admin/the-special-ones").to route_to(controller: "memoirs", action: "create")

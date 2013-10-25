@@ -3,7 +3,7 @@ require "spec_helper"
 describe NewsController do
   describe "routing" do
     it "should route to #index" do
-      expect(put: "/news").to route_to(controller: "news", action: "index")
+      expect(get: "/news").to route_to(controller: "news", action: "index")
     end
 
     it "should route to #show" do

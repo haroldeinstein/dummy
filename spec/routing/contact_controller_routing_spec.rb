@@ -3,7 +3,7 @@ require "spec_helper"
 describe ContactController do
   describe "routing" do
     it "should route to #index" do
-      expect(put: "/hey").to route_to(controller: "contact", action: "index")
+      expect(get: "/hey").to route_to(controller: "contact", action: "index")
     end
 
     it "should route to #show" do
