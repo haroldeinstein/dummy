@@ -1,21 +1,20 @@
 class ProjectsController < ApplicationController
-  before_filter :login_required
-
   def show
     render json: Project.all.as_json
   end
 
   def update
-    return head :ok if current_user.username == "vimeo"
+    # return head :ok if current_user.username == "vimeo"
 
+    puts params
     (params[:projects] || []).each do |k, p|
-      project = Project.find(p["id"]) if p["id"]
-      project ||= Project.new
+      proj = Project.find(p["id"]) if p["id"]
+      proj ||= Project.new
       if p["delete"]
-        project.destroy
+        proj.destroy
       else
-        project.attributes = p
-        project.save
+        proj.attributes = p
+        proj.save
       end
     end
 
