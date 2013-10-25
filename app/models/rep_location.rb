@@ -1,5 +1,5 @@
 class RepLocation < ActiveRecord::Base
-  attr_accessible :location, :sort_index
+  attr_accessible :location, :sort_index, :column
 
   has_many :reps, dependent: :destroy
 

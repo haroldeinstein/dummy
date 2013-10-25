@@ -38,17 +38,18 @@ RepManager.prototype = {
       // validate
       $('#save-button').removeClass('disabled').addClass('active');
       var data = {
+        column: 1,
         location: $('#location').val(),
         reps: [
           {
             id: $('#rep-one-id').val() === "" ? null : $('#rep-one-id').val(),
             name: $('#rep-one-name').val(),
-            email_address: $('#rep-one-email').val()
+            email_address: $('#rep-one-email').val(),
           },
           {
             id: $('#rep-two-id').val() === "" ? null : $('#rep-two-id').val(),
             name: $('#rep-two-name').val(),
-            email_address: $('#rep-two-email').val()
+            email_address: $('#rep-two-email').val(),
           }
         ]
       };
@@ -112,7 +113,9 @@ RepManager.prototype = {
   updateRepLocation: function(location, data, success) {
     repLocation = this.repLocations.where({"location":location})[0];
     repLocation.set(data);
-    if (success) success();
+    $('#p_' + location.replace('+', ' ')).replaceWith($(this.repTemplate(data)));
+    $('body').removeClass('has-modal');
+    this.hideModal();
   },
 
   removeRep: function(id, success) {
