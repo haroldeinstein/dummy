@@ -9,7 +9,6 @@ class AdminController < ApplicationController
   end
 
   def director
-    puts params[:director]
     @director = Director.find_by_url(params[:director])
     @projects = @director.projects.order("sort_index ASC")
     @add_action = "show videos"
