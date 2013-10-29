@@ -219,7 +219,7 @@ RepManager.prototype = {
 
   repTemplate: function(data) {
     var html = '';
-    html += '<div class="rep" data-id="' + data.id + '" data-location="' + data.location + '">';
+    html += '<div class="rep" id="p_'+data.location.replace(' ','+')+'" data-id="' + data.id + '" data-location="' + data.location + '">';
     html += '<p class="location">';
     if (data.location) {
       html += data.location;
