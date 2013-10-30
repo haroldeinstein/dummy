@@ -4,6 +4,7 @@ function ProjectManager() {
   this.videos.fetch({
     data: { director_id: Bootstrap.director_id }
   });
+
 }
 
 ProjectManager.prototype = {

@@ -13,7 +13,6 @@ class NewsController < ApplicationController
     auth = Auth.last
     album = Vimeo::Advanced::Album.new(VIMEO_CONFIG["key"], VIMEO_CONFIG["secret"], :token => auth.token, :secret => auth.verifier)
     videos = album.get_videos("2561992", { :page => "1", :per_page => "100", :full_response => "0", :password => "scooter" })["videos"]
-    # ids = videos["video"].map(&:id)
     ids = []
     @videos = []
     videos["video"].each { |v| ids << v["id"] }

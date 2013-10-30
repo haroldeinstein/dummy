@@ -144,6 +144,7 @@ $(document).ready(function() {
     e.preventDefault();
     var $self = $(this);
     var id = $self.attr('data-id');
+    console.log(id);
     var video = manager.pManager.videos.where({vimeo_id: parseInt(id, 10)})[0];
     manager.pManager.removeVideo(video, {
       success: function() {
