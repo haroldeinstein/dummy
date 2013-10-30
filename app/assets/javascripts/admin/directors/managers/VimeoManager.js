@@ -24,6 +24,19 @@ VimeoManager.prototype = {
   fetch: function(opts) {
     var manager = this;
 
+    var $overlay = $('<div></div>');
+    $overlay.css({
+      position: "fixed",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.7)",
+      top: "0px",
+      left: "0px",
+      zIndex: "1000"
+    });
+
+    $('body').append($overlay);
+
     $.ajax({
       url: '/api/admin/vimeo',
       type: 'GET',
@@ -31,8 +44,8 @@ VimeoManager.prototype = {
         page: manager.page,
         index: manager.index
       },
-      crossDomain: true,
       success: function(response, status, xhr) {
+        $overlay.remove();
         for (var i = 0; i < response.length; i++) {
           var model = new VideoModel(manager.prepareVideoData(response[i]));
           manager.videos.add(model);
