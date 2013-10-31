@@ -31,7 +31,7 @@
             <div class="rep <%= "first" if i % 2 == 0  %>" id="p_<%= rl.location %>" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
               <p class="location"><%= rl.location %></p>
               <% rl.reps.order('id ASC').each do |r| %>
-                <p class="bold"><a href="#"><%= r.name %></a></p>
+                <p class="bold name"><a href="mailto:<%= r.email_address %>"><%= r.name %></a></p>
               <% end %>
             </div>
           <% end %>
@@ -44,7 +44,7 @@
             <div class="rep <%= "first" if i % 2 == 0  %>" id="p_<%= rl.location %>" data-id="<%= rl.id %>" data-location="<%= rl.location %>">
               <p class="location"><%= rl.location %></p>
               <% rl.reps.order('id ASC').each do |r| %>
-                <p class="bold"><a href="#"><%= r.name %></a></p>
+                <p class="bold name"><a href="mailto:<%= r.email_address %>"><%= r.name %></a></p>
               <% end %>
             </div>
           <% end %>
