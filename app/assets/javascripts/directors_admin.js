@@ -19,9 +19,9 @@ VideoManager.prototype = {
     var manager = this;
     setTimeout(function() {
       if (manager.vManager.page > 1) {
-        console.log('here');
         manager.vManager.scrollHeight = manager.vManager.$elem[0].scrollHeight
         manager.vManager.height = manager.vManager.$elem.outerHeight();
+        manager.fetching = false;
       }
     }, 300);
 
@@ -190,7 +190,8 @@ $(document).ready(function() {
     manager.vManager.height = manager.vManager.height || manager.vManager.$elem.outerHeight();
     console.log(manager.vManager.scrollHeight, manager.vManager.$elem.scrollTop() + manager.vManager.height);
 
-    if (manager.vManager.scrollHeight === manager.vManager.$elem.scrollTop() + manager.vManager.height) {
+    if ((manager.vManager.$elem.scrollTop() + manager.vManager.height > manager.vManager.scrollHeight - 50) && !manager.fetching) {
+      manager.fetching = true;
       var callback = function(videos) { manager.displayVideos(videos) };
       manager.vManager.fetchMoreVideos(callback);
     }
