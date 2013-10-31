@@ -23,8 +23,9 @@ Dummy::Application.routes.draw do
 
   # api
   begin
-    put  '/api/admin/description',  to: 'memoirs#update_description'
-    get  '/api/admin/memoirs',      to: 'memoirs#show'
+    put    '/api/admin/description', to: 'memoirs#update_description'
+    get    '/api/admin/memoirs',     to: 'memoirs#show'
+    delete '/api/admin/memoirs',     to: 'memoirs#destroy'
     #
     post '/api/admin/directors',    to: 'directors#create'
     #

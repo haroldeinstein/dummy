@@ -31,6 +31,12 @@ class MemoirsController < ApplicationController
     end
   end
 
+  def destroy
+    @memoir = Memoir.find(params[:memoir_id])
+    @memoir.destroy
+    redirect_to "/admin/the-special-ones"
+  end
+
   protected
 
   def memoirs

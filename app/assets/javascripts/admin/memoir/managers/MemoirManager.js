@@ -11,7 +11,7 @@ MemoirManager.prototype = {
     if (post) {
       html += '<form accept-charset="UTF-8" action="/admin/the-special-ones" class="new_memoir" enctype="multipart/form-data" id="new_memoir" method="post">';
       html += '<input type="hidden" name="_method" value="put">';
-      html += '<input type="hidden" name="memoir_id" value="' + post.id + '">';
+      html += '<input id="memoir-id" type="hidden" name="memoir_id" value="' + post.id + '">';
     } else {
       html += '<form accept-charset="UTF-8" action="/admin/the-special-ones" class="new_memoir" enctype="multipart/form-data" id="new_memoir" method="post">';
     }
@@ -29,6 +29,14 @@ MemoirManager.prototype = {
       html += post.caption;
     html += '</textarea>';
     html += '</form>'
+    if (post) {
+      html += '<form action="/api/admin/memoirs" method="post">';
+      html += '<input name="_method" type="hidden" value="delete" />';
+      html += '<input type="hidden" name="authenticity_token" value="' + $('meta[name="csrf-token"]').attr('content') + '">';
+      html += '<input type="hidden" name="memoir_id" value="' + post.id + '">'
+      html += '<input type="submit" style="padding:10px 20px;" value="delete post">';
+      html += '</form>';
+    }
     html += '</div>';
 
     return html;
@@ -97,5 +105,7 @@ MemoirManager.prototype = {
 
       $('#save-button').removeClass('disabled').addClass('active');
     });
+
+    var id = $('#memoir-id').val();
   }
 };
