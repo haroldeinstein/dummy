@@ -34,7 +34,7 @@ MemoirManager.prototype = {
       html += '<input name="_method" type="hidden" value="delete" />';
       html += '<input type="hidden" name="authenticity_token" value="' + $('meta[name="csrf-token"]').attr('content') + '">';
       html += '<input type="hidden" name="memoir_id" value="' + post.id + '">'
-      html += '<input type="submit" style="padding:10px 20px;" value="delete post">';
+      html += '<input type="submit" class="btn negative" value="delete post">';
       html += '</form>';
     }
     html += '</div>';
