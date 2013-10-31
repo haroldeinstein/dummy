@@ -8,14 +8,22 @@ function VideoManager() {
 }
 
 VideoManager.prototype = {
-  displayVideos: function() {
+  displayVideos: function(videos) {
     var $container = $('#video-options');
-    var videos = this.vManager.videos.toJSON();
     for (var i = 0; i < videos.length; i++) {
       var video = videos[i];
       var $elem = $('<div class="video" id="'+ video.id +'"><a href="#" data-id="' + video.id + '"><img src="' + video.thumbnail_large + '"></a></div>');
       $container.append($elem);
     }
+
+    var manager = this;
+    setTimeout(function() {
+      if (manager.vManager.page > 1) {
+        console.log('here');
+        manager.vManager.scrollHeight = manager.vManager.$elem[0].scrollHeight
+        manager.vManager.height = manager.vManager.$elem.outerHeight();
+      }
+    }, 300);
 
     this.updateSelectedVideos();
   },
@@ -93,8 +101,8 @@ $(document).ready(function() {
   var manager = new VideoManager();
 
   manager.vManager = new VimeoManager({
-    onFetch: function() {
-      manager.displayVideos();
+    onFetch: function(videos) {
+      manager.displayVideos(videos);
     }
   });
 
@@ -144,7 +152,6 @@ $(document).ready(function() {
     e.preventDefault();
     var $self = $(this);
     var id = $self.attr('data-id');
-    console.log(id);
     var video = manager.pManager.videos.where({vimeo_id: parseInt(id, 10)})[0];
     manager.pManager.removeVideo(video, {
       success: function() {
@@ -175,5 +182,17 @@ $(document).ready(function() {
     e.preventDefault();
     if ($(this).hasClass('disabled')) return;
     manager.pManager.save();
+  });
+
+  $('#video-options').bind('scroll.infinite', function() {
+    manager.vManager.$elem = manager.vManager.$elem || $(this);
+    manager.vManager.scrollHeight = manager.vManager.scrollHeight || manager.vManager.$elem[0].scrollHeight
+    manager.vManager.height = manager.vManager.height || manager.vManager.$elem.outerHeight();
+    console.log(manager.vManager.scrollHeight, manager.vManager.$elem.scrollTop() + manager.vManager.height);
+
+    if (manager.vManager.scrollHeight === manager.vManager.$elem.scrollTop() + manager.vManager.height) {
+      var callback = function(videos) { manager.displayVideos(videos) };
+      manager.vManager.fetchMoreVideos(callback);
+    }
   });
 });

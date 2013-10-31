@@ -1,60 +1,58 @@
 function VimeoManager(opts) {
   this.videos = new VideosCollection();
-  this.index = 0;
   this.page = 1;
   this.fetch(opts);
+  this.hasAllVideos = false;
 }
 
 VimeoManager.prototype = {
   prepareVideoData: function(v) {
-    v = v[0];
     var obj = {
       title: v.title,
-      video_url: v.urls.url[0]._content,
+      video_url: v.url,
       director_id: Bootstrap.director_id,
       vimeo_id: v.id,
       id: v.id,
-      thumbnail_small: v.thumbnails.thumbnail[0]._content,
-      thumbnail_medium: v.thumbnails.thumbnail[1]._content,
-      thumbnail_large: v.thumbnails.thumbnail[2]._content
+      thumbnail_small: v.thumbnail_small,
+      thumbnail_medium: v.thumbnail_medium,
+      thumbnail_large: v.thumbnail_large
     }
     return obj;
   },
 
   fetch: function(opts) {
+    console.log('fetchin');
     var manager = this;
 
-    var $overlay = $('<div></div>');
-    $overlay.css({
-      position: "fixed",
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.7)",
-      top: "0px",
-      left: "0px",
-      zIndex: "1000"
-    });
-
-    $('body').append($overlay);
-
     $.ajax({
-      url: '/api/admin/vimeo',
+      url: 'http://vimeo.com/api/v2/' + Bootstrap.username + '/videos.json?page=' + this.page,
       type: 'GET',
-      data: {
-        page: manager.page,
-        index: manager.index
-      },
+      dataType: 'jsonp',
       success: function(response, status, xhr) {
-        $overlay.remove();
+        var videos = [];
         for (var i = 0; i < response.length; i++) {
-          var model = new VideoModel(manager.prepareVideoData(response[i]));
+          var video = manager.prepareVideoData(response[i]);
+          var model = new VideoModel(video);
+          videos.push(video);
           manager.videos.add(model);
         }
-        opts.onFetch();
+        opts.onFetch(videos);
       },
       error: function(response, status, xhr) {
 
       }
     });
+  },
+
+  fetchMoreVideos: function(callback) {
+    if (this.hasAllVideos) {
+      this.$elem.unbind('scroll.infinite');
+      return;
+    }
+
+    this.page++;
+    console.log(this.page);
+    this.fetch({onFetch: callback});
   }
+
 };
