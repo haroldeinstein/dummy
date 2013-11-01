@@ -21,7 +21,6 @@ VimeoManager.prototype = {
   },
 
   fetch: function(opts) {
-    console.log('fetchin');
     var manager = this;
 
     $.ajax({
@@ -51,7 +50,6 @@ VimeoManager.prototype = {
     }
 
     this.page++;
-    console.log(this.page);
     this.fetch({onFetch: callback});
   }
 

@@ -123,7 +123,7 @@ $(document).ready(function() {
       return;
     }
 
-    if (manager.pManager.videos.length >= 11) {
+    if (manager.pManager.videos.length >= 12) {
       alert("You've added the maximum number of videos");
       return;
     }
@@ -188,7 +188,6 @@ $(document).ready(function() {
     manager.vManager.$elem = manager.vManager.$elem || $(this);
     manager.vManager.scrollHeight = manager.vManager.scrollHeight || manager.vManager.$elem[0].scrollHeight
     manager.vManager.height = manager.vManager.height || manager.vManager.$elem.outerHeight();
-    console.log(manager.vManager.scrollHeight, manager.vManager.$elem.scrollTop() + manager.vManager.height);
 
     if ((manager.vManager.$elem.scrollTop() + manager.vManager.height > manager.vManager.scrollHeight - 50) && !manager.fetching) {
       manager.fetching = true;
