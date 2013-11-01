@@ -103,7 +103,6 @@
 
   .rep {
     float: none;
-    margin-left: 0px;
   }
 
   .contact-body {
@@ -115,6 +114,19 @@
     margin-top: 5.0em;
     float: none;
     display: block;
+  }
+
+  #reps {
+    h2 {
+      margin-left: 0px;
+    }
+
+    .rep {
+      margin-left: 0px !important;
+      &.first {
+        margin-left: 0px !important;
+      }
+    }
   }
 }
 
