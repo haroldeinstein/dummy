@@ -39,6 +39,10 @@
   }
 }
 
+.mobile {
+  display: none;
+}
+
 .news {
   position: absolute;
   bottom: 5%;
@@ -62,9 +66,12 @@
 
   .nav-item {
     float: none;
-    display: inline-block;
     margin: 0em 4em;
     font-size: 0.7em;
+    display: inline-block;
+    &:not(.mobile) {
+      display: none;
+    }
 
     &.first {
       margin-left: 4.0em;
@@ -90,10 +97,14 @@
 
   .nav-item {
     float: none;
-    display: inline-block;
+    margin: 0px;
     margin-left: 0em;
     margin-bottom: 1.6em;
     width: 100%;
+    font-size: 1em;
+    &.first {
+      margin-left: 0px;
+    }
   }
 
   h2.home {

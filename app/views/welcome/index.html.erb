@@ -23,6 +23,18 @@
                   <li><h2 class="home"><%= link_to d.name.downcase, director_path(d) %></h2></li>
                 <% end %>
               </ul>
+
+              <ul class="mobile nav-item directors first">
+                <% @directors.each do |d| %>
+                  <li><h2 class="home"><%= link_to d.name.downcase, director_path(d) %></h2></li>
+                <% end %>
+              </ul>
+              <ul class="mobile nav-item contact">
+                <li><h2 class="home"><a href="/hey">hey, dummy</a></h2></li>
+              </ul>
+              <ul class="mobile nav-item memoir">
+                <li><h2 class="home"><a href="/the-special-ones">the special ones</a></h2></li>
+              </ul>
             </div>
 
           </div>
