@@ -19,7 +19,9 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'pry'
 
+gem 'awesome_print'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'fog'

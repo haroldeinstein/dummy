@@ -42,17 +42,20 @@ ProjectManager.prototype = {
 
   save: function(opts) {
     var videos = this.videos.toJSON();
+    console.log(videos.length);
     var data = {
       authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
       director_id: Bootstrap.director_id,
-      projects: this.videos.toJSON()
+      projects: videos
     };
 
+    var model = this;
     $.ajax({
       url: '/api/admin/projects',
       data: data,
       type: 'PUT',
       success: function(response, status, xhr) {
+        model.videos.set(response);
         if (opts && opts.success) opts.success();
         $('#save-button').removeClass('active').addClass('disabled');
       },

@@ -4,10 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    # return head :ok if current_user.username == "vimeo"
-
     (params[:projects] || []).each do |k, p|
-      proj = Project.find(p["id"]) if p["id"]
+      proj = Project.find_by_id(p["id"]) if p["id"]
       proj ||= Project.new
       if p["delete"]
         proj.destroy
