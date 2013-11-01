@@ -50,8 +50,8 @@ Dummy::Application.routes.draw do
     get '/the-special-ones', to: 'memoirs#index'
   end
 
-  get '/auth/vimeo', to: 'auths#create'
+  get '/auth/vimeo',          to: 'auths#create'
   get '/auth/vimeo/callback', to: 'auths#vimeo'
 
-  get '/:director',        to: 'directors#index', as: 'director'
+  get '/:director', to: 'directors#index', as: 'director'
 end
