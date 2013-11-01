@@ -1,13 +1,6 @@
-#contact {
-  max-width: 200.0em
-}
-
-.contact-content {
-  padding-top: 16.0em;
-}
-
-.contact-headline {
-  text-align: center;
+#contact { max-width: 200.0em }
+.contact-content { padding-top: 16.0em; }
+.contact-headline { text-align: center;
 }
 
 .column {
@@ -32,17 +25,13 @@
 #office, #reps {
   margin-top: 9.2em;
 
-  h2 {
-    margin-bottom: 0.72em;
-  }
+  h2 { margin-bottom: 0.72em; }
 }
 
 #office {
   float: left;
 
-  .office-address {
-    margin-bottom: 26px;
-  }
+  .office-address { margin-bottom: 26px; }
 }
 
 .back {
@@ -56,28 +45,20 @@
   display: inline-block;
   max-width: 49.0em;
 
-  h2 {
-    margin-left: 60px;
-  }
+  h2 { margin-left: 60px; }
+
   .rep {
     width: 20.0em;
     min-height: 9.0em;
     margin-left: 6.0em;
+    &.first { margin-left: 6.0em !important; }
 
-    &.first {
-      margin-left: 6.0em !important;
-    }
-
-    p {
-      text-transform: lowercase;
-    }
-
+    p { text-transform: lowercase; }
   }
 }
 
 .name {
   text-transform: lowercase;
-
   a {
     padding-left: 24px;
     margin-left: -24px;
@@ -90,24 +71,23 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .contact-body { padding: 0em 0.0em; }
+  .contact-content { padding-top: 5.0em; }
+  .contact-headline { padding-left: 0em; }
+  .back { display: none; }
+}
 
 @media screen and (max-width: 320px) {
-  .contact-content {
-    padding-top: 4.0em;
-  }
+  .contact-content { padding-top: 4.0em; }
 
   .contact-headline {
     text-align: left;
     padding-left: 0px;
   }
 
-  .rep {
-    float: none;
-  }
-
-  .contact-body {
-    padding: 0px;
-  }
+  .rep { float: none; }
+  .contact-body { padding: 0px; }
 
   #office, #reps {
     margin-left: 0px;
@@ -117,18 +97,11 @@
   }
 
   #reps {
-    h2 {
-      margin-left: 0px;
-    }
+    h2 { margin-left: 0px; }
 
     .rep {
       margin-left: 0px !important;
-      &.first {
-        margin-left: 0px !important;
-      }
+      &.first { margin-left: 0px !important; }
     }
   }
 }
-
-
-

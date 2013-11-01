@@ -20,13 +20,8 @@
   display: table;
 }
 
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  *zoom: 1;
-}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
 
 @media screen and (max-width: 768px) {
   .w1064 {
@@ -34,10 +29,10 @@
     min-width: 0em;
     width: 100%;
   }
+
+  .back { display: none; }
 }
 
 @media screen and (max-width: 320px) {
-  .w1064 {
-    min-width: 0px;
-  }
+  .w1064 { min-width: 0px; }
 }

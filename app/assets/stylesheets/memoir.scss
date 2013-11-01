@@ -1,6 +1,4 @@
-#special-ones {
-  padding: 0em 0em 5.0em 0em;
-}
+#special-ones { padding: 0em 0em 5.0em 0em; }
 
 #description {
   padding-top: 2.0em;
@@ -8,22 +6,16 @@
   max-width: 63.2em;
   white-space: pre-wrap;
 
-  h2 {
-    margin-bottom: 20px;
-  }
+  h2 { margin-bottom: 20px; }
 }
 
 #post-container-container-container-container {
   height: 37.7em;
   overflow: hidden;
 }
-#post-container-container-container {
-  overflow: scroll;
-}
 
-#post-container-container {
-  position: relative;
-}
+#post-container-container-container { overflow: scroll; }
+#post-container-container { position: relative; }
 
 #post-container {
   width: 100%;
@@ -39,9 +31,7 @@
     .image {
       width: 63.2em;
 
-      img {
-        width: 100%;
-      }
+      img { width: 100%; }
     }
 
     .captions {
@@ -99,9 +89,20 @@
     float: right;
     position: relative;
   }
+
   .post{
     width: 41.2%;
     margin-right: 5em;
+    margin-bottom: 8.0em;
+  }
+
+  #post-container-container-container-container {
+    height: auto;
+    overflow: auto;
+  }
+
+  #post-container {
+    width: 100% !important;
   }
 }
 
@@ -111,13 +112,8 @@
     white-space: pre-wrap;
   }
 
-  #special-ones {
-    padding: 0em;
-  }
-
-  #post-container-container-container-container {
-    height: auto;
-  }
+  #special-ones { padding: 0em; }
+  #post-container-container-container-container { height: auto; }
 
   #post-container {
     width: 100% !important;
