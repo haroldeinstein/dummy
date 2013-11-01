@@ -29,14 +29,14 @@
 .nav-item {
   float: right;
   margin-left: 8.0em;
-}
 
-.nav-item.first {
-  margin-left: 0em;
-}
+  &.first {
+    margin-left: 0em;
+  }
 
-.nav-item li {
-  margin-bottom: 1.0em;
+  li {
+    margin-bottom: 1.0em;
+  }
 }
 
 .news {
@@ -54,6 +54,26 @@
 @media screen and (max-device-width: 768px) {
   .logo {
     margin: 0px auto;
+  }
+
+  #navbar {
+    text-align: center;
+  }
+
+  .nav-item {
+    float: none;
+    display: inline-block;
+    margin: 0em 4em;
+    font-size: 0.7em;
+
+    &.first {
+      margin-left: 4.0em;
+    }
+  }
+
+  .news {
+    font-size: 18px;
+    margin-right: 20px;
   }
 }
 
