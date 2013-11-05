@@ -1,0 +1,14 @@
+development:
+  key: "AKIAI3BXYHQPEXEONMRA"
+  secret: "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"
+  bucket: "special-ones"
+
+test:
+  key: "AKIAI3BXYHQPEXEONMRA"
+  secret: "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"
+  bucket: "special-ones"
+
+production:
+  key: "AKIAI3BXYHQPEXEONMRA"
+  secret: "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"
+  bucket: "special-ones"

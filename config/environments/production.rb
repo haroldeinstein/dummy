@@ -20,6 +20,15 @@ Dummy::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: "special-ones",
+      access_key_id: "AKIAI3BXYHQPEXEONMRA",
+      secret_access_key: "Uycw7aE8ZTXnxHJStyxmJWmDaACXtdDZh0Npakfa"
+    }
+  }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
