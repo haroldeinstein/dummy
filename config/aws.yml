@@ -8,6 +8,11 @@ test:
   secret: "Uycw7aE8ZTXnxHJStyxmJWmDaACXtdDZh0Npakfa"
   bucket: "special-ones"
 
+staging:
+  key: "AKIAI3BXYHQPEXEONMRA"
+  secret: "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"
+  bucket: "special-ones"
+
 production:
   key: "AKIAI3BXYHQPEXEONMRA"
   secret: "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"
