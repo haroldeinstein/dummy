@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authenticate
-    if Rails.env.staging?
+    unless Rails.env.development?
       authenticate_or_request_with_http_basic do |username, password|
         username == "dummyfilms" && password == "harold"
       end
