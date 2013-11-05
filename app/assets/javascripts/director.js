@@ -5,10 +5,6 @@ $(document).ready(function() {
     var id = $(this).attr('data-vimeoid');
     var url = "//player.vimeo.com/video/"+id+"?autoplay=1";
     var iframe = $('<iframe id="vimeo-player" src="' + url + '" width="100%" height="100%" frameborder="0" autoplay webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
-    if ($('#vimeo-player').length === 0) {
-      $('#video-player').html(iframe);
-    } else {
-      $('#vimeo-player').attr('src', url);
-    }
+    $('#video-player').html(iframe);
   });
 });
