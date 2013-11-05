@@ -21,6 +21,15 @@ Dummy::Application.configure do
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = false
 
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: "special-ones",
+      access_key_id: "AKIAI3BXYHQPEXEONMRA",
+      secret_access_key: "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"
+    }
+  }
+
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = false
 
