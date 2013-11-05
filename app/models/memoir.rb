@@ -3,7 +3,10 @@ class Memoir < ActiveRecord::Base
 
   scope :published, -> { where("caption IS NOT NULL AND caption != ''").order("id DESC") }
 
-  has_attached_file :image
+  has_attached_file :image,
+    storage: :s3,
+    s3_credentials: "#{Rails.root}/config/aws.yml",
+    bucket: AWS_CONFIG["bucket"]
 end
 
 # == Schema Information

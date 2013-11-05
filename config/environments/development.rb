@@ -35,12 +35,4 @@ Dummy::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_credentials: {
-      bucket: "special-ones",
-      access_key_id: "AKIAI3BXYHQPEXEONMRA",
-      secret_access_key: "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"
-    }
-  }
 end

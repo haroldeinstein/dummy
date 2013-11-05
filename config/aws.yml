@@ -1,23 +1,23 @@
-key: "AKIAI3BXYHQPEXEONMRA"
-secret: "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"
+access_key_id: "AKIAI3BXYHQPEXEONMRA"
+secret_access_key: "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"
 bucket: "special-ones"
 
 development:
-  key: "AKIAI3BXYHQPEXEONMRA"
-  secret: "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"
+  access_key_id: "AKIAI3BXYHQPEXEONMRA"
+  secret_access_key: "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"
   bucket: "special-ones"
 
 test:
-  key: "AKIAI3BXYHQPEXEONMRA"
-  secret: "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"
+  access_key_id: "AKIAI3BXYHQPEXEONMRA"
+  secret_access_key: "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"
   bucket: "special-ones"
 
 staging:
-  key: "AKIAI3BXYHQPEXEONMRA"
-  secret: "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"
+  access_key_id: "AKIAI3BXYHQPEXEONMRA"
+  secret_access_key: "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"
   bucket: "special-ones"
 
 production:
-  key: "AKIAI3BXYHQPEXEONMRA"
-  secret: "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"
+  access_key_id: "AKIAI3BXYHQPEXEONMRA"
+  secret_access_key: "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"
   bucket: "special-ones"
