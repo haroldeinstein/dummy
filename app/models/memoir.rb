@@ -7,6 +7,15 @@ class Memoir < ActiveRecord::Base
     storage: :s3,
     s3_credentials: "#{Rails.root}/config/aws.yml",
     bucket: AWS_CONFIG["bucket"]
+
+  def as_json(opts={})
+    serializable_hash(:only => [
+      :id,
+      :caption
+    ]).merge({
+      "image" => image.try(:url)
+    })
+  end
 end
 
 # == Schema Information

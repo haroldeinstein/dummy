@@ -4,7 +4,7 @@ class MemoirsController < ApplicationController
   end
 
   def show
-    render json: Memoir.all.as_json
+    render json: Memoir.all.map{|m| m.as_json}
   end
 
   def update_description

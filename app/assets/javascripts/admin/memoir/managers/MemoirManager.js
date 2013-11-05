@@ -18,7 +18,7 @@ MemoirManager.prototype = {
     html += '<h3>image</h3>';
     html += '<div id="new-image">';
     if (post) {
-      html += '<img src="' + post.image.url+ '">';
+      html += '<img src="' + post.image + '">';
     } else {
       html += '<img src="">';
     }
