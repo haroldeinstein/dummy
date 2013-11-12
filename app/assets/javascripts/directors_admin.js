@@ -114,9 +114,8 @@ $(document).ready(function() {
       manager.hideVideos();
     } else {
       manager.showVideos();
+      $(this).addClass('hidden');
     }
-
-    $(this).toggleClass('hidden');
   });
 
   $('#video-options').on('click', '.video a', function(e) {
