@@ -110,10 +110,12 @@ $(document).ready(function() {
 
   $('#add-action').bind('click', function(e) {
     e.preventDefault();
-    if ($(this).hasClass('hidden'))
+    if ($(this).hasClass('hidden')) {
       manager.hideVideos();
-    else
+    } else {
       manager.showVideos();
+    }
+
     $(this).toggleClass('hidden');
   });
 
