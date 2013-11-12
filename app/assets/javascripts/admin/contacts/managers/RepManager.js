@@ -145,13 +145,17 @@ RepManager.prototype = {
 
     data.rep_locations = repLocations;
 
+    var manager = this;
     $.ajax({
       url: '/api/admin/reps',
       data: data,
       type: 'PUT',
       success: function(response, status, xhr) {
         $('#save-button').removeClass('active').addClass('disabled');
-        if (opts && opts.success) opts.success();
+        console.log(response);
+        for (var i = 0; i < response.length; i++) {
+          console.log(manager.repLocations.where({location: response[i].location})[0]);
+        }
       },
       error: function(response) {
       }

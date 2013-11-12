@@ -48,7 +48,7 @@ VideoManager.prototype = {
     $('#video-options').removeClass('open');
     $('#director').removeClass('open');
     $('#overlay').removeClass('open');
-    $('#add-action').html('show videos');
+    $('#add-action').html('show videos').removeClass('hidden');
 
     setTimeout(function() {
       $('#overlay').remove();
@@ -110,7 +110,11 @@ $(document).ready(function() {
 
   $('#add-action').bind('click', function(e) {
     e.preventDefault();
-    manager.showVideos();
+    if ($(this).hasClass('hidden'))
+      manager.hideVideos();
+    else
+      manager.showVideos();
+    $(this).toggleClass('hidden');
   });
 
   $('#video-options').on('click', '.video a', function(e) {

@@ -56,6 +56,6 @@ class ContactController < ApplicationController
       end
     end
 
-    head :ok
+    render json: RepLocation.all.as_json
   end
 end
