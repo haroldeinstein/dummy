@@ -152,9 +152,9 @@ RepManager.prototype = {
       type: 'PUT',
       success: function(response, status, xhr) {
         $('#save-button').removeClass('active').addClass('disabled');
-        console.log(response);
         for (var i = 0; i < response.length; i++) {
-          console.log(manager.repLocations.where({location: response[i].location})[0]);
+          var rep = manager.repLocations.where({location: response[i].location})[0];
+          rep.set(response[i]);
         }
       },
       error: function(response) {
