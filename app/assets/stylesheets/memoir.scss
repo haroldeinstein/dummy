@@ -85,30 +85,37 @@
 }
 
 @media screen and (max-device-width: 768px) {
-  .captions {
-    float: right;
-    position: relative;
-
-    .caption {
-      font-size: 1.4em;
-      line-height: 1.5em;
-    }
-  }
-
-  .post{
-    width: 41.2%;
-    margin-right: 5em;
-    margin-bottom: 8.0em;
-  }
-
   #post-container-container-container-container {
     height: auto;
     overflow: auto;
+
+    #post-container {
+      width: 100% !important;
+    }
+
+    .post{
+      width: 100%;
+      margin-bottom: 8.0em;
+
+      .image {
+        width: 100%;
+      }
+
+      .captions {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+
+        .caption {
+          font-size: 1.4em;
+          line-height: 1.5em;
+        }
+      }
+    }
   }
 
-  #post-container {
-    width: 100% !important;
-  }
+
 }
 
 @media screen and (max-width: 718px) {
