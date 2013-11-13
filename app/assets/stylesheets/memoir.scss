@@ -88,8 +88,11 @@
   .captions {
     float: right;
     position: relative;
-    font-size: 1.3em;
-    line-height: 1.4em;
+
+    .caption {
+      font-size: 1.4em;
+      line-height: 1.5em;
+    }
   }
 
   .post{
@@ -132,12 +135,11 @@
         max-width: 100%;
         position: relative;
         padding: 0px;
-        font-size: 1.7em;
-        line-height: 1.5em;
       }
     }
     p.caption {
       font-size: 1.7em;
+      line-height: 1.3em;
       padding-top: 10px;
       padding-bottom: 20px;
     }
