@@ -89,28 +89,20 @@
     height: auto;
     overflow: auto;
 
-    #post-container {
-      width: 100% !important;
-    }
+    #post-container { width: 100% !important; }
 
     .post{
       width: 100%;
       margin-bottom: 8.0em;
 
-      .image {
-        width: 100%;
-      }
+      .image { width: 100%; }
 
       .captions {
         float: none;
         width: 100%;
         max-width: 100%;
         position: relative;
-
-        .caption {
-          font-size: 1.4em;
-          line-height: 1.5em;
-        }
+        margin-top: 1.0em;
       }
     }
   }
