@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_filter :authenticate
 
   protect_from_forgery
 
@@ -21,12 +20,4 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
-
-  def authenticate
-    unless Rails.env.development?
-      authenticate_or_request_with_http_basic do |username, password|
-        username == "dummyfilms" && password == "harold"
-      end
-    end
-  end
 end
