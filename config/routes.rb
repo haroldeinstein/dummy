@@ -53,5 +53,7 @@ Dummy::Application.routes.draw do
   get '/auth/vimeo',          to: 'auths#create'
   get '/auth/vimeo/callback', to: 'auths#vimeo'
 
+  get '/sitemap', to: 'sitemap#index'
+
   get '/:director', to: 'directors#index', as: 'director'
 end
