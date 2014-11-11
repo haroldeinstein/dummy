@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-#post-container-container-container { overflow: scroll; }
+#post-container-container-container { overflow-x: scroll; overflow-y: hidden; }
 #post-container-container { position: relative; }
 
 #post-container {
