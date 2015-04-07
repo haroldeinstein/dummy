@@ -1,5 +1,4 @@
 class Director < ActiveRecord::Base
-  attr_accessible :name, :url
 
   validates :name, presence: true
   before_validation :generate_url

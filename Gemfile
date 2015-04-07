@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.1.2'
+ruby '2.1.1'
 gem 'pg'
 gem 'json'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'uglifier'
 end
 
 group :tests do
