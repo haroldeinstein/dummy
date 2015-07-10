@@ -7,7 +7,7 @@ function VimeoManager(opts) {
 
 VimeoManager.prototype = {
   prepareVideoData: function(v) {
-    var obj = {
+    return {
       title: v.title,
       video_url: v.url,
       director_id: Bootstrap.director_id,
@@ -16,8 +16,7 @@ VimeoManager.prototype = {
       thumbnail_small: v.thumbnail_small,
       thumbnail_medium: v.thumbnail_medium,
       thumbnail_large: v.thumbnail_large
-    }
-    return obj;
+    };
   },
 
   fetch: function(opts) {
