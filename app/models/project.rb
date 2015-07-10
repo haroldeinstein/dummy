@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
   # attr_accessible :director_id, :title, :video_url, :thumbnail_small, :thumbnail_medium, :thumbnail_large, :vimeo_id, :sort_index, :created_at, :updated_at
 
-  validate :director_id, presence: true
-  validate :vimeo_id, uniqueness: true
+  validates :director_id, presence: true
+  validates :vimeo_id, uniqueness: true
 end
 
 # == Schema Information
