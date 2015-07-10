@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.2'
-ruby '2.1.1'
+gem 'rails', '4.2.3'
+ruby '2.2.2'
 gem 'pg'
 gem 'json'
 
