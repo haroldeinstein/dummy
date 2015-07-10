@@ -1,3 +1,3 @@
 class MemoirDescription < ActiveRecord::Base
-  attr_accessible :title, :description
+  # attr_accessible :title, :description
 end

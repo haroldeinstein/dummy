@@ -1,5 +1,5 @@
 class Memoir < ActiveRecord::Base
-  attr_accessible :caption, :image
+  # attr_accessible :caption, :image
 
   scope :published, -> { where("caption IS NOT NULL AND caption != ''").order("id DESC") }
 

@@ -1,5 +1,5 @@
 class ContactLine < ActiveRecord::Base
-  attr_accessible :line
+  # attr_accessible :line
 end
 
 # == Schema Information
