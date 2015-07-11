@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
   def show
     render json: Project.all.as_json
   end
@@ -10,6 +11,7 @@ class ProjectsController < ApplicationController
       if p["delete"]
         proj.destroy
       else
+        p.permit!
         proj.attributes = p
         proj.save
       end

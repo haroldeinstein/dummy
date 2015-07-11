@@ -5,11 +5,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       login(@user)
     else
       redirect_to "/admin/signup"
     end
+  end
+
+  protected
+
+  def user_params
+    params.require(:user).permit(:password_digest, :username, :password, :password_confirmation)
   end
 end

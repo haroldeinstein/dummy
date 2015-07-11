@@ -19,7 +19,7 @@ group :tests do
 end
 
 gem 'jquery-rails'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt'
 gem 'pry'
 
 gem 'awesome_print'

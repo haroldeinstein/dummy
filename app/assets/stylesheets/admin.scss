@@ -1,7 +1,7 @@
-@import "admin/directors_admin.scss";
-@import "admin/contact_admin.scss";
-@import "admin/memoir_admin.scss";
-@import "admin/news_admin.scss";
+@import "admin/directors_admin";
+@import "admin/contact_admin";
+@import "admin/memoir_admin";
+@import "admin/news_admin";
 
 @mixin calc($perc, $px) {
   height: -webkit-calc(#{$perc} - #{$px});
