@@ -18,6 +18,7 @@ class MemoirsController < ApplicationController
   end
 
   def create
+    params.permit!
     @memoir = Memoir.new(memoir_params)
     if @memoir.save
       redirect_to "/admin/the-special-ones"
@@ -41,7 +42,7 @@ class MemoirsController < ApplicationController
   protected
 
   def memoir_params
-    params.require(:memoir).permit(:caption, :image => [:tempfile, :original_filename, :content_type, :headers])
+    params.require(:memoir).permit(:caption, :image)
   end
 
   def memoirs
