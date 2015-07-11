@@ -4,6 +4,7 @@ gem 'rails', '4.2.3'
 ruby '2.2.2'
 gem 'pg'
 gem 'json'
+gem 'rails_12factor'
 
 group :assets do
   gem 'sass-rails'

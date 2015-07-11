@@ -1,4 +1,5 @@
 class MemoirsController < ApplicationController
+
   def index
     @description = MemoirDescription.last || MemoirDescription.new
   end
