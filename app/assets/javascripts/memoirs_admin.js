@@ -22,6 +22,7 @@ function showEditDescription($elem) {
     $.ajax({
       url: '/api/admin/description',
       type: 'PUT',
+      contentType: 'multipart/form-data',
       beforeSend: function(xhr) {
         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
       },

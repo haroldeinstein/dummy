@@ -20,15 +20,16 @@ class ContactController < ApplicationController
   end
 
   def update_address
+    params.permit!
     address = Address.last || Address.new
-    address.update_attributes(params[:address])
+    address.update_attributes(address_params)
 
     render json: address.as_json
   end
 
   def update_person
     person = ContactPerson.last || ContactPerson.new
-    person.update_attributes(params[:person])
+    person.update_attributes(person_params)
 
     render json: person.as_json
   end
@@ -47,6 +48,7 @@ class ContactController < ApplicationController
         (rl["reps"] || []).each do |k, r|
           rep = Rep.find(r["id"]) if r["id"].present?
           rep ||= Rep.new
+          r.permit!
           rep.attributes = r
 
           rep_location.reps << rep
@@ -57,5 +59,15 @@ class ContactController < ApplicationController
     end
 
     render json: RepLocation.all.as_json
+  end
+
+  private
+
+  def address_params
+    params.require(:address).permit(:address1, :address2, :city, :state, :zip, :phone)
+  end
+
+  def person_params
+    params.require(:person).permit(:email, :name, :title)
   end
 end

@@ -1,5 +1,4 @@
 class ContactPerson < ActiveRecord::Base
-  # attr_accessible :email, :name, :title
 end
 
 # == Schema Information
