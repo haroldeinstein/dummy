@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   def show
-    render json: Project.all.as_json
+    render json: director.projects.all.as_json
   end
 
   def update
