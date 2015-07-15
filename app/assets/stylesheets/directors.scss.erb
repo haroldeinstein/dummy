@@ -12,6 +12,23 @@
   width: 100%;
   text-align: center;
   padding: 5px 0px;
+
+  &:hover {
+    color: rgb(255, 243, 42);
+  }
+}
+
+#bio-container {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+
+  p {
+    white-space: pre;
+    text-align: center;
+    line-height: 30px;
+  }
+
 }
 
 @media screen and (max-width: 113.0em) {
@@ -42,6 +59,7 @@ h3.small {
   width: 70%;
   margin-top: 3.0em;
   height: 44.8em;
+  position: relative;
 }
 
 #video-player {
