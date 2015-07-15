@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('#videos-list').on('click', 'a', function(e) {
-    if ($(window).width() <= 320) return;
+    if ($(window).width() <= 400) return;
     e.preventDefault();
     var id = $(this).attr('data-vimeoid');
     var url = "//player.vimeo.com/video/"+id;
