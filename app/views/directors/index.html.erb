@@ -25,9 +25,9 @@
                           </a>
                         </h3>
                       <% end %>
-                      <p class="director-name <%= "hover" unless director.bio.nil? %>">
+                      <h3 class="director-name <%= "hover" unless director.bio.nil? %>">
                         <%= director.name.split(' ')[0].downcase %>
-                      </p>
+                      </h3>
                     </td>
                   </tr>
                 </tbody>
@@ -48,7 +48,7 @@
             <div class="table" id="bio-container">
               <div class="table-cell">
                 <% unless director.bio.nil? %>
-                  <p><%= director.bio %></p>
+                  <h3><%= director.bio %></h3>
                 <% end %>
               </div>
             </div>
