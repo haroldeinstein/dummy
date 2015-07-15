@@ -25,7 +25,9 @@
                           </a>
                         </h3>
                       <% end %>
-                      <p class="director-name"><%= director.name.split(' ')[0].downcase %></p>
+                      <p class="director-name <%= "hover" unless director.bio.nil? %>">
+                        <%= director.name.split(' ')[0].downcase %>
+                      </p>
                     </td>
                   </tr>
                 </tbody>

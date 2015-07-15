@@ -9,11 +9,11 @@ $(document).ready(function() {
     $('#video-player').html(iframe);
   });
 
-  $('.director-name').bind('mouseenter', function() {
+  $('.director-name.hover').bind('mouseenter', function() {
     $('#bio-container').css('opacity', '1');
   });
 
-  $('.director-name').bind('mouseleave', function() {
+  $('.director-name.hover').bind('mouseleave', function() {
     $('#bio-container').css('opacity', '0');
   });
 
