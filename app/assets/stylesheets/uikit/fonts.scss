@@ -35,7 +35,7 @@ h3 {
 textarea, p, address {
   font-size: 1.7em;
   font-family: $gotham;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 22px;
 
   &.description{
@@ -60,7 +60,3 @@ a {
     color: rgb(255, 243, 42);
   }
 }
-
-@media screen and (max-width: 1064px) {
-}
-
