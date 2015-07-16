@@ -9,6 +9,7 @@ $(document).ready(function() {
     $('#video-player').html(iframe);
   });
 
+  /*
   $('.director-name.hover').bind('mouseenter', function() {
     $('#bio-container').css('opacity', '1');
   });
@@ -16,5 +17,6 @@ $(document).ready(function() {
   $('.director-name.hover').bind('mouseleave', function() {
     $('#bio-container').css('opacity', '0');
   });
+  */
 
 });
