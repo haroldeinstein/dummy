@@ -9,14 +9,13 @@ $(document).ready(function() {
     $('#video-player').html(iframe);
   });
 
-  /*
+  var $bio = $('#bio-container');
   $('.director-name.hover').bind('mouseenter', function() {
-    $('#bio-container').css('opacity', '1');
+    $bio.css('opacity', 1);
   });
 
   $('.director-name.hover').bind('mouseleave', function() {
-    $('#bio-container').css('opacity', '0');
+    $bio.css('opacity', 0);
   });
-  */
 
 });
