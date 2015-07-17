@@ -8,16 +8,6 @@
   min-width: 96.0em;
 }
 
-.director-name {
-  width: 100%;
-  text-align: center;
-  font-weight: 300;
-
-  &.hover:hover {
-    color: rgb(255, 243, 42);
-  }
-}
-
 #bio-container {
   position: absolute;
   top: 0px;
@@ -54,6 +44,19 @@
   padding: 6px 0px;
   text-transform: lowercase;
   cursor: pointer;
+
+  &.director-name {
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    cursor: default;
+
+    &.has-bio:hover {
+      cursor: pointer;
+      color: rgb(255, 243, 42);
+    }
+  }
+
 }
 
 h3.small {
