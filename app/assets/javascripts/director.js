@@ -10,11 +10,11 @@ $(document).ready(function() {
   });
 
   var $bio = $('#bio-container');
-  $('.director-name.hover').bind('mouseenter', function() {
+  $('.director-name.has-bio').bind('mouseenter', function() {
     $bio.css('opacity', 1);
   });
 
-  $('.director-name.hover').bind('mouseleave', function() {
+  $('.director-name.has-bio').bind('mouseleave', function() {
     $bio.css('opacity', 0);
   });
 
