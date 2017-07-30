@@ -128,7 +128,7 @@ $(document).ready(function() {
       return;
     }
 
-    if (manager.pManager.videos.length >= 12) {
+    if (manager.pManager.videos.length >= 13) {
       alert("You've added the maximum number of videos");
       return;
     }
