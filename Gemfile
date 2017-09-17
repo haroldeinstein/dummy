@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.3'
-ruby '2.2.3'
+gem 'rails', '5.1.4'
+ruby '2.4.2'
 gem 'pg'
 gem 'json'
 gem 'rails_12factor'
