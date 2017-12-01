@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @directors = Director.all
+    @directors = Director.active.all
   end
 end

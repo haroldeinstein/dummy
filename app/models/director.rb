@@ -1,7 +1,8 @@
 class Director < ActiveRecord::Base
-
   validates :name, presence: true
   before_validation :generate_url
+
+  scope :active, -> { where(active: true) }
 
   has_many :projects
 
