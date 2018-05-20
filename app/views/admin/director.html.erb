@@ -52,10 +52,9 @@
 <script>
   var Bootstrap = {};
   Bootstrap.director_id = <%= @director.id %>;
-  Bootstrap.username = "<%= @director.vimeo_username %>";
+  Bootstrap.vimeoToken = "<%= @director.vimeo_token %>";
 </script>
 
 <%= content_for :javascripts do %>
   <%= javascript_include_tag :directors_admin %>
 <% end %>
-
