@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
   def index
     @editable = "false"
-    @directors = Director.all
+    @directors = Director.all.order(created_at: :asc)
   end
 
   def director
