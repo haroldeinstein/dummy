@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def update
     (params[:projects] || []).each do |k, p|
       proj = Project.find_by_id(p["id"]) if p["id"]
-      proj ||= Project.new
+      proj ||= director.projects.build
       if p["delete"]
         proj.destroy
       else
