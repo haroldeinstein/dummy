@@ -73,7 +73,6 @@ RepManager.prototype = {
     $('#delete').bind('click', function() {
       var loc = $('#hidden-location').val();
       var repLocation = manager.repLocations.where({"location": loc})[0];
-      console.log(repLocation);
       repLocation.set('delete', true);
       manager.hideModal();
       $('.rep').filter('[data-location="'+repLocation.get("location")+'"]').remove();

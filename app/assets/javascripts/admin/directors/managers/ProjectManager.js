@@ -42,7 +42,6 @@ ProjectManager.prototype = {
 
   save: function(opts) {
     var videos = this.videos.toJSON();
-    console.log(videos.length);
     var data = {
       authenticity_token: $('meta').filter('[name="csrf-token"]').attr('content'),
       director_id: Bootstrap.director_id,

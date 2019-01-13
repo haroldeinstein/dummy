@@ -43,9 +43,6 @@ VimeoManager.prototype = {
           manager.hasAllVideos = true;
         }
         opts.onFetch(videos);
-      },
-      error: function (e) {
-        console.log(e)
       }
     });
   },
