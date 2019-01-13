@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.1.4'
+gem 'rails', '5.2.2'
 ruby '2.4.2'
 gem 'pg'
 gem 'json'
