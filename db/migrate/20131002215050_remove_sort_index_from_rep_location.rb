@@ -1,4 +1,4 @@
-class RemoveSortIndexFromRepLocation < ActiveRecord::Migration
+class RemoveSortIndexFromRepLocation < ActiveRecord::Migration[5.1]
   def up
     remove_column :rep_locations, :sort_index
   end

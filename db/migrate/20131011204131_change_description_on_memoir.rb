@@ -1,4 +1,4 @@
-class ChangeDescriptionOnMemoir < ActiveRecord::Migration
+class ChangeDescriptionOnMemoir < ActiveRecord::Migration[5.1]
   def up
     change_column :memoir_descriptions, :description, :text
   end

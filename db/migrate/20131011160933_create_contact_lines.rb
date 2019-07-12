@@ -1,4 +1,4 @@
-class CreateContactLines < ActiveRecord::Migration
+class CreateContactLines < ActiveRecord::Migration[4.2]
   def change
     create_table :contact_lines do |t|
       t.string :line

@@ -1,4 +1,4 @@
-class RenamePosterImageUrlOnProjects < ActiveRecord::Migration
+class RenamePosterImageUrlOnProjects < ActiveRecord::Migration[4.2]
   def up
     rename_column :projects, :poster_image_url, :thumbnail_large
   end

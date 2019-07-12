@@ -1,4 +1,4 @@
-class AddVimeoIdToProjects < ActiveRecord::Migration
+class AddVimeoIdToProjects < ActiveRecord::Migration[4.2]
   def change
     add_column :projects, :vimeo_id, :integer
   end

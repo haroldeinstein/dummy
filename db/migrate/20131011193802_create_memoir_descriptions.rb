@@ -1,4 +1,4 @@
-class CreateMemoirDescriptions < ActiveRecord::Migration
+class CreateMemoirDescriptions < ActiveRecord::Migration[4.2]
   def change
     create_table :memoir_descriptions do |t|
       t.string :title

@@ -1,4 +1,4 @@
-class RenameWiredriveIdOnNews < ActiveRecord::Migration
+class RenameWiredriveIdOnNews < ActiveRecord::Migration[4.2]
   def up
     rename_column :news, :wiredrive_id, :vimeo_id
   end

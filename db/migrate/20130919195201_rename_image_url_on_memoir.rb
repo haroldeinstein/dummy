@@ -1,4 +1,4 @@
-class RenameImageUrlOnMemoir < ActiveRecord::Migration
+class RenameImageUrlOnMemoir < ActiveRecord::Migration[5.1]
   def up
     rename_column :memoirs, :image_url, :image
   end
