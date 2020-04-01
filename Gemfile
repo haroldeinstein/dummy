@@ -4,6 +4,7 @@ gem 'rails', '5.2.2'
 ruby '2.4.2'
 gem 'pg'
 gem 'json'
+gem 'bcrypt'
 gem 'rails_12factor'
 
 group :assets do
@@ -20,11 +21,10 @@ group :tests do
 end
 
 gem 'jquery-rails'
-gem 'bcrypt'
 gem 'pry'
 
 gem 'awesome_print'
 gem 'rest-client'
-gem 'vimeo'
 gem 'paperclip'
-gem 'aws-sdk', '< 3.0'
+gem 'aws-sdk', '~> 3'
+gem 'vimeo'

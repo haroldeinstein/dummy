@@ -1,4 +1,4 @@
-class RenameNameToTitleOnProjects < ActiveRecord::Migration
+class RenameNameToTitleOnProjects < ActiveRecord::Migration[4.2]
   def up
     rename_column :projects, :name, :title
   end

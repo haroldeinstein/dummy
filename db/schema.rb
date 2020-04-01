@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180520161638) do
+ActiveRecord::Schema.define(version: 2018_05_20_161638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,18 +75,18 @@ ActiveRecord::Schema.define(version: 20180520161638) do
     t.datetime "updated_at"
     t.string "image_file_name"
     t.string "image_content_type"
-    t.integer "image_file_size"
+    t.bigint "image_file_size"
     t.datetime "image_updated_at"
   end
 
-  create_table "news", id: :serial, force: :cascade do |t|
+  create_table "news", force: :cascade do |t|
     t.string "title"
     t.string "video_url"
     t.string "thumbnail_large"
     t.string "thumbnail_medium"
     t.string "thumbnail_small"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "vimeo_id"
     t.integer "sort_index", default: 0
   end
