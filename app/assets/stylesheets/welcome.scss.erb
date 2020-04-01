@@ -24,10 +24,11 @@
 
 #navbar {
   margin-top: 5.0em;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .nav-item {
-  float: right;
   margin-left: 8.0em;
 
   &.first {
@@ -37,10 +38,6 @@
   li {
     margin-bottom: 1.0em;
   }
-}
-
-.mobile {
-  display: none;
 }
 
 .news {
@@ -66,13 +63,9 @@
   }
 
   .nav-item {
-    float: none;
     margin: 0em 4em;
     font-size: 0.7em;
     display: inline-block;
-    &:not(.mobile) {
-      display: none;
-    }
 
     &.first {
       margin-left: 4.0em;
@@ -85,7 +78,7 @@
   }
 }
 
-@media screen and (max-device-width: 400px) {
+@media screen and (max-device-width: 414px) {
   .logo {
     width: 28.0em;
     height: 75.04px;
@@ -93,13 +86,13 @@
   }
 
   #navbar {
+    display: block;
     margin-top: 5.0em;
     text-align: center;
     padding-left: 0em;
   }
 
   .nav-item {
-    float: none;
     margin: 0px;
     margin-left: 0em;
     margin-bottom: 1.6em;
