@@ -12,21 +12,20 @@
             </div>
 
             <div id="navbar" class="clearfix">
-              <ul class="nav-item memoir">
-                <li>
-                  <h2 class="home"><a href="/admin/the-special-ones">the special ones</a></h2>
-                </li>
-              </ul>
-              <ul class="nav-item contact">
-                <li>
-                  <h2 class="home"><a href="/admin/hey">hey, dummy</a></h2>
-                </li>
-              </ul>
-              <ul class="nav-item directors first">
-                <% for director in @directors %>
-                  <li><h2 class="home"><%= link_to director.name.downcase, admin_director_path(director) %></h2></li>
+              <ul class="nav-item first">
+                <% @directors.each do |director| %>
+                  <li>
+                    <h2 class="home">
+                      <%= link_to director.name.downcase, admin_director_path(director) %>
+                    </h2>
+                  </li>
                 <% end %>
-                <!-- <li class="new-director"><div class="add"></div><h3>new director</h3></li> -->
+              </ul>
+              <ul class="nav-item">
+                <li><h2 class="home"><a href="/admin/hey">hey, dummy</a></h2></li>
+              </ul>
+              <ul class="nav-item">
+                <li><h2 class="home"><a href="/admin/the-special-ones">the special ones</a></h2></li>
               </ul>
             </div>
 
@@ -37,6 +36,5 @@
   </table>
 
   <h2 class="home news"><a href="/admin/news">news</a></h2>
-
 </div>
 
