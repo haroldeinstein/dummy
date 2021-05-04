@@ -1,23 +1,23 @@
-access_key_id: "AKIAI3BXYHQPEXEONMRA"
-secret_access_key: "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"
-bucket: "special-ones"
-
 development:
   access_key_id: "AKIAI3BXYHQPEXEONMRA"
   secret_access_key: "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"
+  region: "us-east-1"
   bucket: "special-ones"
 
 test:
   access_key_id: "AKIAI3BXYHQPEXEONMRA"
   secret_access_key: "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"
+  region: "us-east-1"
   bucket: "special-ones"
 
 staging:
   access_key_id: "AKIAI3BXYHQPEXEONMRA"
   secret_access_key: "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"
+  region: "us-east-1"
   bucket: "special-ones"
 
 production:
   access_key_id: "AKIAI3BXYHQPEXEONMRA"
   secret_access_key: "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"
+  region: "us-east-1"
   bucket: "special-ones"

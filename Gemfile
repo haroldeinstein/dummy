@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.2.2'
-ruby '2.4.2'
+gem 'rails', '6.1.3.1'
+ruby '3.0.1'
 gem 'pg'
 gem 'json'
 gem 'bcrypt'
 gem 'rails_12factor'
+gem 'puma', '~> 5.2'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'uglifier'
-end
+gem 'sassc-rails'
+gem 'uglifier'
 
 group :tests do
   gem 'rspec-rails'
