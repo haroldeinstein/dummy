@@ -22,7 +22,7 @@
         <% memoirs.each do |memoir| %>
           <div class="post clearfix" data-id="<%= memoir.id %>">
             <div class="image">
-              <img src="<%= memoir.image %>">
+              <%= image_tag rails_blob_url(memoir.image.blob) %>
             </div>
             <div class="captions">
               <p class="caption">

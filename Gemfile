@@ -22,8 +22,11 @@ end
 gem 'jquery-rails'
 gem 'pry'
 
+group :development, :tests do
+  gem 'byebug'
+end
+
 gem 'awesome_print'
 gem 'rest-client'
-gem 'paperclip'
-gem 'aws-sdk', '~> 3'
+gem "aws-sdk-s3", require: false
 gem 'vimeo'
