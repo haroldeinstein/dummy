@@ -6,7 +6,7 @@ gem 'pg'
 gem 'json'
 gem 'bcrypt'
 gem 'rails_12factor'
-gem 'puma', '~> 5.2'
+gem 'puma', '~> 5.6'
 
 gem 'sassc-rails'
 gem 'uglifier'
