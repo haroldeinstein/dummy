@@ -6,7 +6,7 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-# Cloudflare R2 (S3-compatible). Primary service since the S3 -> R2 migration.
+# Cloudflare R2 (S3-compatible).
 r2:
   service: S3
   endpoint: <%= ENV['R2_ENDPOINT'] %>
@@ -17,11 +17,3 @@ r2:
   # R2 doesn't need the newer default CRC checksums; only send them when an operation requires it.
   request_checksum_calculation: when_required
   response_checksum_validation: when_required
-
-# Legacy AWS S3. Kept only until every blob's service_name points at r2; remove afterwards.
-amazon:
-  service: S3
-  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-  secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-  region: <%= ENV.fetch('AWS_REGION', 'us-east-1') %>
-  bucket: <%= ENV['S3_BUCKET_NAME'] %>
