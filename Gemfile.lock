@@ -105,7 +105,7 @@ GEM
     connection_pool (2.5.3)
     crass (1.0.6)
     csv (3.3.5)
-    date (3.4.1)
+    date (3.6.0)
     diff-lcs (1.6.2)
     domain_name (0.6.20240107)
     drb (2.2.3)
@@ -196,12 +196,12 @@ GEM
     multipart-post (2.4.1)
     mutex_m (0.3.0)
     nenv (0.3.0)
-    net-imap (0.5.9)
+    net-imap (0.5.15)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.2)
+    net-protocol (0.4.0)
       timeout
     net-smtp (0.5.1)
       net-protocol
@@ -355,7 +355,7 @@ GEM
     stringio (3.1.7)
     thor (1.4.0)
     tilt (2.6.1)
-    timeout (0.4.3)
+    timeout (0.6.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.1)
