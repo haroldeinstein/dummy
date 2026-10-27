@@ -14,7 +14,7 @@ class ContactController < ApplicationController
 
   def update_headline
     line = ContactLine.last || ContactLine.new
-    line.update_attribute(:line, params['headline'])
+    line.update(line: params['headline'])
 
     head :ok
   end
@@ -22,14 +22,14 @@ class ContactController < ApplicationController
   def update_address
     params.permit!
     address = Address.last || Address.new
-    address.update_attributes(address_params)
+    address.update!(address_params)
 
     render json: address.as_json
   end
 
   def update_person
     person = ContactPerson.last || ContactPerson.new
-    person.update_attributes(person_params)
+    person.update(person_params)
 
     render json: person.as_json
   end
@@ -46,6 +46,8 @@ class ContactController < ApplicationController
         rep_location.column = rl["column"] || rep_location.column
 
         (rl["reps"] || []).each do |k, r|
+          next if r["name"].blank?
+
           rep = Rep.find(r["id"]) if r["id"].present?
           rep ||= Rep.new
           r.permit!
